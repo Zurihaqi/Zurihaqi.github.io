@@ -17,7 +17,7 @@ class TextScramble {
       const to = newText[i] || "";
       const start = Math.floor(Math.random() * 40);
       const end = start + Math.floor(Math.random() * 40);
-      this.queue.push({ from, to, start, end });
+      this.queue.push({ from, to, start, end, char: "" }); // Added 'char' property initialization
     }
     cancelAnimationFrame(this.frameRequest);
     this.frame = 0;
