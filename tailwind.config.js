@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      playfair: ["playfair", "playfair-display"],
+      quicksand: ["quicksand", "quicksand"],
+    },
   },
   plugins: [],
   darkMode: "class",
