@@ -1,11 +1,19 @@
-import * as React from "react";
+import React from "react";
 
-export default function HeroSection() {
+const HeroSection = React.forwardRef((_props, ref) => {
   return (
-    <section id="hero">
-      <div className="p-10 text-2xl font-bold overflow-auto">
-        LOREM IPSUM PLEASE TELL ME HOW THIS WORKKKS
-      </div>
+    <section
+      ref={ref}
+      id="hero"
+      className="h-screen flex items-center justify-center"
+    >
+      <span className="flex-shrink text-5xl text-center">
+        Hello!
+        <br />
+        I'm Zul
+      </span>
     </section>
   );
-}
+});
+
+export default HeroSection;
