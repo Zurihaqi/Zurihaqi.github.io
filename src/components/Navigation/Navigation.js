@@ -7,6 +7,7 @@ import "./Navigation.css";
 
 export default function Navigation({ heroRef, aboutRef, projectsRef }) {
   const [sidebarVisible, setSidebarVisibility] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState(null);
 
   const toggleSidebar = () => {
     setSidebarVisibility(!sidebarVisible);
@@ -18,9 +19,39 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
         behavior: "smooth",
         block: "start",
       });
+
       setSidebarVisibility(!sidebarVisible);
     }
   };
+
+  const handleScroll = () => {
+    const offset = 250; // Placeholder offset, no content yet
+
+    const scrollPosition = window.scrollY;
+    if (
+      scrollPosition >= heroRef.current.offsetTop - offset &&
+      scrollPosition < aboutRef.current.offsetTop - offset
+    ) {
+      setActiveSection("hero");
+    } else if (
+      scrollPosition >= aboutRef.current.offsetTop - offset &&
+      scrollPosition < projectsRef.current.offsetTop - offset
+    ) {
+      setActiveSection("about");
+    } else if (scrollPosition >= projectsRef.current.offsetTop - offset) {
+      setActiveSection("projects");
+    } else {
+      setActiveSection(null);
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -45,21 +76,42 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
             </span>
             <nav className="my-10">
               <ul>
-                <li className="my-2" onClick={() => scrollToSection(heroRef)}>
-                  <a href="#Hero" className="custom-nav-link">
+                <li
+                  className="my-2"
+                  onClick={() => scrollToSection(heroRef, "hero")}
+                >
+                  <a
+                    href="#Hero"
+                    className={`custom-nav-link ${
+                      activeSection === "hero" ? "active" : ""
+                    }`}
+                  >
                     Home
                   </a>
                 </li>
-                <li className="my-2" onClick={() => scrollToSection(aboutRef)}>
-                  <a href="#About" className="custom-nav-link">
+                <li
+                  className="my-2"
+                  onClick={() => scrollToSection(aboutRef, "about")}
+                >
+                  <a
+                    href="#About"
+                    className={`custom-nav-link ${
+                      activeSection === "about" ? "active" : ""
+                    }`}
+                  >
                     About
                   </a>
                 </li>
                 <li
                   className="my-2"
-                  onClick={() => scrollToSection(projectsRef)}
+                  onClick={() => scrollToSection(projectsRef, "projects")}
                 >
-                  <a href="#Projects" className="custom-nav-link">
+                  <a
+                    href="#Projects"
+                    className={`custom-nav-link ${
+                      activeSection === "projects" ? "active" : ""
+                    }`}
+                  >
                     Projects
                   </a>
                 </li>

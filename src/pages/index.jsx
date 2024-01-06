@@ -18,7 +18,10 @@ export default function IndexPage() {
           aboutRef={aboutRef}
           projectsRef={projectsRef}
         />
-        <div id="content" className="flex-1 p-4 overflow-hidden">
+        <div
+          id="content"
+          className="flex-1 sm:p-8 overflow-hidden mr-12 sm:mr-0"
+        >
           <HeroSection ref={heroRef} />
           <AboutSection ref={aboutRef} />
           <ProjectsSection ref={projectsRef} />
