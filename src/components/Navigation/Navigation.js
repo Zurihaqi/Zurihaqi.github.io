@@ -24,34 +24,34 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
     }
   };
 
-  const handleScroll = () => {
-    const offset = 250; // Placeholder offset, no content yet
-
-    const scrollPosition = window.scrollY;
-    if (
-      scrollPosition >= heroRef.current.offsetTop - offset &&
-      scrollPosition < aboutRef.current.offsetTop - offset
-    ) {
-      setActiveSection("hero");
-    } else if (
-      scrollPosition >= aboutRef.current.offsetTop - offset &&
-      scrollPosition < projectsRef.current.offsetTop - offset
-    ) {
-      setActiveSection("about");
-    } else if (scrollPosition >= projectsRef.current.offsetTop - offset) {
-      setActiveSection("projects");
-    } else {
-      setActiveSection(null);
-    }
-  };
-
   React.useEffect(() => {
+    const handleScroll = () => {
+      const offset = 250; // Placeholder offset, no content yet
+      const scrollPosition = window.scrollY;
+
+      if (
+        scrollPosition >= heroRef.current.offsetTop - offset &&
+        scrollPosition < aboutRef.current.offsetTop - offset
+      ) {
+        setActiveSection("hero");
+      } else if (
+        scrollPosition >= aboutRef.current.offsetTop - offset &&
+        scrollPosition < projectsRef.current.offsetTop - offset
+      ) {
+        setActiveSection("about");
+      } else if (scrollPosition >= projectsRef.current.offsetTop - offset) {
+        setActiveSection("projects");
+      } else {
+        setActiveSection(null);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [heroRef, aboutRef, projectsRef]);
 
   return (
     <>
@@ -76,49 +76,38 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
             </span>
             <nav className="my-10">
               <ul>
-                <li
-                  className="my-2"
-                  onClick={() => scrollToSection(heroRef, "hero")}
-                >
-                  <a
-                    href="#Hero"
+                <li className="my-2">
+                  <button
+                    onClick={() => scrollToSection(heroRef, "hero")}
                     className={`custom-nav-link ${
                       activeSection === "hero" ? "active" : ""
                     }`}
                   >
                     Home
-                  </a>
+                  </button>
                 </li>
-                <li
-                  className="my-2"
-                  onClick={() => scrollToSection(aboutRef, "about")}
-                >
-                  <a
-                    href="#About"
+                <li className="my-2">
+                  <button
+                    onClick={() => scrollToSection(aboutRef, "about")}
                     className={`custom-nav-link ${
                       activeSection === "about" ? "active" : ""
                     }`}
                   >
                     About
-                  </a>
+                  </button>
                 </li>
-                <li
-                  className="my-2"
-                  onClick={() => scrollToSection(projectsRef, "projects")}
-                >
-                  <a
-                    href="#Projects"
+                <li className="my-2">
+                  <button
+                    onClick={() => scrollToSection(projectsRef, "projects")}
                     className={`custom-nav-link ${
                       activeSection === "projects" ? "active" : ""
                     }`}
                   >
                     Projects
-                  </a>
+                  </button>
                 </li>
                 <li className="my-2">
-                  <a href="#Contact" className="custom-nav-link">
-                    Contact
-                  </a>
+                  <button className="custom-nav-link">Contact</button>
                 </li>
               </ul>
             </nav>
