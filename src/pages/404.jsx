@@ -1,10 +1,9 @@
-import { useEffect } from "react";
-import { navigate } from "@reach/router";
+import * as React from "react";
 
 export default function Page404() {
-  // Redirect user to home
-  useEffect(() => {
-    navigate("/");
-  }, []);
+  if (typeof window !== "undefined") {
+    window.location = "/";
+  }
+
   return null;
 }
