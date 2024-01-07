@@ -5,6 +5,7 @@ import HeroSection from "../components/HeroSection/HeroSection";
 import AboutSection from "../components/AboutSection/AboutSection";
 import ProjectsSection from "../components/ProjectsSection/ProjectsSection";
 import ContactSection from "../components/ContactSection/ContactSection";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 export default function IndexPage() {
   const heroRef = useRef(null);
@@ -39,6 +40,7 @@ export default function IndexPage() {
           <ContactSection ref={contactRef} />
         </div>
       </div>
+      <ScrollToTop />
     </div>
   );
 }
