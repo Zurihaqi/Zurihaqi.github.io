@@ -1,12 +1,10 @@
-import React from "react";
-// import { AnimationOnScroll } from "react-animation-on-scroll";
-// import "animate.css/animate.min.css";
+import * as React from "react";
 
-const ProjectsSection = React.forwardRef((_props, ref) => {
+const ContactSection = React.forwardRef((_props, ref) => {
   return (
-    <section ref={ref} id="projects" className="container h-screen">
+    <section ref={ref} id="contact" className="container h-screen">
       <div className="relative flex items-center">
-        <span className="flex-shrink mx-4 text-2xl">Recent projects</span>
+        <span className="flex-shrink mx-4 text-2xl">Get in touch</span>
         <div className="flex-grow border mt-2 border-gray-400"></div>
       </div>
       <p className="p-4 text-justify">
@@ -22,4 +20,4 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
   );
 });
 
-export default ProjectsSection;
+export default ContactSection;

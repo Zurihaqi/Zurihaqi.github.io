@@ -2,10 +2,16 @@ import * as React from "react";
 import avatar from "../../images/avatar.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { scrollToSection } from "../../utility/scrollToSection";
 import "delicious-hamburgers/dist/hamburgers.min.css";
 import "./Navigation.css";
 
-export default function Navigation({ heroRef, aboutRef, projectsRef }) {
+export default function Navigation({
+  heroRef,
+  aboutRef,
+  projectsRef,
+  contactRef,
+}) {
   const [sidebarVisible, setSidebarVisibility] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState(null);
 
@@ -13,15 +19,12 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
     setSidebarVisibility(!sidebarVisible);
   };
 
-  const scrollToSection = (ref) => {
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+  const handleScrollToSection = (ref, offset) => {
+    // Use the scrollToSection utility
+    scrollToSection(ref, offset);
 
-      setSidebarVisibility(!sidebarVisible);
-    }
+    // Set sidebarVisible to false after scrolling
+    setSidebarVisibility(false);
   };
 
   React.useEffect(() => {
@@ -29,6 +32,7 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
       const offset = 250; // Placeholder offset, no content yet
       const scrollPosition = window.scrollY;
 
+      // Activate menu underline according to the section user scrolls to
       if (
         scrollPosition >= heroRef.current.offsetTop - offset &&
         scrollPosition < aboutRef.current.offsetTop - offset
@@ -39,19 +43,23 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
         scrollPosition < projectsRef.current.offsetTop - offset
       ) {
         setActiveSection("about");
-      } else if (scrollPosition >= projectsRef.current.offsetTop - offset) {
+      } else if (
+        scrollPosition >= projectsRef.current.offsetTop - offset &&
+        scrollPosition < contactRef.current.offsetTop - offset
+      ) {
         setActiveSection("projects");
+      } else if (scrollPosition >= contactRef.current.offsetTop - offset) {
+        setActiveSection("contact");
       } else {
         setActiveSection(null);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [heroRef, aboutRef, projectsRef]);
+  }, [heroRef, aboutRef, projectsRef, contactRef]);
 
   return (
     <>
@@ -78,9 +86,11 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
               <ul>
                 <li className="my-2">
                   <button
-                    onClick={() => scrollToSection(heroRef, "hero")}
+                    onClick={() => handleScrollToSection(heroRef, 0)}
                     className={`custom-nav-link ${
-                      activeSection === "hero" ? "active" : ""
+                      activeSection === "hero" || activeSection === null
+                        ? "active"
+                        : ""
                     }`}
                   >
                     Home
@@ -88,7 +98,7 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
                 </li>
                 <li className="my-2">
                   <button
-                    onClick={() => scrollToSection(aboutRef, "about")}
+                    onClick={() => handleScrollToSection(aboutRef, 30)}
                     className={`custom-nav-link ${
                       activeSection === "about" ? "active" : ""
                     }`}
@@ -98,7 +108,7 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
                 </li>
                 <li className="my-2">
                   <button
-                    onClick={() => scrollToSection(projectsRef, "projects")}
+                    onClick={() => handleScrollToSection(projectsRef, 30)}
                     className={`custom-nav-link ${
                       activeSection === "projects" ? "active" : ""
                     }`}
@@ -107,7 +117,14 @@ export default function Navigation({ heroRef, aboutRef, projectsRef }) {
                   </button>
                 </li>
                 <li className="my-2">
-                  <button className="custom-nav-link">Contact</button>
+                  <button
+                    onClick={() => handleScrollToSection(contactRef, 30)}
+                    className={`custom-nav-link ${
+                      activeSection === "contact" ? "active" : ""
+                    }`}
+                  >
+                    Contact
+                  </button>
                 </li>
               </ul>
             </nav>
