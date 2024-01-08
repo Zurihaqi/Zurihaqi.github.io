@@ -31,7 +31,7 @@ const ContactForm = () => {
     e.stopPropagation();
     setIsSending(true);
 
-    fetch("", {
+    fetch("https://formcarry.com/s/jM9qENiXIga", {
       method: "POST",
       headers: {
         Accept: "application/json",
