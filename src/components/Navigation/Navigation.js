@@ -134,7 +134,7 @@ export default function Navigation({
                   <a
                     href="https://github.com/Zurihaqi"
                     target="_blank"
-                    className="mx-2"
+                    className="mx-2 size-fit"
                     rel="noreferrer"
                     aria-label="github"
                   >
@@ -143,7 +143,7 @@ export default function Navigation({
                   <a
                     href="https://www.linkedin.com/in/zurihaqi/"
                     target="_blank"
-                    className="mx-2"
+                    className="mx-2 size-fit"
                     rel="noreferrer"
                     aria-label="linkedin"
                   >

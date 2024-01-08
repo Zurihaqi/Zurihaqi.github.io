@@ -1,0 +1,23 @@
+/* Slide in and out animation */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutToTop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.fixed.slide-in-out {
+  animation: slideInFromTop 0.5s ease-in-out forwards,
+    slideOutToTop 0.5s 4.5s ease-in-out forwards;
+}

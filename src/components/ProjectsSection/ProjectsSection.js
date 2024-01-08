@@ -7,7 +7,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
     <section ref={ref} id="projects" className="container h-screen">
       <div className="relative flex items-center">
         <span className="flex-shrink mx-4 text-2xl">Recent projects</span>
-        <div className="flex-grow border mt-2 border-gray-400"></div>
+        <div className="flex-grow border border-gray-400"></div>
       </div>
       <p className="p-4 text-justify">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales

@@ -1,0 +1,141 @@
+import React, { useState } from "react";
+import Alerts from "../../Alerts/Alerts";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import "./ContactForm.css";
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const [alertVisible, setAlertVisible] = useState(true);
+  const [isSending, setIsSending] = useState(false);
+
+  const closeAlert = () => {
+    setAlertVisible(false);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsSending(true);
+
+    fetch("", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.code === 200) {
+          setSuccess(true);
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        } else {
+          setError(response.message);
+        }
+        setAlertVisible(true);
+        setIsSending(false);
+      })
+      .catch((error) => {
+        setError(error.message ? error.message : error);
+        setAlertVisible(true);
+        setIsSending(false);
+      });
+  };
+
+  return (
+    <>
+      {success && alertVisible && (
+        <Alerts
+          title="Message Sent!"
+          message="Thank you for reaching out! I'll respond to your message as soon as possible."
+          type="success"
+          onClose={closeAlert}
+        />
+      )}
+      {error && alertVisible && (
+        <Alerts
+          title="Error"
+          message={error}
+          type="error"
+          onClose={closeAlert}
+        />
+      )}
+      <form className="mx-auto" onSubmit={onSubmit}>
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="Name"
+            id="name"
+            name="name"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            placeholder="Email"
+            type="email"
+            id="email"
+            name="email"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            placeholder="Subject"
+            type="text"
+            id="subject"
+            name="subject"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            value={formData.subject}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <textarea
+            placeholder="Your message"
+            type="text"
+            id="message"
+            name="message"
+            className="resize-y bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="items-end bg-red-500 hover:bg-red-700 text-white font-semibold hover:text-white py-2 px-4 rounded transition-color duration-300"
+        >
+          {isSending && (
+            <FontAwesomeIcon icon={faSpinner} className="rotate mr-2" />
+          )}
+          Send Message
+        </button>
+      </form>
+    </>
+  );
+};
+
+export default ContactForm;
