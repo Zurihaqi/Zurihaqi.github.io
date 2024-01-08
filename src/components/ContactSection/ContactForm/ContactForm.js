@@ -3,6 +3,7 @@ import Alerts from "../../Alerts/Alerts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "./ContactForm.css";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -124,15 +125,27 @@ const ContactForm = () => {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="items-end bg-red-500 hover:bg-red-700 text-white font-semibold hover:text-white py-2 px-4 rounded transition-color duration-300"
-        >
-          {isSending && (
-            <FontAwesomeIcon icon={faSpinner} className="rotate mr-2" />
-          )}
-          Send Message
-        </button>
+        <div className="lg:col-span-4 lg:grid lg:grid-cols-3 lg:gap-4">
+          <div>
+            <button
+              type="submit"
+              className="items-end bg-red-500 hover:bg-red-700 text-white font-semibold hover:text-white py-2 px-4 rounded transition-color duration-300"
+            >
+              {isSending && (
+                <FontAwesomeIcon icon={faSpinner} className="rotate mr-2" />
+              )}
+              Send Message
+            </button>
+          </div>
+          <Turnstile
+            siteKey="0x4AAAAAAAPqkrWzipSjYJLa"
+            className="lg:mt-0 mt-4"
+            options={{
+              theme: "light",
+              size: "compact",
+            }}
+          />
+        </div>
       </form>
     </>
   );

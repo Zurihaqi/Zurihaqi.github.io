@@ -5,7 +5,7 @@ import ContactForm from "./ContactForm/ContactForm";
 
 const ContactSection = React.forwardRef((_props, ref) => {
   return (
-    <section ref={ref} id="contact" className="container h-screen">
+    <section ref={ref} id="contact" className="container mb-24">
       <div className="relative flex items-center">
         {/* <span className="flex-shrink mx-4 text-2xl">Get in touch</span> */}
         <div className="flex-grow border border-gray-400"></div>
