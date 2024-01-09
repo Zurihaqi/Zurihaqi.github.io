@@ -61,7 +61,9 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
   return (
     <section ref={ref} id="projects" className="container my-24">
       <div className="relative flex items-center">
-        <span className="flex-shrink mx-4 text-2xl">Recent projects</span>
+        <span className="flex-shrink mx-4 sm:text-4xl text-3xl">
+          Recent projects
+        </span>
         <div className="flex-grow border border-gray-400"></div>
       </div>
       <div className="my-4 flex justify-center">

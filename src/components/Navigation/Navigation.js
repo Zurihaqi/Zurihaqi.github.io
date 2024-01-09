@@ -1,5 +1,5 @@
 import * as React from "react";
-import avatar from "../../images/avatar.jpeg";
+import avatar from "../../images/avatar.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { scrollToSection } from "../../utility/scrollToSection";

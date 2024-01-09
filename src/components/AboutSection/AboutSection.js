@@ -6,7 +6,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
   return (
     <section ref={ref} id="about" className="container my-24">
       <div className="relative flex items-center">
-        <span className="flex-shrink mx-4 text-2xl">What i do</span>
+        <span className="flex-shrink mx-4 sm:text-4xl text-3xl">What i do</span>
         <div className="flex-grow border border-gray-400"></div>
       </div>
       <p className="p-4 text-justify">
