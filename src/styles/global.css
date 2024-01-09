@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-hidden-x-overflow {
+.overflow-x-clip {
   overflow-x: clip;
 }

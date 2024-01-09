@@ -14,7 +14,7 @@ const ContactSection = React.forwardRef((_props, ref) => {
         <div className="sm:px-4 mb-4 sm:mb-0 text-center sm:w-1/2 w-full">
           <p className="sm:text-5xl text-3xl font-bold">Let's get in touch!</p>
           <p className="mt-2">
-            Fill in the form to contact me or you can also mail me at <br />
+            Fill in the form to contact me or you can also email me at <br />
             <span className="font-semibold text-red-600">
               <FontAwesomeIcon icon={faEnvelope} /> zurihaqi@gmail.com
             </span>

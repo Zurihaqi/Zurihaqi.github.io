@@ -14,6 +14,8 @@ export default function Navigation({
 }) {
   const [sidebarVisible, setSidebarVisibility] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState(null);
+  const navRef = React.useRef(null);
+  const hamburgerRef = React.useRef(null);
 
   const toggleSidebar = () => {
     setSidebarVisibility(!sidebarVisible);
@@ -55,9 +57,24 @@ export default function Navigation({
       }
     };
 
+    // Close sidebar on click outside
+    function handleClickOutside(event) {
+      if (
+        navRef.current &&
+        !navRef.current.contains(event.target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target)
+      ) {
+        setSidebarVisibility(false);
+      }
+    }
+
     window.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [heroRef, aboutRef, projectsRef, contactRef]);
 
@@ -66,6 +83,7 @@ export default function Navigation({
       {/* Sidebar */}
       <aside id="navigation" aria-label="navigation">
         <nav
+          ref={navRef}
           className={`h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 bg-gray-50 w-64 transition-all duration-300 ${
             sidebarVisible ? "ml-0" : "-ml-64"
           } sm:ml-0 font-quicksand tracking-wide`}
@@ -80,7 +98,7 @@ export default function Navigation({
               <h1 className="text-2xl font-playfair font-bold tracking-tighter">
                 Zul Fahri Baihaqi
               </h1>
-              <p className="font-thin">Software Developer</p>
+              <p className="font-thin">Web Developer</p>
             </span>
             <nav className="my-6">
               <ul>
@@ -157,7 +175,7 @@ export default function Navigation({
       </aside>
 
       {/* Hamburger Button */}
-      <div className="sm:hidden p-2 z-10">
+      <div className="sm:hidden p-2 z-10" ref={hamburgerRef}>
         <button
           className={`fixed top-0 hamburger hamburger--arrow ${
             sidebarVisible ? "active" : ""

@@ -26,14 +26,17 @@ export default function IndexPage() {
           rel="stylesheet"
         />
       </Helmet>
-      <div className="flex custom-hidden-x-overflow">
+      <div className="flex overflow-x-clip">
         <Navigation
           heroRef={heroRef}
           aboutRef={aboutRef}
           projectsRef={projectsRef}
           contactRef={contactRef}
         />
-        <div id="content" className="flex-shrink-0 w-2/3 mx-auto font-playfair">
+        <div
+          id="content"
+          className="flex-shrink-0 sm:w-3/4 w-full mx-0 sm:mx-auto sm:pr-0 pr-8 font-playfair"
+        >
           <HeroSection
             ref={heroRef}
             projectsRef={projectsRef}
