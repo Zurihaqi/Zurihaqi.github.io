@@ -66,7 +66,7 @@ export default function Navigation({
       {/* Sidebar */}
       <aside id="navigation" aria-label="navigation">
         <nav
-          className={`flex flex-col sticky top-0 h-screen px-3 py-4 bg-gray-50 w-64 transition-all duration-300 ${
+          className={`h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 bg-gray-50 w-64 transition-all duration-300 ${
             sidebarVisible ? "ml-0" : "-ml-64"
           } sm:ml-0 font-quicksand tracking-wide`}
         >
@@ -82,7 +82,7 @@ export default function Navigation({
               </h1>
               <p className="font-thin">Software Developer</p>
             </span>
-            <nav className="my-10">
+            <nav className="my-6">
               <ul>
                 <li className="my-2">
                   <button
@@ -157,9 +157,9 @@ export default function Navigation({
       </aside>
 
       {/* Hamburger Button */}
-      <div className="sm:hidden p-2">
+      <div className="sm:hidden p-2 z-10">
         <button
-          className={`sticky top-0 hamburger hamburger--arrow ${
+          className={`fixed top-0 hamburger hamburger--arrow ${
             sidebarVisible ? "active" : ""
           }`}
           type="button"
