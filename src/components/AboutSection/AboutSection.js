@@ -4,7 +4,7 @@ import React from "react";
 
 const AboutSection = React.forwardRef((_props, ref) => {
   return (
-    <section ref={ref} id="about" className="container h-screen">
+    <section ref={ref} id="about" className="container my-24">
       <div className="relative flex items-center">
         <span className="flex-shrink mx-4 text-2xl">What i do</span>
         <div className="flex-grow border border-gray-400"></div>

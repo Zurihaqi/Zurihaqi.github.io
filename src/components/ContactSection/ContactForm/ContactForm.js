@@ -125,11 +125,11 @@ const ContactForm = () => {
             required
           />
         </div>
-        <div className="lg:col-span-4 lg:grid lg:grid-cols-3 lg:gap-4">
-          <div>
+        <div className="lg:grid lg:grid-cols-2 lg:gap-4">
+          <div className="sm:text-start text-center">
             <button
               type="submit"
-              className="items-end bg-red-500 hover:bg-red-700 text-white font-semibold hover:text-white py-2 px-4 rounded transition-color duration-300"
+              className="mb-4 bg-red-500 hover:bg-red-700 text-white font-semibold hover:text-white py-2 px-4 rounded transition-color duration-300"
             >
               {isSending && (
                 <FontAwesomeIcon icon={faSpinner} className="rotate mr-2" />
@@ -139,10 +139,9 @@ const ContactForm = () => {
           </div>
           <Turnstile
             siteKey="0x4AAAAAAAPqkrWzipSjYJLa"
-            className="lg:mt-0 mt-4"
             options={{
               theme: "light",
-              size: "compact",
+              size: "invisible",
             }}
           />
         </div>
