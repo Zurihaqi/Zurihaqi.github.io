@@ -2,7 +2,7 @@ import * as React from "react";
 
 const Card = ({ image, img_alt, title, description, category }) => {
   return (
-    <div className="max-w-sm rounded-lg shadow-lg bg-gray-800 p-2 bg-opacity-50">
+    <div className="max-w-sm rounded-lg shadow-lg bg-slate-600 p-2 bg-opacity-50">
       <div className="group relative flex justify-center">
         <img
           className="rounded-lg object-contain group-hover:brightness-50 transition-all duration-300"

@@ -41,25 +41,29 @@ const AboutSection = React.forwardRef((_props, ref) => {
               <AnimationOnScroll animateIn="animate__fadeInRight">
                 <img src={react} alt="react_logo" />
               </AnimationOnScroll>
-              <p className="text-center">React</p>
+              <p className="text-center sm:text-md text-sm">React</p>
             </div>
             <div className="flex flex-col flex-1 justify-between">
               <AnimationOnScroll animateIn="animate__fadeInRight" delay={100}>
                 <img src={vue} alt="vue_logo" />
               </AnimationOnScroll>
-              <p className="text-center">Vue</p>
+              <p className="text-center sm:text-md text-sm">Vue</p>
             </div>
             <div className="flex flex-col flex-1 justify-between">
               <AnimationOnScroll animateIn="animate__fadeInRight" delay={200}>
                 <img src={tailwind} alt="tailwind_logo" />
               </AnimationOnScroll>
-              <p className="text-center">Tailwind</p>
+              <p className="text-center sm:text-md text-sm">Tailwind</p>
             </div>
             <div className="flex flex-col flex-1 justify-between">
               <AnimationOnScroll animateIn="animate__fadeInRight" delay={300}>
-                <img src={bootstrap} alt="bootstrap_logo" />
+                <img
+                  src={bootstrap}
+                  alt="bootstrap_logo"
+                  className="sm:w-full w-3/4 mx-auto"
+                />
               </AnimationOnScroll>
-              <p className="text-center">Bootstrap</p>
+              <p className="text-center sm:text-md text-sm">Bootstrap</p>
             </div>
           </div>
         </div>

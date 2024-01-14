@@ -16,7 +16,7 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         <AnimationOnScroll animateIn="animate__fadeInUp">
           <div className="text-start">
             <p className="text-xl">Hello! &#128075;</p>
-            <p className="text-5xl">
+            <p className="text-5xl font-playfair">
               I'm <span className="font-bold text-blue-500">Zul</span> Fahri
               Baihaqi
             </p>

@@ -67,7 +67,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         <div className="flex-grow border border-gray-400"></div>
       </div>
       <div className="my-4 flex justify-center">
-        <div className="container-fluid bg-slate-700 bg-opacity-50 p-2 rounded-full">
+        <div className="container-fluid bg-slate-600 bg-opacity-50 p-2 rounded-full">
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
               selectedCategory === "All"
@@ -108,7 +108,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           spaceBetween={50}
           loop={true}
           autoplay={{
-            delay: 2500,
+            delay: 5000,
             disableOnInteraction: false,
           }}
           breakpoints={{
