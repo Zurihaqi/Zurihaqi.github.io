@@ -67,39 +67,41 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         <div className="flex-grow border border-gray-400"></div>
       </div>
       <div className="my-4 flex justify-center">
-        <button
-          className={`font-semibold py-2 px-4 border border-red-500 rounded mx-1 sm:mx-2 transition-color duration-300 ${
-            selectedCategory === "All"
-              ? "bg-red-500 text-white hover:border-transparent"
-              : "hover:bg-red-500 text-red-700 hover:text-white bg-transparent"
-          }`}
-          onClick={() => handleCategoryClick("All")}
-          aria-label="btn-category-all"
-        >
-          All
-        </button>
-        <button
-          className={`font-semibold py-2 px-4 border border-red-500 rounded mx-1 sm:mx-2 transition-color duration-300 ${
-            selectedCategory === "WebApp"
-              ? "bg-red-500 text-white hover:border-transparent"
-              : "hover:bg-red-500 text-red-700 hover:text-white bg-transparent"
-          }`}
-          onClick={() => handleCategoryClick("WebApp")}
-          aria-label="btn-category-webapps"
-        >
-          Web Apps
-        </button>
-        <button
-          className={`font-semibold py-2 px-4 border border-red-500 rounded mx-1 sm:mx-2 transition-color duration-300 ${
-            selectedCategory === "NLP"
-              ? "bg-red-500 text-white hover:border-transparent"
-              : "hover:bg-red-500 text-red-700 hover:text-white bg-transparent"
-          }`}
-          onClick={() => handleCategoryClick("NLP")}
-          aria-label="btn-nlp"
-        >
-          NLP
-        </button>
+        <div className="container-fluid bg-slate-700 bg-opacity-50 p-2 rounded-full">
+          <button
+            className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
+              selectedCategory === "All"
+                ? "bg-blue-600 text-gray-200 hover:border-transparent"
+                : "hover:bg-blue-600 hover:text-gray-200 bg-transparent"
+            }`}
+            onClick={() => handleCategoryClick("All")}
+            aria-label="btn-category-all"
+          >
+            All
+          </button>
+          <button
+            className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
+              selectedCategory === "WebApp"
+                ? "bg-blue-600 text-gray-200 hover:border-transparent"
+                : "hover:bg-blue-600 hover:text-gray-200 bg-transparent"
+            }`}
+            onClick={() => handleCategoryClick("WebApp")}
+            aria-label="btn-category-webapps"
+          >
+            Web Apps
+          </button>
+          <button
+            className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
+              selectedCategory === "NLP"
+                ? "bg-blue-600 text-gray-200 hover:border-transparent"
+                : "hover:bg-blue-600 hover:text-gray-200 bg-transparent"
+            }`}
+            onClick={() => handleCategoryClick("NLP")}
+            aria-label="btn-nlp"
+          >
+            NLP
+          </button>
+        </div>
       </div>
       <div className="container my-8">
         <Swiper

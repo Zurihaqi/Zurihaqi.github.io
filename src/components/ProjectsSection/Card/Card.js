@@ -1,23 +1,25 @@
 import * as React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Card = ({ image, img_alt, title, description, category }) => {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
-      <div className="flex justify-center">
+    <div className="max-w-sm rounded-lg shadow-lg bg-gray-800 p-2 bg-opacity-50">
+      <div className="group relative flex justify-center">
         <img
-          className="rounded-t-lg object-contain border"
+          className="rounded-lg object-contain group-hover:brightness-50 transition-all duration-300"
           src={image}
           alt={img_alt}
         />
+        <button
+          aria-label="read-more-btn"
+          className="mb-4 absolute hidden group-hover:block top-16 bg-gray-600 text-white hover:bg-opacity-70 bg-opacity-30 p-2 rounded transition-opacity duration-300"
+        >
+          View details
+        </button>
       </div>
       <div className="mx-5">
         <div className="flex justify-start">
           <div>
-            <h5 className="mt-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {title}
-            </h5>
+            <h5 className="mt-2 text-2xl font-bold tracking-tight ">{title}</h5>
           </div>
           <div>
             <p
@@ -35,16 +37,7 @@ const Card = ({ image, img_alt, title, description, category }) => {
             </p>
           </div>
         </div>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {description}
-        </p>
-        <button
-          aria-label="read-more-btn"
-          className="mb-4 bg-red-500 hover:bg-red-700 text-white font-semibold hover:text-white py-2 px-4 rounded transition-color duration-300"
-        >
-          Read more&nbsp;
-          <FontAwesomeIcon icon={faArrowRight} />
-        </button>
+        <p className="mb-3 font-normal text-gray-300">{description}</p>
       </div>
     </div>
   );

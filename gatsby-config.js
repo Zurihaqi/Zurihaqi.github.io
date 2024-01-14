@@ -6,5 +6,9 @@ module.exports = {
     title: `zurihaqi.github.io`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: ["gatsby-plugin-postcss", "gatsby-plugin-react-helmet"],
+  plugins: [
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
+  ],
 };

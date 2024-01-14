@@ -1,4 +1,8 @@
-/* Animated Underline */
+$hamburger-color: #d1d5db;
+
+@import "~delicious-hamburgers/scss/hamburgers";
+
+// Animated underline
 .custom-nav-link {
   display: inline-block;
   position: relative;
@@ -12,7 +16,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #ef4444;
+  background-color: #3b82f6;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }

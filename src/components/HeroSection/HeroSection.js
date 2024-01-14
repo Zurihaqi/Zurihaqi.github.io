@@ -15,9 +15,9 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
       <div className="flex-shrink grid-cols-3 gap-2">
         <AnimationOnScroll animateIn="animate__fadeInUp">
           <div className="text-start">
-            <p className="text-xl">Hello!</p>
+            <p className="text-xl">Hello! &#128075;</p>
             <p className="text-5xl">
-              I'm <span className="font-bold text-red-500">Zul</span> Fahri
+              I'm <span className="font-bold text-blue-500">Zul</span> Fahri
               Baihaqi
             </p>
           </div>
@@ -37,13 +37,13 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         <AnimationOnScroll animateIn="animate__fadeInUp" delay={1200}>
           <div className="mt-6">
             <button
-              className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
+              className="bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
               onClick={() => scrollToSection(projectsRef, 30)}
             >
               <FontAwesomeIcon icon={faArrowDown} /> My Works
             </button>
             <button
-              className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
+              className="bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
               onClick={() => scrollToSection(contactRef, 30)}
             >
               <FontAwesomeIcon icon={faEnvelope} /> Hire Me

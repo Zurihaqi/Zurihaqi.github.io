@@ -13,4 +13,9 @@ module.exports = {
   },
   plugins: [],
   darkMode: "class",
+  variants: {
+    extend: {
+      display: ["group-hover"],
+    },
+  },
 };

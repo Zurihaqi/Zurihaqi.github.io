@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { scrollToSection } from "../../utility/scrollToSection";
 import "delicious-hamburgers/dist/hamburgers.min.css";
-import "./Navigation.css";
+import "./Navigation.scss";
 
 export default function Navigation({
   heroRef,
@@ -31,7 +31,7 @@ export default function Navigation({
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const offset = 250; // Placeholder offset, no content yet
+      const offset = 250; // Top side offset
       const scrollPosition = window.scrollY;
 
       // Activate menu underline according to the section user scrolls to
@@ -84,7 +84,7 @@ export default function Navigation({
       <aside id="navigation" aria-label="navigation">
         <nav
           ref={navRef}
-          className={`h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 bg-gray-50 w-64 transition-all duration-300 ${
+          className={`bg-zinc-800 h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 w-64 transition-all duration-300 text-gray-300 ${
             sidebarVisible ? "ml-0" : "-ml-64"
           } md:ml-0 font-quicksand tracking-wide`}
         >
