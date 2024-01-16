@@ -13,7 +13,7 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
       className="container h-screen flex items-center justify-center"
     >
       <div className="flex-shrink grid-cols-3 gap-2">
-        <AnimationOnScroll animateIn="animate__fadeInUp">
+        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
           <div className="text-start">
             <p className="text-xl">Hello! &#128075;</p>
             <p className="text-5xl font-playfair">
@@ -23,7 +23,11 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
           </div>
         </AnimationOnScroll>
         <br />
-        <AnimationOnScroll animateIn="animate__fadeInUp" delay={600}>
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          delay={600}
+          animateOnce
+        >
           <div>
             <p className="text-start text-xl">
               Recent graduate in informatics, specializing in backend
@@ -34,7 +38,11 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         </AnimationOnScroll>
 
         {/* Buttons */}
-        <AnimationOnScroll animateIn="animate__fadeInUp" delay={1200}>
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          delay={1200}
+          animateOnce
+        >
           <div className="mt-6">
             <button
               className="bg-transparent hover:bg-blue-500 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"

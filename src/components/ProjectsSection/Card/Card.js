@@ -9,12 +9,14 @@ const Card = ({ image, img_alt, title, description, category }) => {
           src={image}
           alt={img_alt}
         />
-        <button
-          aria-label="read-more-btn"
-          className="mb-4 absolute hidden group-hover:block top-16 bg-gray-600 text-white hover:bg-opacity-70 bg-opacity-30 p-2 rounded transition-opacity duration-300"
-        >
-          View details
-        </button>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <button
+            aria-label="read-more-btn"
+            className="hidden group-hover:block bg-gray-600 text-white hover:bg-opacity-70 bg-opacity-30 p-2 rounded transition-opacity duration-300"
+          >
+            View details
+          </button>
+        </div>
       </div>
       <div className="mx-5">
         <div className="flex justify-start">
@@ -24,7 +26,7 @@ const Card = ({ image, img_alt, title, description, category }) => {
           <div>
             <p
               style={{
-                width: "55px",
+                width: "60px",
                 height: "25px",
               }}
               className={`text-center mx-4 mt-3 p-1 rounded-full border ${

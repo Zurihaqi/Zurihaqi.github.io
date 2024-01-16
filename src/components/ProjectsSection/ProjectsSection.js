@@ -1,61 +1,79 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Autoplay } from "swiper/modules";
 import Card from "./Card/Card";
 import sample_img from "../../images/sample_img.png";
+import { AnimationOnScroll } from "react-animation-on-scroll";
+import "animate.css/animate.min.css";
 
 import "swiper/css";
 
 const ProjectsSection = React.forwardRef((_props, ref) => {
-  const cardData = {
-    project1: {
-      image: sample_img,
-      img_alt: "project_1_img",
-      title: "Project 1",
-      description: "Lorem ipsum dolor sit amet.",
-      category: "WebApp",
-    },
-    project2: {
-      image: sample_img,
-      img_alt: "project_2_img",
-      title: "Project 2",
-      description: "Lorem ipsum dolor sit amet.",
-      category: "WebApp",
-    },
-    project3: {
-      image: sample_img,
-      img_alt: "project_3_img",
-      title: "Project 3",
-      description: "Lorem ipsum dolor sit amet.",
-      category: "WebApp",
-    },
-    project4: {
-      image: sample_img,
-      img_alt: "project_4_img",
-      title: "Project 4",
-      description: "Lorem ipsum dolor sit amet.",
-      category: "NLP",
-    },
-    project5: {
-      image: sample_img,
-      img_alt: "project_5_img",
-      title: "Project 5",
-      description: "Lorem ipsum dolor sit amet.",
-      category: "Ngawur",
-    },
-  };
-
   const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const [visibleSlides, setVisibleSlides] = React.useState(3);
+  const [filteredCardData, setFilteredCardData] = React.useState([]);
 
-  const filteredCardData =
-    selectedCategory === "All"
-      ? Object.values(cardData)
-      : Object.values(cardData).filter(
+  React.useEffect(() => {
+    const cardData = {
+      project1: {
+        image: sample_img,
+        img_alt: "project_1_img",
+        title: "Project 1",
+        description: "Lorem ipsum dolor sit amet.",
+        category: "WebApp",
+      },
+      project2: {
+        image: sample_img,
+        img_alt: "project_2_img",
+        title: "Project 2",
+        description: "Lorem ipsum dolor sit amet.",
+        category: "WebApp",
+      },
+      project3: {
+        image: sample_img,
+        img_alt: "project_3_img",
+        title: "Project 3",
+        description: "Lorem ipsum dolor sit amet.",
+        category: "WebApp",
+      },
+      project4: {
+        image: sample_img,
+        img_alt: "project_4_img",
+        title: "Project 4",
+        description: "Lorem ipsum dolor sit amet.",
+        category: "NLP",
+      },
+      project5: {
+        image: sample_img,
+        img_alt: "project_5_img",
+        title: "Project 5",
+        description: "Lorem ipsum dolor sit amet.",
+        category: "Ngawur",
+      },
+    };
+
+    if (selectedCategory === "All") {
+      setFilteredCardData(Object.values(cardData));
+    } else {
+      setFilteredCardData(
+        Object.values(cardData).filter(
           (project) => project.category === selectedCategory
-        );
+        )
+      );
+    }
+    setVisibleSlides(Math.min(3, filteredCardData.length));
+  }, [selectedCategory, filteredCardData.length]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
+  };
+
+  const handleLoadMoreClick = () => {
+    setVisibleSlides((prevVisibleSlides) => prevVisibleSlides + 3);
+  };
+
+  const handleLoadLessClick = () => {
+    setVisibleSlides(3);
   };
 
   return (
@@ -104,38 +122,38 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         </div>
       </div>
       <div className="container my-8">
-        <Swiper
-          spaceBetween={50}
-          loop={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            520: {
-              slidesPerView: 2,
-            },
-            900: {
-              slidesPerView: 3,
-            },
-          }}
-          modules={[Autoplay]}
-        >
-          {filteredCardData.map((project, index) => (
-            <SwiperSlide key={index}>
-              <Card
-                image={project.image}
-                img_alt={project.img_alt}
-                title={project.title}
-                description={project.description}
-                category={project.category}
-              />
-            </SwiperSlide>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {filteredCardData.slice(0, visibleSlides).map((project, index) => (
+            <AnimationOnScroll animateIn="animate__fadeIn" delay={index * 50}>
+              <div key={index}>
+                <Card
+                  image={project.image}
+                  img_alt={project.img_alt}
+                  title={project.title}
+                  description={project.description}
+                  category={project.category}
+                />
+              </div>
+            </AnimationOnScroll>
           ))}
-        </Swiper>
+        </div>
+        <div className="text-center mt-4">
+          {visibleSlides < filteredCardData.length ? (
+            <button
+              className="bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+              onClick={handleLoadMoreClick}
+            >
+              Load More
+            </button>
+          ) : visibleSlides !== filteredCardData.length ? (
+            <button
+              className="bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+              onClick={handleLoadLessClick}
+            >
+              Load Less
+            </button>
+          ) : null}
+        </div>
       </div>
     </section>
   );
