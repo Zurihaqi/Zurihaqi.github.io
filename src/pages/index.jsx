@@ -10,6 +10,7 @@ import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 export default function IndexPage() {
   const heroRef = useRef(null);
@@ -17,14 +18,24 @@ export default function IndexPage() {
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
+  const [initStage, setInitStage] = useState(0);
   const [init, setInit] = useState(false);
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    const initializeParticles = async () => {
+      setInitStage(1);
+
+      await initParticlesEngine(async (engine) => {
+        setInitStage(2);
+        await loadSlim(engine);
+
+        setInitStage(3);
+      }).then(() => {
+        setInit(true);
+      });
+    };
+
+    initializeParticles();
   }, []);
 
   const particlesLoaded = (container) => {
@@ -111,4 +122,17 @@ export default function IndexPage() {
       </div>
     );
   }
+  return (
+    <div id="root" className="h-screen flex bg-zinc-800">
+      <p className="m-auto text-5xl text-gray-300">
+        Please wait...
+        <ProgressBar
+          completed={initStage * 33.33}
+          isLabelVisible={false}
+          borderRadius="0px"
+          className="mt-6"
+        />
+      </p>
+    </div>
+  );
 }
