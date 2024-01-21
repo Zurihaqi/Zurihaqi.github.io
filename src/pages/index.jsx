@@ -38,6 +38,7 @@ export default function IndexPage() {
           value: "#27272a",
         },
       },
+      fpsLimit: 30,
       particles: {
         number: {
           value: 60,

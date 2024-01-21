@@ -83,7 +83,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
           <p className="font-semibold text-center mb-4 text-lg">
             Back-end Development
           </p>
-          <div className="grid grid-flow-col gap-4">
+          <div className="grid grid-flow-col gap-4 w-1/2 mx-auto">
             <AnimationOnScroll
               animateIn="animate__fadeInRight"
               animateOnce

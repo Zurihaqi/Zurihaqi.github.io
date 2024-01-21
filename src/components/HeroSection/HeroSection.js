@@ -4,6 +4,7 @@ import "animate.css/animate.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { scrollToSection } from "../../utility/scrollToSection";
+import "./HeroSection.css";
 
 const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
   return (
@@ -15,7 +16,9 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
       <div className="flex-shrink grid-cols-3 gap-2">
         <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
           <div className="text-start">
-            <p className="text-xl">Hello! &#128075;</p>
+            <p className="text-xl">
+              Hello! <span className="waving-hand">&#128075;</span>
+            </p>
             <p className="text-5xl font-playfair">
               I'm <span className="font-bold text-blue-500">Zul</span> Fahri
               Baihaqi

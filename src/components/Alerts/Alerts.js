@@ -25,7 +25,7 @@ const Alerts = ({ title, message, type, onClose }) => {
         type === "success"
           ? "bg-teal-100 border-teal-500 text-teal-900"
           : "bg-red-100 border-red-500 text-red-900"
-      } border-t-4 rounded-b px-4 py-3 shadow-md z-50 slide-in-out`}
+      } border-t-4 rounded-b px-4 py-3 shadow-md z-30 slide-in-out`}
       role="alert"
     >
       <div className="flex">

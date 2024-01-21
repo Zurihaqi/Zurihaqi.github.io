@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import "animate.css/animate.min.css";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +25,9 @@ export default function ScrollToTop() {
   return (
     <button
       className={`z-10 fixed bottom-5 right-5 rounded-full bg-blue-600 p-3 text-gray-300 shadow-md transition-color duration-150 ease-in-out ${
-        isVisible ? "block" : "hidden"
+        isVisible
+          ? "animate__animated animate__bounceInUp"
+          : "animate__animated animate__bounceOutDown"
       } hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0`}
       onClick={scrollToTop}
       style={{ width: "40px", height: "40px" }}

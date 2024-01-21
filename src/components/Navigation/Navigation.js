@@ -33,6 +33,7 @@ export default function Navigation({
     const handleScroll = () => {
       const offset = 250; // Top side offset
       const scrollPosition = window.scrollY;
+      setSidebarVisibility(false);
 
       // Activate menu underline according to the section user scrolls to
       if (

@@ -13,7 +13,7 @@ const ContactForm = () => {
     message: "",
   });
 
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [alertVisible, setAlertVisible] = useState(true);
   const [isSending, setIsSending] = useState(false);

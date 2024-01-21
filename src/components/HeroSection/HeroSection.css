@@ -1,0 +1,21 @@
+/* Waving Hand Animation */
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: right;
+  }
+  25% {
+    transform: rotate(-15deg);
+    transform-origin: right;
+  }
+  75% {
+    transform: rotate(15deg);
+    transform-origin: right;
+  }
+}
+
+.waving-hand {
+  display: inline-block;
+  animation: wave 500ms 3;
+}
