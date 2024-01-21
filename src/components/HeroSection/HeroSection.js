@@ -14,7 +14,11 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
       className="container h-screen flex items-center justify-center"
     >
       <div className="flex-shrink grid-cols-3 gap-2">
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          animateOnce
+          offset={20}
+        >
           <div className="text-start">
             <p className="text-xl">
               Hello! <span className="waving-hand">&#128075;</span>
@@ -45,6 +49,7 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
           animateIn="animate__fadeInUp"
           delay={1200}
           animateOnce
+          offset={20}
         >
           <div className="mt-6">
             <button

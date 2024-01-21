@@ -87,7 +87,7 @@ export default function Navigation({
           ref={navRef}
           className={`bg-zinc-700 h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 w-64 transition-all duration-300 text-gray-300 ${
             sidebarVisible ? "ml-0" : "-ml-64"
-          } md:ml-0 font-quicksand tracking-wide`}
+          } lg:ml-0 font-quicksand tracking-wide`}
         >
           <div className="text-center my-auto">
             <img
@@ -176,7 +176,7 @@ export default function Navigation({
       </aside>
 
       {/* Hamburger Button */}
-      <div className="sm:hidden p-2 z-20" ref={hamburgerRef}>
+      <div className="lg:hidden p-2 z-20" ref={hamburgerRef}>
         <button
           className={`fixed top-0 hamburger hamburger--arrow ${
             sidebarVisible ? "active" : ""
