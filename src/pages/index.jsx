@@ -23,6 +23,19 @@ export default function IndexPage() {
   const [initStage, setInitStage] = useState(0.01);
   const [init, setInit] = useState(false);
 
+  // Prevent scrolling during load
+  useEffect(() => {
+    const handleOverflow = () => {
+      document.body.style.overflow = init ? "" : "hidden";
+    };
+
+    handleOverflow();
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [init]);
+
   useEffect(() => {
     const initializeParticles = async () => {
       setInitStage(1);
@@ -44,19 +57,6 @@ export default function IndexPage() {
   const particlesLoaded = (container) => {
     return null;
   };
-
-  // Prevent scrolling during load
-  useEffect(() => {
-    const handleOverflow = () => {
-      document.body.style.overflow = init ? "scroll" : "hidden";
-    };
-
-    handleOverflow();
-
-    return () => {
-      document.body.style.overflow = "scroll";
-    };
-  }, [init]);
 
   const options = useMemo(
     () => ({
@@ -106,12 +106,18 @@ export default function IndexPage() {
         />
       </Helmet>
 
+      <Particles
+        id="tsparticles"
+        particlesLoaded={particlesLoaded}
+        options={options}
+      />
+
       {/* Loading Screen Overlay */}
       <div
-        className={`h-screen w-screen flex fixed bg-zinc-800 transition-all z-50 duration-600 ${
+        className={`h-screen w-screen flex fixed bg-zinc-800 transition-all duration-600 ${
           init
             ? "opacity-0 backdrop-blur-none pointer-events-none"
-            : "opacity-100 bg-opacity-70 backdrop-blur-md pointer-events-auto"
+            : "opacity-100 bg-opacity-70 z-50 backdrop-blur-md pointer-events-auto"
         }`}
       >
         <p className="m-auto text-5xl text-gray-300">
@@ -128,11 +134,6 @@ export default function IndexPage() {
 
       {/* Main Content */}
       <>
-        <Particles
-          id="tsparticles"
-          particlesLoaded={particlesLoaded}
-          options={options}
-        />
         <div className="flex overflow-x-clip bg-zinc-800">
           <Navigation
             heroRef={heroRef}
