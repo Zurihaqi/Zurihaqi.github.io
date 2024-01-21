@@ -20,13 +20,12 @@ export default function IndexPage() {
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
 
-  const [initStage, setInitStage] = useState(0);
+  const [initStage, setInitStage] = useState(0.01);
   const [init, setInit] = useState(false);
 
   useEffect(() => {
     const initializeParticles = async () => {
       setInitStage(1);
-
       await initParticlesEngine(async (engine) => {
         setInitStage(2);
         await loadSlim(engine);
@@ -45,6 +44,19 @@ export default function IndexPage() {
   const particlesLoaded = (container) => {
     return null;
   };
+
+  // Prevent scrolling during load
+  useEffect(() => {
+    const handleOverflow = () => {
+      document.body.style.overflow = init ? "scroll" : "hidden";
+    };
+
+    handleOverflow();
+
+    return () => {
+      document.body.style.overflow = "scroll";
+    };
+  }, [init]);
 
   const options = useMemo(
     () => ({
@@ -115,7 +127,7 @@ export default function IndexPage() {
       </div>
 
       {/* Main Content */}
-      <div>
+      <>
         <Particles
           id="tsparticles"
           particlesLoaded={particlesLoaded}
@@ -144,7 +156,7 @@ export default function IndexPage() {
           </div>
         </div>
         <ScrollToTop />
-      </div>
+      </>
     </div>
   );
 }
