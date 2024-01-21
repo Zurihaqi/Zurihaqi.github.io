@@ -18,6 +18,7 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
           animateIn="animate__fadeInUp"
           animateOnce
           offset={20}
+          delay={1500}
         >
           <div className="text-start">
             <p className="text-xl">
@@ -32,8 +33,9 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         <br />
         <AnimationOnScroll
           animateIn="animate__fadeInUp"
-          delay={600}
+          delay={2100}
           animateOnce
+          offset={20}
         >
           <div>
             <p className="text-start text-xl">
@@ -47,7 +49,7 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         {/* Buttons */}
         <AnimationOnScroll
           animateIn="animate__fadeInUp"
-          delay={1200}
+          delay={2700}
           animateOnce
           offset={20}
         >

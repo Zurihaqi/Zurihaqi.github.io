@@ -12,6 +12,8 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import ProgressBar from "@ramonak/react-progress-bar";
 
+import "animate.css/animate.min.css";
+
 export default function IndexPage() {
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
@@ -31,7 +33,9 @@ export default function IndexPage() {
 
         setInitStage(3);
       }).then(() => {
-        setInit(true);
+        setTimeout(() => {
+          setInit(true);
+        }, 1500);
       });
     };
 
@@ -77,20 +81,41 @@ export default function IndexPage() {
     }),
     []
   );
+  return (
+    <div id="root">
+      <Helmet>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Zul Fahri Baihaqi • Personal Website</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair:opsz@5..1200&family=Quicksand&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
 
-  if (init) {
-    return (
-      <div id="root">
-        <Helmet>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>Zul Fahri Baihaqi • Personal Website</title>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Playfair:opsz@5..1200&family=Quicksand&display=swap"
-            rel="stylesheet"
+      {/* Loading Screen Overlay */}
+      <div
+        className={`h-screen w-screen flex fixed bg-zinc-800 transition-all z-50 duration-600 ${
+          init
+            ? "opacity-0 backdrop-blur-none pointer-events-none"
+            : "opacity-100 bg-opacity-70 backdrop-blur-md pointer-events-auto"
+        }`}
+      >
+        <p className="m-auto text-5xl text-gray-300">
+          Please wait...
+          <ProgressBar
+            completed={initStage * 33.33}
+            isLabelVisible={false}
+            borderRadius="10px"
+            bgColor="#3A7DEB"
+            className="mt-6"
           />
-        </Helmet>
+        </p>
+      </div>
+
+      {/* Main Content */}
+      <div>
         <Particles
           id="tsparticles"
           particlesLoaded={particlesLoaded}
@@ -120,19 +145,6 @@ export default function IndexPage() {
         </div>
         <ScrollToTop />
       </div>
-    );
-  }
-  return (
-    <div id="root" className="h-screen flex bg-zinc-800">
-      <p className="m-auto text-5xl text-gray-300">
-        Please wait...
-        <ProgressBar
-          completed={initStage * 33.33}
-          isLabelVisible={false}
-          borderRadius="0px"
-          className="mt-6"
-        />
-      </p>
     </div>
   );
 }
