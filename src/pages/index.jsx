@@ -12,8 +12,6 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import ProgressBar from "@ramonak/react-progress-bar";
 
-import "animate.css/animate.min.css";
-
 export default function IndexPage() {
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
@@ -23,20 +21,10 @@ export default function IndexPage() {
   const [initStage, setInitStage] = useState(0.01);
   const [init, setInit] = useState(false);
 
-  // Prevent scrolling during load
   useEffect(() => {
-    const handleOverflow = () => {
-      document.body.style.overflow = init ? "" : "hidden";
-    };
+    // Hide scrollbar during initialization
+    document.body.style.overflow = "hidden";
 
-    handleOverflow();
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [init]);
-
-  useEffect(() => {
     const initializeParticles = async () => {
       setInitStage(1);
       await initParticlesEngine(async (engine) => {
@@ -47,6 +35,7 @@ export default function IndexPage() {
       }).then(() => {
         setTimeout(() => {
           setInit(true);
+          document.body.style.overflow = "";
         }, 1500);
       });
     };
@@ -96,7 +85,10 @@ export default function IndexPage() {
   return (
     <div id="root">
       <Helmet>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi"
+        />
         <title>Zul Fahri Baihaqi • Personal Website</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
