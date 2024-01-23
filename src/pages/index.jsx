@@ -126,7 +126,7 @@ export default function IndexPage() {
 
       {/* Main Content */}
       <>
-        <div className="relative flex overflow-x-clip bg-zinc-800">
+        <div className="flex overflow-x-clip bg-zinc-800">
           <Navigation
             heroRef={heroRef}
             aboutRef={aboutRef}
@@ -135,7 +135,7 @@ export default function IndexPage() {
           />
           <div
             id="content"
-            className="relative flex-shrink-0 sm:w-3/4 w-full mx-0 sm:mx-auto sm:pr-0 pr-8 font-quicksand text-gray-300 z-10"
+            className="flex-shrink-0 sm:w-3/4 w-full mx-0 sm:mx-auto sm:pr-0 pr-8 font-quicksand text-gray-300 z-10"
           >
             <HeroSection
               ref={heroRef}

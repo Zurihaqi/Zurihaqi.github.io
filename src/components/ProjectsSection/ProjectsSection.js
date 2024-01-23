@@ -223,6 +223,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
               slidesPerView={1}
               spaceBetween={30}
               pagination={true}
+              loop={true}
               modules={[Pagination]}
             >
               <SwiperSlide>
