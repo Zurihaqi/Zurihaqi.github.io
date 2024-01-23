@@ -12,6 +12,8 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import ProgressBar from "@ramonak/react-progress-bar";
 
+import SplashScreen from "../images/splashScreen.gif";
+
 export default function IndexPage() {
   const heroRef = useRef(null);
   const aboutRef = useRef(null);
@@ -112,16 +114,19 @@ export default function IndexPage() {
             : "opacity-100 bg-opacity-70 z-50 backdrop-blur-md pointer-events-auto"
         }`}
       >
-        <p className="m-auto text-5xl text-gray-300">
-          Please wait...
+        <div className="mx-auto">
+          <img src={SplashScreen} alt="SplashScreenGif" className="w-fit" />
+          <p className="text-center text-white">
+            Loading content, just a moment...
+          </p>
           <ProgressBar
             completed={initStage * 33.33}
             isLabelVisible={false}
             borderRadius="10px"
             bgColor="#3A7DEB"
-            className="mt-6"
+            className="w-3/4 mx-auto -mt-20"
           />
-        </p>
+        </div>
       </div>
 
       {/* Main Content */}
