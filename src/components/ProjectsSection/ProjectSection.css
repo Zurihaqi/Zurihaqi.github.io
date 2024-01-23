@@ -1,0 +1,12 @@
+/* Custom Modal Scrollbar */
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  background: #374151;
+  border-radius: 5px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 5px;
+}

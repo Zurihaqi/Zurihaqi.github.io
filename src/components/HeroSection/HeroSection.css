@@ -16,7 +16,6 @@
 }
 
 .waving-hand {
-  display: inline-block;
   animation-name: wave;
   animation-duration: 500ms;
   animation-delay: 1500ms;

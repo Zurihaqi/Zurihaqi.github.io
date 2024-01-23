@@ -1,17 +1,26 @@
 import React from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import { Autoplay } from "swiper/modules";
 import Card from "./Card/Card";
+import Modal from "./Modal/Modal";
 import sample_img from "../../images/sample_img.png";
+import "./ProjectSection.css";
+
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
 
 const ProjectsSection = React.forwardRef((_props, ref) => {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
   const [visibleSlides, setVisibleSlides] = React.useState(3);
   const [filteredCardData, setFilteredCardData] = React.useState([]);
+  const [showModal, setShowModal] = React.useState(false);
+  const [selectedProject, setSelectedProject] = React.useState({});
 
   React.useEffect(() => {
     const cardData = {
@@ -19,36 +28,46 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         image: sample_img,
         img_alt: "project_1_img",
         title: "Project 1",
-        description: "Lorem ipsum dolor sit amet.",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         category: "WebApp",
+        tech: ["Tech1", "Tech2", "Tech3"],
       },
       project2: {
         image: sample_img,
         img_alt: "project_2_img",
         title: "Project 2",
-        description: "Lorem ipsum dolor sit amet.",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         category: "WebApp",
+        tech: ["Tech1", "Tech2", "Tech3"],
       },
       project3: {
         image: sample_img,
         img_alt: "project_3_img",
         title: "Project 3",
-        description: "Lorem ipsum dolor sit amet.",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         category: "WebApp",
+        tech: ["Tech1", "Tech2", "Tech3"],
       },
       project4: {
         image: sample_img,
         img_alt: "project_4_img",
         title: "Project 4",
-        description: "Lorem ipsum dolor sit amet.",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         category: "NLP",
+        tech: ["Tech1", "Tech2", "Tech3"],
       },
       project5: {
         image: sample_img,
         img_alt: "project_5_img",
         title: "Project 5",
-        description: "Lorem ipsum dolor sit amet.",
-        category: "Ngawur",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        category: "Uncategorized",
+        tech: ["Tech1", "Tech2", "Tech3"],
       },
     };
 
@@ -74,6 +93,15 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
 
   const handleLoadLessClick = () => {
     setVisibleSlides(3);
+  };
+
+  const handleViewDetailsClick = (project) => {
+    setSelectedProject(project);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -132,6 +160,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
                   title={project.title}
                   description={project.description}
                   category={project.category}
+                  onClick={() => handleViewDetailsClick(project)}
                 />
               </div>
             </AnimationOnScroll>
@@ -155,6 +184,95 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           ) : null}
         </div>
       </div>
+
+      {/* Modal */}
+      <Modal showModal={showModal} closeModal={closeModal}>
+        <div className="relative bg-slate-600 text-white rounded-lg shadow">
+          {/* Modal Header */}
+          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+            <h3 className="text-xl font-semibold">{selectedProject.title}</h3>
+            <span
+              style={{
+                height: "25px",
+              }}
+              className={`w-fit text-center mx-2 p-1 rounded-full border ${
+                selectedProject.category === "WebApp"
+                  ? "border-blue-400 text-blue-500"
+                  : ""
+              } ${
+                selectedProject.category === "NLP"
+                  ? "border-purple-400 text-purple-400"
+                  : ""
+              } text-xs font-semibold`}
+            >
+              {selectedProject.category}
+            </span>
+            <button
+              type="button"
+              className="bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
+              onClick={closeModal}
+              aria-label="show-modal-btn"
+            >
+              <FontAwesomeIcon icon={faX} />
+            </button>
+          </div>
+
+          {/* SlideShow */}
+          <div className="p-2 sm:w-3/4 mx-auto rounded-lg">
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
+              pagination={true}
+              modules={[Pagination]}
+            >
+              <SwiperSlide>
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.img_alt}
+                  className="rounded-lg"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.img_alt}
+                  className="rounded-lg"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.img_alt}
+                  className="rounded-lg"
+                />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+
+          {/* Desc */}
+          <div className="p-4 md:p-5 space-y-4">
+            <p
+              className="text-base leading-relaxed overflow-y-scroll modal-scrollbar"
+              style={{ maxHeight: 100 }}
+            >
+              {selectedProject.description}
+            </p>
+            <p>
+              Tech Used:{" "}
+              {selectedProject.tech?.map((item, index) => {
+                return (
+                  <span
+                    key={index}
+                    className="mx-1 bg-slate-500 rounded-xl p-2 sm:text-sm text-xs"
+                  >
+                    {item}
+                  </span>
+                );
+              })}
+            </p>
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 });

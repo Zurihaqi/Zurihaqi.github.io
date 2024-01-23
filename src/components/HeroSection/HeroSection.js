@@ -7,6 +7,20 @@ import { scrollToSection } from "../../utility/scrollToSection";
 import "./HeroSection.css";
 
 const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
+  const easterEggRef = React.useRef(false);
+
+  const handleClick = () => {
+    easterEggRef.current = !easterEggRef.current;
+    const buttonElement = document.getElementById("wave");
+
+    buttonElement.classList.remove("waving-hand", easterEggRef.current);
+    buttonElement.classList.add("animate__tada", easterEggRef.current);
+
+    setTimeout(() => {
+      buttonElement.classList.remove("animate__tada");
+    }, 1000);
+  };
+
   return (
     <section
       ref={ref}
@@ -22,7 +36,16 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         >
           <div className="text-start">
             <p className="text-xl">
-              Hello! <span className="waving-hand">&#128075;</span>
+              Hello
+              <button
+                id="wave"
+                className={`waving-hand animate__animated ${
+                  easterEggRef.current && "animate__tada"
+                }`}
+                onClick={handleClick}
+              >
+                👋
+              </button>
             </p>
             <p className="text-5xl font-playfair">
               I'm <span className="font-bold text-blue-500">Zul</span> Fahri

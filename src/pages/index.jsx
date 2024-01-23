@@ -87,7 +87,7 @@ export default function IndexPage() {
       <Helmet>
         <meta
           name="viewport"
-          content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi"
+          content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <title>Zul Fahri Baihaqi • Personal Website</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,7 +126,7 @@ export default function IndexPage() {
 
       {/* Main Content */}
       <>
-        <div className="flex overflow-x-clip bg-zinc-800">
+        <div className="relative flex overflow-x-clip bg-zinc-800">
           <Navigation
             heroRef={heroRef}
             aboutRef={aboutRef}
@@ -135,7 +135,7 @@ export default function IndexPage() {
           />
           <div
             id="content"
-            className="flex-shrink-0 sm:w-3/4 w-full mx-0 sm:mx-auto sm:pr-0 pr-8 font-quicksand text-gray-300 z-10"
+            className="relative flex-shrink-0 sm:w-3/4 w-full mx-0 sm:mx-auto sm:pr-0 pr-8 font-quicksand text-gray-300 z-10"
           >
             <HeroSection
               ref={heroRef}
