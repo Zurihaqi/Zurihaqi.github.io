@@ -322,7 +322,8 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
               slidesPerView={1}
               spaceBetween={30}
               pagination={true}
-              loop={true}
+              // loop={true}
+              cssMode={true}
               modules={[Pagination]}
             >
               {selectedProject.images?.map((image, index) => (

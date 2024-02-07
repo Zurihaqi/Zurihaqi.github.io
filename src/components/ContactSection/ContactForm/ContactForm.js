@@ -149,13 +149,14 @@ const ContactForm = () => {
             </button>
           </div>
           <Turnstile
+            className="mx-auto"
             siteKey="0x4AAAAAAAPqkrWzipSjYJLa"
             onSuccess={() => {
               setIsChallengeSolved(true);
             }}
             options={{
               theme: "light",
-              size: "invisible",
+              size: "compact",
             }}
           />
         </div>
