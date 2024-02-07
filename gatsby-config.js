@@ -4,11 +4,21 @@
 module.exports = {
   siteMetadata: {
     title: `zurihaqi.github.io`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://zurihaqi.github.io/`,
   },
   plugins: [
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: `${__dirname}/src/images/`,
+      },
+    },
   ],
 };

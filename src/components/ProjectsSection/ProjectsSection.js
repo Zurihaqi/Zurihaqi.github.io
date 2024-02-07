@@ -1,14 +1,19 @@
 import React from "react";
 import Card from "./Card/Card";
 import Modal from "./Modal/Modal";
-import sample_img from "../../images/sample_img.png";
 import "./ProjectSection.css";
+
+import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.min.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import {
+  faX,
+  faArrowUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -22,54 +27,139 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
   const [showModal, setShowModal] = React.useState(false);
   const [selectedProject, setSelectedProject] = React.useState({});
 
+  const data = useStaticQuery(graphql`
+    query {
+      allFile(
+        filter: {
+          sourceInstanceName: { eq: "images" }
+          absolutePath: {
+            regex: "/projects_images/(secondHand|secondHand_api|SentimenAnalisisIGUbhara|SPKPeminatanInformatika|YelpCamp|AplikasiPemancingan)/"
+          }
+        }
+      ) {
+        nodes {
+          relativePath
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+      }
+    }
+  `);
+
   React.useEffect(() => {
     const cardData = {
       project1: {
-        image: sample_img,
-        img_alt: "project_1_img",
-        title: "Project 1",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        images: [],
+        img_alt: [],
+        title: "SecondHand",
+        description: `This platform is a place to buy and sell goods online, especially used goods. This platform opens and provides various types of categories of needs. 
+          Users who register themselves on this application can act as sellers and buyers by using the same 1 (one) account.
+          account. This platform will bring together sellers and buyers to be able to negotiate goods and make transactions directly outside the platform.
+          platform.`,
         category: "WebApp",
-        tech: ["Tech1", "Tech2", "Tech3"],
+        tech: ["React", "Bootstrap", "Axios", "jQuery"],
+        repo: "https://github.com/Zurihaqi/second-hand",
       },
       project2: {
-        image: sample_img,
-        img_alt: "project_2_img",
-        title: "Project 2",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        images: [],
+        img_alt: [],
+        title: "SecondHand API",
+        description: "The API used for SecondHand platform.",
         category: "WebApp",
-        tech: ["Tech1", "Tech2", "Tech3"],
+        tech: ["ExpressJs", "PostgreSQL", "Sequelize", "Passport.js", "JWT"],
+        repo: "https://github.com/Zurihaqi/capstone-binar-secondhand",
       },
       project3: {
-        image: sample_img,
-        img_alt: "project_3_img",
-        title: "Project 3",
+        images: [],
+        img_alt: [],
+        title: "Sentiment Analysis @ubhara_jaya",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        category: "WebApp",
-        tech: ["Tech1", "Tech2", "Tech3"],
+          "Sentiment analysis is the process of analyzing digital text to determine if the emotional tone of the message is positive, negative, or neutral. In this case, the Data was taken from comments on the Instagram account posts of Universitas Bhayangkara Jakarta using web scraping. The comment period ranges from January 2021 to December 2022.",
+        category: "NLP",
+        tech: ["Numpy", "Pandas", "NLTK", "Sastrawi"],
+        repo: "https://colab.research.google.com/drive/16fiKZw49eoZLaWgruQ_B9_0rEc5QB7PQ?usp=sharing",
       },
       project4: {
-        image: sample_img,
-        img_alt: "project_4_img",
-        title: "Project 4",
+        images: [],
+        img_alt: [],
+        title: "SPK Peminatan Informatika",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        category: "NLP",
-        tech: ["Tech1", "Tech2", "Tech3"],
+          "The purpose of this web-based system is to assess the suitability of the concentration selection of students of the informatics study program at Bhayangkara University with their interests and talents. This system is designed based on web with Express framework and Node.js for the backend, while the frontend uses Vue.js.",
+        category: "WebApp",
+        tech: [
+          "VueJs",
+          "Bootstrap",
+          "Axios",
+          "ExpressJs",
+          "Sequelize",
+          "PostgreSQL",
+        ],
+        repo: "https://github.com/Zurihaqi/spk-informatika-frontend-skripsi",
+        live: "https://spk-informatika.vercel.app/",
       },
       project5: {
-        image: sample_img,
-        img_alt: "project_5_img",
-        title: "Project 5",
+        images: [],
+        img_alt: [],
+        title: "YelpCamp",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        category: "Uncategorized",
-        tech: ["Tech1", "Tech2", "Tech3"],
+          "YelpCamp is a website where users can create and review campgrounds. In order to review or create a campground, you must have an account. This project was part of Colt Steele's web dev course on udemy. This project was created using Node.js, Express, MongoDB, and Bootstrap. Passport.js was used to handle authentication.",
+        category: "WebApp",
+        tech: ["ExpressJs", "EJS", "MongoDB", "Bootstrap", "Passport.js"],
+        repo: "https://github.com/Zurihaqi/yelpcamp",
+        live: "https://yelpcamp-iota.vercel.app/",
+      },
+      project6: {
+        images: [],
+        img_alt: [],
+        title: "Aplikasi Pemancingan",
+        description:
+          "This was a project made for a friend. This website was created to make it easier for anglers to find complete information about fishing in Bekasi Regency, and can also make it easier for fishing parties to disseminate information in fishing or become a fishing promotion media.",
+        category: "WebApp",
+        tech: ["Laravel", "Eloquent", "MySQL", "Bootstrap"],
+        repo: "https://github.com/Zurihaqi/pemancingan",
+        live: "https://pemancingan.vercel.app/",
       },
     };
+
+    data.allFile.nodes.forEach((node) => {
+      const imagePath = node.relativePath;
+      if (imagePath.startsWith("projects_images/secondHand/")) {
+        cardData.project1.images.push(node.childImageSharp.gatsbyImageData);
+        cardData.project1.img_alt.push(
+          `SecondHand_Image ${cardData.project1.images.length}`
+        );
+      } else if (imagePath.startsWith("projects_images/secondHand_api/")) {
+        cardData.project2.images.push(node.childImageSharp.gatsbyImageData);
+        cardData.project2.img_alt.push(
+          `SecondHandAPI_Image ${cardData.project2.images.length}`
+        );
+      } else if (
+        imagePath.startsWith("projects_images/SentimenAnalisisIGUbhara/")
+      ) {
+        cardData.project3.images.push(node.childImageSharp.gatsbyImageData);
+        cardData.project3.img_alt.push(
+          `SentimentAnalysis_Image ${cardData.project3.images.length}`
+        );
+      } else if (
+        imagePath.startsWith("projects_images/SPKPeminatanInformatika/")
+      ) {
+        cardData.project4.images.push(node.childImageSharp.gatsbyImageData);
+        cardData.project4.img_alt.push(
+          `SPKPeminatanInformatika_Image ${cardData.project4.images.length}`
+        );
+      } else if (imagePath.startsWith("projects_images/YelpCamp/")) {
+        cardData.project5.images.push(node.childImageSharp.gatsbyImageData);
+        cardData.project5.img_alt.push(
+          `YelpCamp_Image ${cardData.project5.images.length}`
+        );
+      } else if (imagePath.startsWith("projects_images/AplikasiPemancingan/")) {
+        cardData.project6.images.push(node.childImageSharp.gatsbyImageData);
+        cardData.project6.img_alt.push(
+          `AplikasiPemancingan_Image ${cardData.project6.images.length}`
+        );
+      }
+    });
 
     if (selectedCategory === "All") {
       setFilteredCardData(Object.values(cardData));
@@ -81,7 +171,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
       );
     }
     setVisibleSlides(Math.min(3, filteredCardData.length));
-  }, [selectedCategory, filteredCardData.length]);
+  }, [selectedCategory, filteredCardData.length, data]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -152,11 +242,15 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
       <div className="container my-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {filteredCardData.slice(0, visibleSlides).map((project, index) => (
-            <AnimationOnScroll animateIn="animate__fadeIn" delay={index * 50}>
+            <AnimationOnScroll
+              animateIn="animate__fadeIn"
+              delay={index * 50}
+              key={index}
+            >
               <div key={index}>
                 <Card
-                  image={project.image}
-                  img_alt={project.img_alt}
+                  image={project.images[0]}
+                  img_alt={project.img_alt[0]}
                   title={project.title}
                   description={project.description}
                   category={project.category}
@@ -187,7 +281,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
 
       {/* Modal */}
       <Modal showModal={showModal} closeModal={closeModal}>
-        <div className="relative bg-slate-600 text-white rounded-lg shadow">
+        <div className="relative bg-gray-700 text-white rounded-lg shadow">
           {/* Modal Header */}
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
             <h3 className="text-xl font-semibold">{selectedProject.title}</h3>
@@ -226,27 +320,16 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
               loop={true}
               modules={[Pagination]}
             >
-              <SwiperSlide>
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.img_alt}
-                  className="rounded-lg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.img_alt}
-                  className="rounded-lg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.img_alt}
-                  className="rounded-lg"
-                />
-              </SwiperSlide>
+              {selectedProject.images?.map((image, index) => (
+                <SwiperSlide key={index} className="text-center">
+                  <GatsbyImage
+                    image={getImage(image)}
+                    alt={selectedProject.img_alt[index]}
+                    className="rounded-lg"
+                    style={{ maxWidth: 300 }}
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
 
@@ -258,19 +341,48 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
             >
               {selectedProject.description}
             </p>
-            <p>
-              Tech Used:{" "}
+            <p>Tech Used:</p>
+            <div className="flex flex-row overflow-y-auto no-scrollbar">
               {selectedProject.tech?.map((item, index) => {
                 return (
-                  <span
+                  <p
                     key={index}
-                    className="mx-1 bg-slate-500 rounded-xl p-2 sm:text-sm text-xs"
+                    className="mx-1 bg-slate-500 rounded-xl p-2 sm:text-sm text-xs w-fit"
                   >
                     {item}
-                  </span>
+                  </p>
                 );
               })}
-            </p>
+            </div>
+            <div className="grid grid-flow-col justify-items-center">
+              <a href={selectedProject.repo} target="_blank" rel="noreferrer">
+                <button
+                  className=" disabled:bg-gray-500 bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                  disabled={selectedProject.repo ? false : true}
+                >
+                  {selectedProject.category === "NLP"
+                    ? "Google Colab"
+                    : "Git Repo"}{" "}
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                </button>
+              </a>
+              <a
+                href={selectedProject.live}
+                target="_blank"
+                rel="noreferrer"
+                className={`${
+                  selectedProject.category === "NLP" ? "hidden" : "block"
+                }`}
+              >
+                <button
+                  className="
+                disabled:bg-gray-500 bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                  disabled={selectedProject.live ? false : true}
+                >
+                  Live Site <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                </button>
+              </a>
+            </div>
           </div>
         </div>
       </Modal>

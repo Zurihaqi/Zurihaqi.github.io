@@ -2,11 +2,22 @@
 
 .modal-scrollbar::-webkit-scrollbar {
   width: 10px;
-  background: #374151;
+  background: #626874;
   border-radius: 5px;
 }
 
 .modal-scrollbar::-webkit-scrollbar-thumb {
   background: gray;
   border-radius: 5px;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

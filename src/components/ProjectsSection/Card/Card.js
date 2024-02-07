@@ -1,4 +1,5 @@
 import * as React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Card = ({ image, img_alt, title, description, category, onClick }) => {
   const maxLength = 20;
@@ -9,11 +10,14 @@ const Card = ({ image, img_alt, title, description, category, onClick }) => {
       : description;
 
   return (
-    <div className="max-w-sm rounded-lg shadow-lg bg-slate-600 p-2 bg-opacity-50">
+    <div
+      className="max-w-sm rounded-lg shadow-lg bg-slate-600 p-2 bg-opacity-50"
+      style={{ minHeight: 320 }}
+    >
       <div className="group relative flex justify-center">
-        <img
+        <GatsbyImage
           className="rounded-lg object-contain group-hover:brightness-50 transition-all duration-300"
-          src={image}
+          image={getImage(image)}
           alt={img_alt}
         />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -27,7 +31,7 @@ const Card = ({ image, img_alt, title, description, category, onClick }) => {
         </div>
       </div>
       <div className="mx-5">
-        <div className="flex justify-start">
+        <div className="flex justify-start gap-2">
           <div>
             <h5 className="mt-2 text-2xl font-bold tracking-tight ">{title}</h5>
           </div>
@@ -36,7 +40,7 @@ const Card = ({ image, img_alt, title, description, category, onClick }) => {
               style={{
                 height: "25px",
               }}
-              className={`w-fit text-center mx-4 mt-3 p-1 rounded-full border ${
+              className={`w-fit text-center mt-3 p-1 rounded-full border ${
                 category === "WebApp" ? "border-blue-400 text-blue-500" : ""
               } ${
                 category === "NLP" ? "border-purple-400 text-purple-400" : ""

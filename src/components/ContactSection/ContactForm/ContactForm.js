@@ -17,6 +17,7 @@ const ContactForm = () => {
   const [success, setSuccess] = useState(false);
   const [alertVisible, setAlertVisible] = useState(true);
   const [isSending, setIsSending] = useState(false);
+  const [isChallengeSolved, setIsChallengeSolved] = useState(false);
 
   const closeAlert = () => {
     setAlertVisible(false);
@@ -30,7 +31,17 @@ const ContactForm = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
+
     setIsSending(true);
+
+    if (!isChallengeSolved) {
+      setError(
+        "Please solve the CloudFlare challenge before submitting the form."
+      );
+      setAlertVisible(true);
+      setIsSending(false);
+      return;
+    }
 
     fetch("https://formcarry.com/s/jM9qENiXIga", {
       method: "POST",
@@ -139,6 +150,9 @@ const ContactForm = () => {
           </div>
           <Turnstile
             siteKey="0x4AAAAAAAPqkrWzipSjYJLa"
+            onSuccess={() => {
+              setIsChallengeSolved(true);
+            }}
             options={{
               theme: "light",
               size: "invisible",

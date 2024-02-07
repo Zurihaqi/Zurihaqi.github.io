@@ -47,7 +47,7 @@ const Modal = ({ showModal, closeModal, children }) => {
   return (
     <div
       ref={outerRef}
-      className={`z-50 animate__animated ${
+      className={`z-50 animate__animated rounded-lg ${
         showModal ? "animate__fadeIn" : "animate__fadeOut"
       } flex items-center justify-center fixed top-0 left-0 w-full h-full backdrop-blur-sm`}
     >

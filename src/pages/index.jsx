@@ -27,6 +27,11 @@ export default function IndexPage() {
     // Hide scrollbar during initialization
     document.body.style.overflow = "hidden";
 
+    // Scroll to top when reload
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+
     const initializeParticles = async () => {
       setInitStage(1);
       await initParticlesEngine(async (engine) => {
