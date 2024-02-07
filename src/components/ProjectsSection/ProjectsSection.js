@@ -286,7 +286,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
 
       {/* Modal */}
       <Modal showModal={showModal} closeModal={closeModal}>
-        <div className="relative bg-gray-700 text-white rounded-lg shadow">
+        <div className="relative bg-gray-700 text-white rounded-lg">
           {/* Modal Header */}
           <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
             <h3 className="text-xl font-semibold">{selectedProject.title}</h3>
@@ -322,8 +322,8 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
               slidesPerView={1}
               spaceBetween={30}
               pagination={true}
-              // loop={true}
-              cssMode={true}
+              loop={true}
+              // cssMode={true}
               modules={[Pagination]}
             >
               {selectedProject.images?.map((image, index) => (

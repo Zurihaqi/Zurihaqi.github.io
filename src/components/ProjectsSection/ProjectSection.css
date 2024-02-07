@@ -21,3 +21,8 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Supposedly able to improve swiper performance */
+.swiper-container {
+  transform: none;
+}
