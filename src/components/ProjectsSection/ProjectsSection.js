@@ -40,7 +40,12 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         nodes {
           relativePath
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED)
+            gatsbyImageData(
+              placeholder: BLURRED
+              layout: CONSTRAINED
+              width: 500
+              quality: 90
+            )
           }
         }
       }
