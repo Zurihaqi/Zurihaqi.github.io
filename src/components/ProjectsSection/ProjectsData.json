@@ -4,7 +4,7 @@
     "thumbnail": [],
     "img_alt": [],
     "title": "SecondHand",
-    "description": "This platform is a place to buy and sell goods online, especially used goods. This platform opens and provides various types of categories of needs. Users who register themselves on this application can act as sellers and buyers by using the same 1 (one) account. account. This platform will bring together sellers and buyers to be able to negotiate goods and make transactions directly outside the platform. platform.",
+    "description": "This platform is a place to buy and sell goods online, especially used goods. This platform opens and provides various types of categories of needs. Users who register themselves on this application can act as sellers and buyers by using the same 1 (one) account. account. This platform will bring together sellers and buyers to be able to negotiate goods and make transactions directly outside the platform.",
     "category": "WebApp",
     "tech": ["React", "Bootstrap", "Axios", "jQuery"],
     "repo": "https://github.com/Zurihaqi/second-hand"
@@ -74,7 +74,7 @@
     "thumbnail": [],
     "img_alt": [],
     "title": "Personal Website",
-    "description": "My first personal wesbite.",
+    "description": "My first personal website.",
     "category": "WebApp",
     "tech": ["Gatsby", "React", "Tailwind"],
     "repo": "https://github.com/Zurihaqi/Zurihaqi.github.io",
