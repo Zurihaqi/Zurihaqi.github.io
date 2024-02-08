@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card/Card";
 import Modal from "./Modal/Modal";
 import "./ProjectSection.css";
+import JsonData from "./ProjectsData.json";
 
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -33,7 +34,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         filter: {
           sourceInstanceName: { eq: "images" }
           absolutePath: {
-            regex: "/projects_images/(secondHand|secondHand_api|SentimenAnalisisIGUbhara|SPKPeminatanInformatika|YelpCamp|AplikasiPemancingan)/"
+            regex: "/projects_images/(secondHand|secondHand_api|SentimenAnalisisIGUbhara|SPKPeminatanInformatika|YelpCamp|AplikasiPemancingan|PersonalWebsite)/"
           }
         }
       ) {
@@ -53,116 +54,49 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
   `);
 
   React.useEffect(() => {
-    const cardData = {
-      project1: {
-        images: [],
-        img_alt: [],
-        title: "SecondHand",
-        description: `This platform is a place to buy and sell goods online, especially used goods. This platform opens and provides various types of categories of needs. 
-          Users who register themselves on this application can act as sellers and buyers by using the same 1 (one) account.
-          account. This platform will bring together sellers and buyers to be able to negotiate goods and make transactions directly outside the platform.
-          platform.`,
-        category: "WebApp",
-        tech: ["React", "Bootstrap", "Axios", "jQuery"],
-        repo: "https://github.com/Zurihaqi/second-hand",
-      },
-      project2: {
-        images: [],
-        img_alt: [],
-        title: "SecondHand API",
-        description: "The API used for SecondHand platform.",
-        category: "WebApp",
-        tech: ["ExpressJs", "PostgreSQL", "Sequelize", "Passport.js", "JWT"],
-        repo: "https://github.com/Zurihaqi/capstone-binar-secondhand",
-      },
-      project3: {
-        images: [],
-        img_alt: [],
-        title: "Sentiment Analysis @ubhara_jaya",
-        description:
-          "Sentiment analysis is the process of analyzing digital text to determine if the emotional tone of the message is positive, negative, or neutral. In this case, the Data was taken from comments on the Instagram account posts of Universitas Bhayangkara Jakarta using web scraping. The comment period ranges from January 2021 to December 2022.",
-        category: "NLP",
-        tech: ["Numpy", "Pandas", "NLTK", "Sastrawi"],
-        repo: "https://colab.research.google.com/drive/16fiKZw49eoZLaWgruQ_B9_0rEc5QB7PQ?usp=sharing",
-      },
-      project4: {
-        images: [],
-        img_alt: [],
-        title: "SPK Peminatan Informatika",
-        description:
-          "The purpose of this web-based system is to assess the suitability of the concentration selection of students of the informatics study program at Bhayangkara University with their interests and talents. This system is designed based on web with Express framework and Node.js for the backend, while the frontend uses Vue.js.",
-        category: "WebApp",
-        tech: [
-          "VueJs",
-          "Bootstrap",
-          "Axios",
-          "ExpressJs",
-          "Sequelize",
-          "PostgreSQL",
-        ],
-        repo: "https://github.com/Zurihaqi/spk-informatika-frontend-skripsi",
-        live: "https://spk-informatika.vercel.app/",
-      },
-      project5: {
-        images: [],
-        img_alt: [],
-        title: "YelpCamp",
-        description:
-          "YelpCamp is a website where users can create and review campgrounds. In order to review or create a campground, you must have an account. This project was part of Colt Steele's web dev course on udemy. This project was created using Node.js, Express, MongoDB, and Bootstrap. Passport.js was used to handle authentication.",
-        category: "WebApp",
-        tech: ["ExpressJs", "EJS", "MongoDB", "Bootstrap", "Passport.js"],
-        repo: "https://github.com/Zurihaqi/yelpcamp",
-        live: "https://yelpcamp-iota.vercel.app/",
-      },
-      project6: {
-        images: [],
-        img_alt: [],
-        title: "Aplikasi Pemancingan",
-        description:
-          "This was a project made for a friend. This website was created to make it easier for anglers to find complete information about fishing in Bekasi Regency, and can also make it easier for fishing parties to disseminate information in fishing or become a fishing promotion media.",
-        category: "WebApp",
-        tech: ["Laravel", "Eloquent", "MySQL", "Bootstrap"],
-        repo: "https://github.com/Zurihaqi/pemancingan",
-        live: "https://pemancingan.vercel.app/",
-      },
-    };
+    const cardData = JsonData;
 
     data.allFile.nodes.forEach((node) => {
       const imagePath = node.relativePath;
-      if (imagePath.startsWith("projects_images/secondHand/")) {
-        cardData.project1.images.push(node.childImageSharp.gatsbyImageData);
-        cardData.project1.img_alt.push(
-          `SecondHand_Image ${cardData.project1.images.length}`
+      let projectData;
+
+      switch (true) {
+        case imagePath.startsWith("projects_images/secondHand/"):
+          projectData = cardData.project1;
+          break;
+        case imagePath.startsWith("projects_images/secondHand_api/"):
+          projectData = cardData.project2;
+          break;
+        case imagePath.startsWith("projects_images/SentimenAnalisisIGUbhara/"):
+          projectData = cardData.project3;
+          break;
+        case imagePath.startsWith("projects_images/SPKPeminatanInformatika/"):
+          projectData = cardData.project4;
+          break;
+        case imagePath.startsWith("projects_images/YelpCamp/"):
+          projectData = cardData.project5;
+          break;
+        case imagePath.startsWith("projects_images/AplikasiPemancingan/"):
+          projectData = cardData.project6;
+          break;
+        case imagePath.startsWith("projects_images/PersonalWebsite/"):
+          projectData = cardData.project7;
+          break;
+        default:
+          return;
+      }
+
+      // Ensure the same image doesnt get imported more than once
+      if (!projectData.images.includes(node.childImageSharp.gatsbyImageData)) {
+        projectData.images.push(node.childImageSharp.gatsbyImageData);
+        projectData.img_alt.push(
+          `${projectData.name}_Image_${projectData.images.length}`
         );
-      } else if (imagePath.startsWith("projects_images/secondHand_api/")) {
-        cardData.project2.images.push(node.childImageSharp.gatsbyImageData);
-        cardData.project2.img_alt.push(
-          `SecondHandAPI_Image ${cardData.project2.images.length}`
-        );
-      } else if (
-        imagePath.startsWith("projects_images/SentimenAnalisisIGUbhara/")
-      ) {
-        cardData.project3.images.push(node.childImageSharp.gatsbyImageData);
-        cardData.project3.img_alt.push(
-          `SentimentAnalysis_Image ${cardData.project3.images.length}`
-        );
-      } else if (
-        imagePath.startsWith("projects_images/SPKPeminatanInformatika/")
-      ) {
-        cardData.project4.images.push(node.childImageSharp.gatsbyImageData);
-        cardData.project4.img_alt.push(
-          `SPKPeminatanInformatika_Image ${cardData.project4.images.length}`
-        );
-      } else if (imagePath.startsWith("projects_images/YelpCamp/")) {
-        cardData.project5.images.push(node.childImageSharp.gatsbyImageData);
-        cardData.project5.img_alt.push(
-          `YelpCamp_Image ${cardData.project5.images.length}`
-        );
-      } else if (imagePath.startsWith("projects_images/AplikasiPemancingan/")) {
-        cardData.project6.images.push(node.childImageSharp.gatsbyImageData);
-        cardData.project6.img_alt.push(
-          `AplikasiPemancingan_Image ${cardData.project6.images.length}`
-        );
+      }
+
+      // Separate thumbnail images
+      if (imagePath.includes("thumbnail")) {
+        projectData.thumbnail = node.childImageSharp.gatsbyImageData;
       }
     });
 
@@ -187,7 +121,9 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
   };
 
   const handleLoadLessClick = () => {
-    setVisibleSlides(3);
+    setVisibleSlides((prevVisibleSlides) =>
+      prevVisibleSlides > 3 ? prevVisibleSlides - 3 : setVisibleSlides(3)
+    );
   };
 
   const handleViewDetailsClick = (project) => {
@@ -254,8 +190,8 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
             >
               <div key={index}>
                 <Card
-                  image={project.images[0]}
-                  img_alt={project.img_alt[0]}
+                  image={project.thumbnail}
+                  img_alt={project.title + "_thumbnail"}
                   title={project.title}
                   description={project.description}
                   category={project.category}
@@ -266,14 +202,30 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           ))}
         </div>
         <div className="text-center mt-4">
-          {visibleSlides < filteredCardData.length ? (
+          {/* The logic here is a bit of work, lol */}
+          {visibleSlides <= 3 && filteredCardData.length > visibleSlides ? (
             <button
               className="bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
               onClick={handleLoadMoreClick}
             >
               Load More
             </button>
-          ) : visibleSlides !== filteredCardData.length ? (
+          ) : visibleSlides > 3 && visibleSlides < filteredCardData.length ? (
+            <div className="space-x-2">
+              <button
+                className="bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                onClick={handleLoadMoreClick}
+              >
+                Load More
+              </button>
+              <button
+                className="bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                onClick={handleLoadLessClick}
+              >
+                Load Less
+              </button>
+            </div>
+          ) : visibleSlides > filteredCardData.length ? (
             <button
               className="bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
               onClick={handleLoadLessClick}
@@ -332,7 +284,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
                     image={getImage(image)}
                     alt={selectedProject.img_alt[index]}
                     className="rounded-lg"
-                    style={{ maxWidth: 300 }}
+                    style={{ maxWidth: 400 }}
                   />
                 </SwiperSlide>
               ))}
