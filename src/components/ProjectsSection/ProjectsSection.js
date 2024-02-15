@@ -34,7 +34,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         filter: {
           sourceInstanceName: { eq: "images" }
           absolutePath: {
-            regex: "/projects_images/(secondHand|secondHand_api|SentimenAnalisisIGUbhara|SPKPeminatanInformatika|YelpCamp|AplikasiPemancingan|PersonalWebsite)/"
+            regex: "/projects_images/(secondHand|secondHand_api|KedaiMieAyam|SentimenAnalisisIGUbhara|SPKPeminatanInformatika|YelpCamp|AplikasiPemancingan|PersonalWebsite)/"
           }
         }
       ) {
@@ -67,20 +67,23 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         case imagePath.startsWith("projects_images/secondHand_api/"):
           projectData = cardData.project2;
           break;
-        case imagePath.startsWith("projects_images/SentimenAnalisisIGUbhara/"):
+        case imagePath.startsWith("projects_images/KedaiMieAyam/"):
           projectData = cardData.project3;
           break;
-        case imagePath.startsWith("projects_images/SPKPeminatanInformatika/"):
+        case imagePath.startsWith("projects_images/SentimenAnalisisIGUbhara/"):
           projectData = cardData.project4;
           break;
-        case imagePath.startsWith("projects_images/YelpCamp/"):
+        case imagePath.startsWith("projects_images/SPKPeminatanInformatika/"):
           projectData = cardData.project5;
           break;
-        case imagePath.startsWith("projects_images/AplikasiPemancingan/"):
+        case imagePath.startsWith("projects_images/YelpCamp/"):
           projectData = cardData.project6;
           break;
-        case imagePath.startsWith("projects_images/PersonalWebsite/"):
+        case imagePath.startsWith("projects_images/AplikasiPemancingan/"):
           projectData = cardData.project7;
+          break;
+        case imagePath.startsWith("projects_images/PersonalWebsite/"):
+          projectData = cardData.project8;
           break;
         default:
           return;

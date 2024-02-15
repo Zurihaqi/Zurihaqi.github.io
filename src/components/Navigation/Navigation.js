@@ -85,7 +85,7 @@ export default function Navigation({
       <aside id="navigation" aria-label="navigation">
         <nav
           ref={navRef}
-          className={`bg-zinc-700 h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 w-64 transition-all duration-300 text-gray-300 ${
+          className={`bg-zinc-600 h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 w-64 transition-all duration-300 text-gray-300 ${
             sidebarVisible ? "ml-0" : "-ml-64"
           } lg:ml-0 font-quicksand tracking-wide`}
         >

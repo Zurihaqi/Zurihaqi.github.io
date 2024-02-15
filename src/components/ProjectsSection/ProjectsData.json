@@ -23,13 +23,24 @@
     "images": [],
     "thumbnail": [],
     "img_alt": [],
+    "title": "Kedai Mie Ayam",
+    "description": "This was my first attempt to create a project in TypeScript. This website is my own version of Colt Steele's YelpCamp, where users can post kedai and review others' kedai. The website was built using Next.js for the front-end and back-end, NextAuth for the authentication system, and MySQL for the database.",
+    "category": "WebApp",
+    "tech": ["NextJs", "NextAuth", "MySQL", "JWT"],
+    "repo": "https://github.com/Zurihaqi/kedai-mie-ayam",
+    "live": "https://kedai-mie-ayam.vercel.app/"
+  },
+  "project4": {
+    "images": [],
+    "thumbnail": [],
+    "img_alt": [],
     "title": "Sentiment Analysis @ubhara_jaya",
     "description": "Sentiment analysis is the process of analyzing digital text to determine if the emotional tone of the message is positive, negative, or neutral. In this case, the Data was taken from comments on the Instagram account posts of Universitas Bhayangkara Jakarta Raya using web scraping. The comment period ranges from January 2021 to December 2022.",
     "category": "NLP",
     "tech": ["Numpy", "Pandas", "NLTK", "Sastrawi"],
     "repo": "https://colab.research.google.com/drive/16fiKZw49eoZLaWgruQ_B9_0rEc5QB7PQ?usp=sharing"
   },
-  "project4": {
+  "project5": {
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -47,7 +58,7 @@
     "repo": "https://github.com/Zurihaqi/spk-informatika-frontend-skripsi",
     "live": "https://spk-informatika.vercel.app/"
   },
-  "project5": {
+  "project6": {
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -58,7 +69,7 @@
     "repo": "https://github.com/Zurihaqi/yelpcamp",
     "live": "https://yelpcamp-iota.vercel.app/"
   },
-  "project6": {
+  "project7": {
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -69,7 +80,7 @@
     "repo": "https://github.com/Zurihaqi/pemancingan",
     "live": "https://pemancingan.vercel.app/"
   },
-  "project7": {
+  "project8": {
     "images": [],
     "thumbnail": [],
     "img_alt": [],
