@@ -26,7 +26,7 @@
     "title": "Kedai Mie Ayam",
     "description": "This was my first attempt to create a project in TypeScript. This website is my own version of Colt Steele's YelpCamp, where users can post kedai and review others' kedai. The website was built using Next.js for the front-end and back-end, NextAuth for the authentication system, and MySQL for the database.",
     "category": "WebApp",
-    "tech": ["NextJs", "NextAuth", "MySQL", "JWT"],
+    "tech": ["NextJs", "NextAuth", "PrismaORM", "MySQL", "JWT"],
     "repo": "https://github.com/Zurihaqi/kedai-mie-ayam",
     "live": "https://kedai-mie-ayam.vercel.app/"
   },
@@ -87,7 +87,7 @@
     "title": "Personal Website",
     "description": "My first personal website.",
     "category": "WebApp",
-    "tech": ["Gatsby", "React", "Tailwind"],
+    "tech": ["Gatsby", "React", "Tailwind", "GraphQL"],
     "repo": "https://github.com/Zurihaqi/Zurihaqi.github.io",
     "live": "https://zurihaqi.github.io/"
   }
