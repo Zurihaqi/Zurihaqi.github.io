@@ -24,9 +24,9 @@
     "thumbnail": [],
     "img_alt": [],
     "title": "Kedai Mie Ayam",
-    "description": "This was my first attempt to create a project in TypeScript. This website is my own version of Colt Steele's YelpCamp, where users can post kedai and review others' kedai. The website was built using Next.js for the front-end and back-end, NextAuth for the authentication system, and MySQL for the database.",
+    "description": "This was my first attempt to create a project in TypeScript. This website is my own version of Colt Steele's YelpCamp, where users can post kedai and review others' kedai. The website was built using Next.js and Tailwind for the front-end and back-end, NextAuth for the authentication system, and MySQL for the database.",
     "category": "WebApp",
-    "tech": ["NextJs", "NextAuth", "PrismaORM", "MySQL", "JWT"],
+    "tech": ["NextJs", "Tailwind", "NextAuth", "PrismaORM", "MySQL", "JWT"],
     "repo": "https://github.com/Zurihaqi/kedai-mie-ayam",
     "live": "https://kedai-mie-ayam.vercel.app/"
   },
