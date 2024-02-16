@@ -28,11 +28,7 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
       className="container h-screen flex items-center justify-center"
     >
       <div className="flex-shrink grid-cols-3 gap-2">
-        <AnimationOnScroll
-          animateIn="animate__fadeInUp"
-          animateOnce
-          offset={20}
-        >
+        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
           <div className="text-start">
             <p className="text-xl">
               Hello
