@@ -11,7 +11,7 @@ const Card = ({ image, img_alt, title, description, category, onClick }) => {
 
   return (
     <div
-      className="max-w-sm rounded-lg shadow-lg bg-slate-600 p-2 bg-opacity-50"
+      className="max-w-sm rounded-lg shadow-lg bg-neutral-300 dark:bg-slate-600 p-2 bg-opacity-50"
       style={{ minHeight: 320 }}
     >
       <div className="group relative flex justify-center">
@@ -41,7 +41,7 @@ const Card = ({ image, img_alt, title, description, category, onClick }) => {
                 height: "25px",
               }}
               className={`w-fit text-center mt-3 p-1 rounded-full border ${
-                category === "WebApp" ? "border-blue-400 text-blue-500" : ""
+                category === "WebApp" ? "border-blue-400 text-blue-500 " : ""
               } ${
                 category === "NLP" ? "border-purple-400 text-purple-400" : ""
               } text-xs font-semibold`}
@@ -50,7 +50,7 @@ const Card = ({ image, img_alt, title, description, category, onClick }) => {
             </p>
           </div>
         </div>
-        <p className="mb-3 font-normal text-gray-300">
+        <p className="mb-3 font-normal text-black dark:text-gray-300">
           {truncatedDescription}
           <button
             className="text-blue-400 inline hover:underline hover:text-blue-500"

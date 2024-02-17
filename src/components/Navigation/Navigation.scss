@@ -1,6 +1,32 @@
-$hamburger-color: #d1d5db;
+$hamburger-color-light: black;
+$hamburger-color-dark: #d1d5db;
 
 @import "~delicious-hamburgers/scss/hamburgers";
+
+// I dont know a better way to do this lol
+.hamburger.active {
+  .bar {
+    background-color: $hamburger-color-light;
+  }
+}
+
+.dark .hamburger.active {
+  .bar {
+    background-color: $hamburger-color-dark;
+  }
+}
+
+.dark .hamburger {
+  .bar {
+    background-color: $hamburger-color-dark;
+  }
+}
+
+.hamburger {
+  .bar {
+    background-color: $hamburger-color-light;
+  }
+}
 
 // Animated underline
 .custom-nav-link {
@@ -9,6 +35,19 @@ $hamburger-color: #d1d5db;
 }
 
 .custom-nav-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: yellow;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.dark .custom-nav-link::after {
   content: "";
   position: absolute;
   width: 100%;

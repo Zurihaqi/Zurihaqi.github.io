@@ -144,10 +144,10 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         <span className="flex-shrink mx-4 sm:text-4xl text-3xl">
           Recent projects
         </span>
-        <div className="flex-grow border border-gray-400"></div>
+        <div className="flex-grow border border-neutral-300 dark:border-gray-400"></div>
       </div>
       <div className="my-4 flex justify-center">
-        <div className="container-fluid bg-slate-600 bg-opacity-50 p-2 rounded-full">
+        <div className="container-fluid bg-neutral-300 dark:bg-slate-600 bg-opacity-50 p-2 rounded-full">
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
               selectedCategory === "All"
@@ -241,9 +241,9 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
 
       {/* Modal */}
       <Modal showModal={showModal} closeModal={closeModal}>
-        <div className="relative bg-gray-700 text-white rounded-lg">
+        <div className="relative dark:bg-gray-700 dark:text-white bg-neutral-300 text-black rounded-lg">
           {/* Modal Header */}
-          <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+          <div className="flex items-center justify-between p-4 md:p-5 border-b dark:border-white border-black rounded-t">
             <h3 className="text-xl font-semibold">{selectedProject.title}</h3>
             <span
               style={{
@@ -308,7 +308,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
                 return (
                   <p
                     key={index}
-                    className="mx-1 bg-slate-500 rounded-xl p-2 sm:text-sm text-xs w-fit"
+                    className="mx-1 dark:bg-slate-500 bg-blue-500 text-white rounded-xl p-2 sm:text-sm text-xs w-fit"
                   >
                     {item}
                   </p>

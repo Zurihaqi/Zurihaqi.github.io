@@ -33,7 +33,7 @@ const Modal = ({ showModal, closeModal, children }) => {
       ref={outerRef}
       className={`z-50 rounded-lg ${
         showModal ? "" : "hidden"
-      } flex items-center justify-center fixed top-0 left-0 w-full h-full backdrop-blur-sm`}
+      } flex items-center justify-center fixed top-0 left-0 w-full h-full backdrop-brightness-50`}
     >
       <div ref={innerRef} className="sm:w-2/4 w-3/4">
         {children}

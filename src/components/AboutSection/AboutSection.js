@@ -15,7 +15,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
     <section ref={ref} id="about" className="container my-24">
       <div className="relative flex items-center">
         <span className="flex-shrink mx-4 sm:text-4xl text-3xl">What i do</span>
-        <div className="flex-grow border border-gray-400"></div>
+        <div className="flex-grow border border-neutral-300 dark:border-gray-400"></div>
       </div>
       <p className="px-10 mt-4 sm:text-xl text-lg text-justify">
         I have a strong interest in web development, focusing but not limited to
@@ -31,7 +31,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
         className="container px-10 mt-6 grid grid-cols-1 mx-auto"
         style={{ maxWidth: "500px" }}
       >
-        <div className="mb-8 bg-gray-600 bg-opacity-50 rounded-lg p-4">
+        <div className="mb-8 bg-neutral-300 dark:bg-gray-600 bg-opacity-50 rounded-lg p-4">
           <p className="font-semibold text-center mb-4 text-lg">
             Front-end Development
           </p>
@@ -79,7 +79,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
             </AnimationOnScroll>
           </div>
         </div>
-        <div className="mb-8 bg-gray-600 bg-opacity-50 rounded-lg p-4">
+        <div className="mb-8 bg-neutral-300 dark:bg-gray-600 bg-opacity-50 rounded-lg p-4">
           <p className="font-semibold text-center mb-4 text-lg">
             Back-end Development
           </p>

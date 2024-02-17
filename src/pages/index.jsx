@@ -7,6 +7,7 @@ import ProjectsSection from "../components/ProjectsSection/ProjectsSection";
 import ContactSection from "../components/ContactSection/ContactSection";
 import Footer from "../components/Footer/Footer";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import ThemeToggler from "../components/ThemeToggler/ThemeToggler";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -40,7 +41,7 @@ export default function IndexPage() {
       </Helmet>
 
       {/* Main Content */}
-      <div className="flex overflow-x-clip bg-zinc-800">
+      <div className="flex overflow-x-clip bg-white dark:bg-zinc-800">
         <Navigation
           heroRef={heroRef}
           aboutRef={aboutRef}
@@ -49,8 +50,9 @@ export default function IndexPage() {
         />
         <div
           id="content"
-          className="flex-shrink-0 sm:w-3/4 w-full mx-0 sm:mx-auto sm:pr-0 pr-8 font-quicksand text-gray-300 z-10"
+          className="flex-shrink-0 sm:w-3/4 w-full mx-0 sm:mx-auto sm:pr-0 pr-8 font-quicksand text-black dark:text-gray-300 z-10"
         >
+          <ThemeToggler />
           <HeroSection
             ref={heroRef}
             projectsRef={projectsRef}
