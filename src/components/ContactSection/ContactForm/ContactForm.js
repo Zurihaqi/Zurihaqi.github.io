@@ -140,7 +140,7 @@ const ContactForm = () => {
           <div className="sm:text-start text-center">
             <button
               type="submit"
-              className="mb-4 bg-blue-600 hover:bg-blue-700 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+              className="mb-4 dark:bg-blue-600 bg-blue-500 dark:hover:bg-blue-700 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
             >
               {isSending && (
                 <FontAwesomeIcon icon={faSpinner} className="rotate mr-2" />

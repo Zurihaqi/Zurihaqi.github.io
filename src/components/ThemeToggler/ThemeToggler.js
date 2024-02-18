@@ -22,7 +22,7 @@ const ThemeToggler = () => {
         rounded-full 
         p-1 
         bg-sky-500 
-        dark:bg-gray-600 
+        dark:bg-indigo-900 
         fixed
         top-0
         right-0
@@ -30,6 +30,7 @@ const ThemeToggler = () => {
         duration-500 
         ease-in
         m-2
+        shadow-lg
       "
       aria-label="theme_toggler"
     >
@@ -40,7 +41,7 @@ const ThemeToggler = () => {
             w-4 
             h-4 
             bg-white 
-            dark:bg-neutral-500 
+            dark:bg-gray-600 
             relative 
             ml-0 
             dark:ml-6 
@@ -53,12 +54,12 @@ const ThemeToggler = () => {
         {isDarkMode ? (
           <FontAwesomeIcon
             icon={faSun}
-            className="text-amber-300 text-xs mb-1.5 mx-auto"
+            className="text-amber-300 text-xs mb-1.5 mx-auto my-auto"
           />
         ) : (
           <FontAwesomeIcon
             icon={faMoon}
-            className="text-gray-300 text-xs mb-1.5 mx-auto"
+            className="text-gray-300 text-xs mb-1.5 mx-auto my-auto"
           />
         )}
       </div>
