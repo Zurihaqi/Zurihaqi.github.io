@@ -61,7 +61,7 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
           <div>
             <p className="text-start text-xl">
               A recent informatics graduate specializing in full-stack web
-              development, particularly in back-end development. Committed to
+              development, most interested in back-end development. Committed to
               continuous learning and eager to contribute skills to any teams.
             </p>
           </div>

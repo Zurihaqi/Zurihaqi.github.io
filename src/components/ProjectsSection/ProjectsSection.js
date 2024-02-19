@@ -318,7 +318,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
             <div className="grid grid-flow-col justify-items-center">
               <a href={selectedProject.repo} target="_blank" rel="noreferrer">
                 <button
-                  className=" disabled:bg-gray-500 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                  className=" disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
                   disabled={selectedProject.repo ? false : true}
                 >
                   {selectedProject.category === "NLP"
@@ -337,7 +337,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
               >
                 <button
                   className="
-                disabled:bg-gray-500 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
                   disabled={selectedProject.live ? false : true}
                 >
                   Live Site <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
