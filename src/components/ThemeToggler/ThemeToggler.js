@@ -49,6 +49,7 @@ const ThemeToggler = () => {
             transition-all 
             duration-300 
             ease-out
+            shadow-xl
         "
       >
         {isDarkMode ? (

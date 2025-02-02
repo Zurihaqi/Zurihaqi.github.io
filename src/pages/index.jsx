@@ -10,6 +10,7 @@ import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import ThemeToggler from "../components/ThemeToggler/ThemeToggler";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import SEO from "./SEO";
 
 export default function IndexPage() {
   const heroRef = useRef(null);
@@ -31,7 +32,6 @@ export default function IndexPage() {
           name="viewport"
           content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <title>Zul Fahri Baihaqi • Personal Website</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -39,6 +39,11 @@ export default function IndexPage() {
           rel="stylesheet"
         />
       </Helmet>
+      <SEO
+        title="Zul Fahri Baihaqi - Portfolio"
+        description="A portfolio website showcasing my projects, skills, and experience."
+        keywords="Zul Fahri Baihaqi, portfolio, web developer, projects, skills"
+      />
 
       {/* Main Content */}
       <div className="flex overflow-x-clip bg-white dark:bg-zinc-900">
