@@ -76,13 +76,13 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         >
           <div className="mt-6">
             <button
-              className="bg-transparent dark:hover:bg-violet-600 hover:bg-blue-400 font-semibold hover:text-white py-2 px-4 border dark:border-gray-500 border-blue-400 dark:text-gray-300 text-blue-400 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
+              className="bg-transparent dark:hover:border-transparent dark:hover:bg-violet-600 hover:bg-blue-400 font-semibold hover:text-white py-2 px-4 border dark:border-gray-500 border-blue-400 dark:text-gray-300 text-blue-400 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
               onClick={() => scrollToSection(projectsRef, 30)}
             >
               <FontAwesomeIcon icon={faArrowDown} /> My Works
             </button>
             <button
-              className="bg-transparent dark:hover:bg-violet-600 hover:bg-blue-400 dark:text-gray-300 text-blue-400 border-blue-400 font-semibold hover:text-white py-2 px-4 border dark:border-gray-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
+              className="bg-transparent dark:hover:border-transparent dark:hover:bg-violet-600 hover:bg-blue-400 dark:text-gray-300 text-blue-400 border-blue-400 font-semibold hover:text-white py-2 px-4 border dark:border-gray-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
               onClick={() => scrollToSection(contactRef, 30)}
             >
               <FontAwesomeIcon icon={faEnvelope} /> Hire Me

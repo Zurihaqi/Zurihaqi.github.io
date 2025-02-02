@@ -93,7 +93,7 @@ export default function Navigation({
             <img
               src={avatar}
               alt="avatar"
-              className="w-1/2 mx-auto rounded-full my-5 shadow-md border"
+              className="w-1/2 mx-auto rounded-full my-5 shadow-md"
             />
             <span>
               <h1 className="text-2xl font-playfair font-bold tracking-tighter">
