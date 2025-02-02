@@ -34,7 +34,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         filter: {
           sourceInstanceName: { eq: "images" }
           absolutePath: {
-            regex: "/projects_images/(secondHand|secondHand_api|KedaiMieAyam|SentimenAnalisisIGUbhara|SPKPeminatanInformatika|YelpCamp|AplikasiPemancingan|PersonalWebsite)/"
+            regex: "/projects_images/(secondHand|secondHand_api|KedaiMieAyam|SentimenAnalisisIGUbhara|SPKPeminatanInformatika|YelpCamp|AplikasiPemancingan|PersonalWebsite|KerjainAja)/"
           }
         }
       ) {
@@ -85,6 +85,9 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         case imagePath.startsWith("projects_images/PersonalWebsite/"):
           projectData = cardData.project8;
           break;
+        case imagePath.startsWith("projects_images/KerjainAja/"):
+          projectData = cardData.project0;
+          break;
         default:
           return;
       }
@@ -107,8 +110,8 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
       setFilteredCardData(Object.values(cardData));
     } else {
       setFilteredCardData(
-        Object.values(cardData).filter(
-          (project) => project.category === selectedCategory
+        Object.values(cardData).filter((project) =>
+          project.category.includes(selectedCategory)
         )
       );
     }
@@ -138,6 +141,15 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
     setShowModal(false);
   };
 
+  const colors = [
+    "border-blue-400 text-blue-500",
+    "border-purple-400 text-purple-400",
+    "border-green-400 text-green-500",
+    "border-red-400 text-red-500",
+    "border-yellow-400 text-yellow-500",
+    "border-pink-400 text-pink-500",
+  ];
+
   return (
     <section ref={ref} id="projects" className="container my-24">
       <div className="relative flex items-center">
@@ -147,7 +159,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         <div className="flex-grow border border-neutral-300 dark:border-gray-400"></div>
       </div>
       <div className="my-4 flex justify-center">
-        <div className="container-fluid bg-white shadow-lg dark:bg-zinc-800 bg-opacity-50 p-2 rounded-full">
+        <div className="flex flex-row container-fluid bg-white shadow-lg dark:bg-zinc-800 bg-opacity-50 p-2 rounded-full">
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
               selectedCategory === "All"
@@ -169,6 +181,17 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
             aria-label="btn-category-webapps"
           >
             Web Apps
+          </button>
+          <button
+            className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
+              selectedCategory === "Mobile App"
+                ? "dark:bg-violet-600 bg-blue-400 text-gray-200 hover:border-transparent"
+                : "dark:hover:bg-violet-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
+            }`}
+            onClick={() => handleCategoryClick("Mobile App")}
+            aria-label="btn-category-mobileapp"
+          >
+            Mobile Apps
           </button>
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
@@ -243,27 +266,22 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
       <Modal showModal={showModal} closeModal={closeModal}>
         <div className="relative dark:bg-zinc-800 dark:text-white bg-white text-black rounded-lg">
           {/* Modal Header */}
-          <div className="flex items-center justify-between p-4 md:p-5  rounded-t">
+          <div className="flex items-center justify-between p-4 md:p-5 gap-2 rounded-t">
             <h3 className="text-xl font-semibold">{selectedProject.title}</h3>
-            <span
-              style={{
-                height: "25px",
-              }}
-              className={`w-fit text-center mx-2 p-1 rounded-full border ${
-                selectedProject.category === "WebApp"
-                  ? "border-blue-400 text-blue-500"
-                  : ""
-              } ${
-                selectedProject.category === "NLP"
-                  ? "border-purple-400 text-purple-400"
-                  : ""
-              } text-xs font-semibold`}
-            >
-              {selectedProject.category}
-            </span>
+            {selectedProject?.category?.map((tag, index) => (
+              <span
+                key={index}
+                className={`w-fit text-center px-2 py-1 rounded-full border text-xs font-semibold ${
+                  colors[index % colors.length]
+                }`}
+                style={{ height: "25px" }}
+              >
+                {tag}
+              </span>
+            ))}
             <button
               type="button"
-              className="bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
+              className="bg-transparent hover:text-gray-500 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
               onClick={closeModal}
               aria-label="show-modal-btn"
             >
@@ -272,7 +290,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           </div>
 
           {/* SlideShow */}
-          <div className="p-2 sm:w-3/4 mx-auto rounded-lg">
+          <div className="p-2 mx-auto rounded-lg">
             <Swiper
               slidesPerView={1}
               spaceBetween={30}

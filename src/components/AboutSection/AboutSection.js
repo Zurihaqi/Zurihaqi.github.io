@@ -162,7 +162,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
                 <h4 className="text-lg font-medium mb-4 text-foreground">
                   Front-end Technologies
                 </h4>
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-6">
+                <div className="grid grid-cols-3 sm:grid-cols-5 sm:gap-0 gap-6">
                   {frontEndTech.map((tech) => (
                     <TechStack key={tech.name} tech={tech} />
                   ))}
@@ -172,7 +172,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
                 <h4 className="text-lg font-medium mb-4 text-foreground">
                   Back-end Technologies
                 </h4>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-3 sm:gap-0 gap-6">
                   {backEndTech.map((tech) => (
                     <TechStack key={tech.name} tech={tech} />
                   ))}
