@@ -22,7 +22,7 @@ const ThemeToggler = () => {
         rounded-full 
         p-1 
         bg-sky-500 
-        dark:bg-indigo-900 
+        dark:bg-violet-800 
         fixed
         top-0
         right-0

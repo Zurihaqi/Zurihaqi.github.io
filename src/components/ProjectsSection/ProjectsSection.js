@@ -147,12 +147,12 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         <div className="flex-grow border border-neutral-300 dark:border-gray-400"></div>
       </div>
       <div className="my-4 flex justify-center">
-        <div className="container-fluid bg-neutral-300 dark:bg-slate-600 bg-opacity-50 p-2 rounded-full">
+        <div className="container-fluid bg-white shadow-lg dark:bg-zinc-800 bg-opacity-50 p-2 rounded-full">
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
               selectedCategory === "All"
-                ? "dark:bg-blue-600 bg-blue-400 text-gray-200 hover:border-transparent"
-                : "dark:hover:bg-blue-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
+                ? "dark:bg-violet-600 bg-blue-400 text-gray-200 hover:border-transparent"
+                : "dark:hover:bg-violet-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
             }`}
             onClick={() => handleCategoryClick("All")}
             aria-label="btn-category-all"
@@ -162,8 +162,8 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
               selectedCategory === "WebApp"
-                ? "dark:bg-blue-600 bg-blue-400 text-gray-200 hover:border-transparent"
-                : "dark:hover:bg-blue-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
+                ? "dark:bg-violet-600 bg-blue-400 text-gray-200 hover:border-transparent"
+                : "dark:hover:bg-violet-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
             }`}
             onClick={() => handleCategoryClick("WebApp")}
             aria-label="btn-category-webapps"
@@ -173,8 +173,8 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
               selectedCategory === "NLP"
-                ? "dark:bg-blue-600 bg-blue-400 text-gray-200 hover:border-transparent"
-                : "dark:hover:bg-blue-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
+                ? "dark:bg-violet-600 bg-blue-400 text-gray-200 hover:border-transparent"
+                : "dark:hover:bg-violet-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
             }`}
             onClick={() => handleCategoryClick("NLP")}
             aria-label="btn-nlp"
@@ -208,7 +208,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           {/* The logic here is a bit of work, lol */}
           {visibleSlides <= 3 && filteredCardData.length > visibleSlides ? (
             <button
-              className="dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+              className="dark:bg-violet-600 dark:hover:bg-violet-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
               onClick={handleLoadMoreClick}
             >
               Load More
@@ -216,13 +216,13 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           ) : visibleSlides > 3 && visibleSlides < filteredCardData.length ? (
             <div className="space-x-2">
               <button
-                className="dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-500 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                className="dark:bg-violet-600 dark:hover:bg-violet-700 bg-blue-500 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
                 onClick={handleLoadMoreClick}
               >
                 Load More
               </button>
               <button
-                className="dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-500 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                className="dark:bg-violet-600 dark:hover:bg-violet-700 bg-blue-500 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
                 onClick={handleLoadLessClick}
               >
                 Load Less
@@ -230,7 +230,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
             </div>
           ) : visibleSlides > filteredCardData.length ? (
             <button
-              className="dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+              className="dark:bg-violet-600 dark:hover:bg-violet-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
               onClick={handleLoadLessClick}
             >
               Load Less
@@ -241,9 +241,9 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
 
       {/* Modal */}
       <Modal showModal={showModal} closeModal={closeModal}>
-        <div className="relative dark:bg-gray-700 dark:text-white bg-neutral-300 text-black rounded-lg">
+        <div className="relative dark:bg-zinc-800 dark:text-white bg-white text-black rounded-lg">
           {/* Modal Header */}
-          <div className="flex items-center justify-between p-4 md:p-5 border-b dark:border-white border-black rounded-t">
+          <div className="flex items-center justify-between p-4 md:p-5  rounded-t">
             <h3 className="text-xl font-semibold">{selectedProject.title}</h3>
             <span
               style={{
@@ -297,7 +297,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           {/* Desc */}
           <div className="p-4 md:p-5 space-y-4">
             <p
-              className="text-base leading-relaxed overflow-y-scroll modal-scrollbar"
+              className="text-base leading-relaxed overflow-y-scroll no-scrollbar"
               style={{ maxHeight: 100 }}
             >
               {selectedProject.description}
@@ -308,7 +308,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
                 return (
                   <p
                     key={index}
-                    className="mx-1 dark:bg-slate-500 bg-blue-400 text-white rounded-xl p-2 sm:text-sm text-xs w-fit"
+                    className="mx-1 dark:bg-zinc-600 bg-blue-400 text-white rounded-xl p-2 sm:text-sm text-xs w-fit"
                   >
                     {item}
                   </p>
@@ -318,7 +318,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
             <div className="grid grid-flow-col justify-items-center">
               <a href={selectedProject.repo} target="_blank" rel="noreferrer">
                 <button
-                  className=" disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                  className=" disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-violet-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
                   disabled={selectedProject.repo ? false : true}
                 >
                   {selectedProject.category === "NLP"
@@ -337,7 +337,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
               >
                 <button
                   className="
-                disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-violet-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
                   disabled={selectedProject.live ? false : true}
                 >
                   Live Site <FontAwesomeIcon icon={faArrowUpRightFromSquare} />

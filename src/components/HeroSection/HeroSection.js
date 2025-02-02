@@ -44,7 +44,7 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
             </p>
             <p className="text-5xl font-playfair">
               I'm{" "}
-              <span className="font-bold dark:text-blue-500 text-blue-400">
+              <span className="font-bold dark:text-violet-600 text-blue-400">
                 Zul
               </span>{" "}
               Fahri Baihaqi
@@ -60,9 +60,9 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         >
           <div>
             <p className="text-start text-xl">
-              A recent informatics graduate specializing in full-stack web
-              development, most interested in back-end development. Committed to
-              continuous learning and eager to contribute skills to any teams.
+              I'm a software developer who builds web and mobile apps that are
+              efficient, user-friendly, and reliable. I love solving problems,
+              creating smooth experiences, and turning ideas into reality. 🚀
             </p>
           </div>
         </AnimationOnScroll>
@@ -76,13 +76,13 @@ const HeroSection = React.forwardRef(({ projectsRef, contactRef }, ref) => {
         >
           <div className="mt-6">
             <button
-              className="bg-transparent dark:hover:bg-blue-500 hover:bg-blue-400 font-semibold hover:text-white py-2 px-4 border dark:border-gray-500 border-blue-400 dark:text-gray-300 text-blue-400 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
+              className="bg-transparent dark:hover:bg-violet-600 hover:bg-blue-400 font-semibold hover:text-white py-2 px-4 border dark:border-gray-500 border-blue-400 dark:text-gray-300 text-blue-400 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
               onClick={() => scrollToSection(projectsRef, 30)}
             >
               <FontAwesomeIcon icon={faArrowDown} /> My Works
             </button>
             <button
-              className="bg-transparent dark:hover:bg-blue-500 hover:bg-blue-400 dark:text-gray-300 text-blue-400 border-blue-400 font-semibold hover:text-white py-2 px-4 border dark:border-gray-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
+              className="bg-transparent dark:hover:bg-violet-600 hover:bg-blue-400 dark:text-gray-300 text-blue-400 border-blue-400 font-semibold hover:text-white py-2 px-4 border dark:border-gray-500 hover:border-transparent rounded mx-1 sm:mx-2 transition-color duration-300"
               onClick={() => scrollToSection(contactRef, 30)}
             >
               <FontAwesomeIcon icon={faEnvelope} /> Hire Me

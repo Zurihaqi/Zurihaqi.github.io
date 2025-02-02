@@ -94,7 +94,7 @@ const ContactForm = () => {
             placeholder="Name"
             id="name"
             name="name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
             value={formData.name}
             onChange={handleChange}
             required
@@ -106,7 +106,7 @@ const ContactForm = () => {
             type="email"
             id="email"
             name="email"
-            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
             value={formData.email}
             onChange={handleChange}
             required
@@ -118,7 +118,7 @@ const ContactForm = () => {
             type="text"
             id="subject"
             name="subject"
-            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
             value={formData.subject}
             onChange={handleChange}
             required
@@ -130,7 +130,7 @@ const ContactForm = () => {
             type="text"
             id="message"
             name="message"
-            className="resize-y bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="resize-y bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"
             value={formData.message}
             onChange={handleChange}
             required
@@ -140,7 +140,7 @@ const ContactForm = () => {
           <div className="sm:text-start text-center">
             <button
               type="submit"
-              className="mb-4 dark:bg-blue-600 bg-blue-500 dark:hover:bg-blue-700 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+              className="mb-4 dark:bg-violet-600 bg-blue-500 dark:hover:bg-violet-700 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
             >
               {isSending && (
                 <FontAwesomeIcon icon={faSpinner} className="rotate mr-2" />

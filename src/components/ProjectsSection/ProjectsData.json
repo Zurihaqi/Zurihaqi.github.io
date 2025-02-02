@@ -1,5 +1,6 @@
 {
   "project1": {
+    "id": 1,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -10,6 +11,7 @@
     "repo": "https://github.com/Zurihaqi/second-hand"
   },
   "project2": {
+    "id": 2,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -20,6 +22,7 @@
     "repo": "https://github.com/Zurihaqi/capstone-binar-secondhand"
   },
   "project3": {
+    "id": 3,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -27,10 +30,10 @@
     "description": "This was my first attempt to create a project in TypeScript. This website is my own version of Colt Steele's YelpCamp, where users can post kedai and review others' kedai. The website was built using Next.js and Tailwind for the front-end and back-end, NextAuth for the authentication system, and MySQL for the database.",
     "category": "WebApp",
     "tech": ["NextJs", "Tailwind", "NextAuth", "PrismaORM", "MySQL", "JWT"],
-    "repo": "https://github.com/Zurihaqi/kedai-mie-ayam",
-    "live": "https://kedai-mie-ayam.vercel.app/"
+    "repo": "https://github.com/Zurihaqi/kedai-mie-ayam"
   },
   "project4": {
+    "id": 4,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -41,6 +44,7 @@
     "repo": "https://colab.research.google.com/drive/16fiKZw49eoZLaWgruQ_B9_0rEc5QB7PQ?usp=sharing"
   },
   "project5": {
+    "id": 5,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -55,10 +59,10 @@
       "Sequelize",
       "PostgreSQL"
     ],
-    "repo": "https://github.com/Zurihaqi/spk-informatika-frontend-skripsi",
-    "live": "https://spk-informatika.vercel.app/"
+    "repo": "https://github.com/Zurihaqi/spk-informatika-frontend-skripsi"
   },
   "project6": {
+    "id": 6,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -66,10 +70,10 @@
     "description": "YelpCamp is a website where users can create and review campgrounds. In order to review or create a campground, you must have an account. This project was part of Colt Steele's web dev course on udemy. This project was created using Node.js, Express, MongoDB, and Bootstrap. Passport.js was used to handle authentication.",
     "category": "WebApp",
     "tech": ["ExpressJs", "EJS", "MongoDB", "Bootstrap", "Passport.js"],
-    "repo": "https://github.com/Zurihaqi/yelpcamp",
-    "live": "https://yelpcamp-iota.vercel.app/"
+    "repo": "https://github.com/Zurihaqi/yelpcamp"
   },
   "project7": {
+    "id": 7,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -77,10 +81,10 @@
     "description": "This was a project made for a friend. This website was created to make it easier for anglers to find complete information about fishing in Bekasi Regency, and can also make it easier for fishing parties to disseminate information in fishing or become a fishing promotion media.",
     "category": "WebApp",
     "tech": ["Laravel", "Eloquent", "MySQL", "Bootstrap"],
-    "repo": "https://github.com/Zurihaqi/pemancingan",
-    "live": "https://pemancingan.vercel.app/"
+    "repo": "https://github.com/Zurihaqi/pemancingan"
   },
   "project8": {
+    "id": 8,
     "images": [],
     "thumbnail": [],
     "img_alt": [],

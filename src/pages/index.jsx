@@ -41,7 +41,7 @@ export default function IndexPage() {
       </Helmet>
 
       {/* Main Content */}
-      <div className="flex overflow-x-clip bg-white dark:bg-zinc-800">
+      <div className="flex overflow-x-clip bg-white dark:bg-zinc-900">
         <Navigation
           heroRef={heroRef}
           aboutRef={aboutRef}
