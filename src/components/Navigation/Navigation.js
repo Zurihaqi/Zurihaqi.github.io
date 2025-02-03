@@ -82,35 +82,48 @@ export default function Navigation({
   React.useEffect(() => {
     let startX = 0;
     let endX = 0;
+    let isSwiping = false;
 
     // Touch Events
     const handleTouchStart = (e) => {
-      startX = e.touches[0].clientX;
+      if (e.touches[0].clientX < 50) {
+        // Only allow swipes starting from left 50px
+        startX = e.touches[0].clientX;
+        isSwiping = true;
+      }
     };
 
     const handleTouchMove = (e) => {
+      if (!isSwiping) return;
       endX = e.touches[0].clientX;
     };
 
     const handleTouchEnd = () => {
-      if (endX - startX > 50) {
+      if (isSwiping && endX - startX > 50) {
         setSidebarVisibility(true);
       }
+      isSwiping = false;
     };
 
     // Mouse Events (for PC testing)
     const handleMouseDown = (e) => {
-      startX = e.clientX;
+      if (e.clientX < 50) {
+        // Only allow swipes starting from left 50px
+        startX = e.clientX;
+        isSwiping = true;
+      }
     };
 
     const handleMouseMove = (e) => {
+      if (!isSwiping) return;
       endX = e.clientX;
     };
 
     const handleMouseUp = () => {
-      if (endX - startX > 50) {
+      if (isSwiping && endX - startX > 50) {
         setSidebarVisibility(true);
       }
+      isSwiping = false;
     };
 
     window.addEventListener("touchstart", handleTouchStart);
