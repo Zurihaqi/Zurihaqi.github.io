@@ -33,7 +33,7 @@ export default function Navigation({
     const handleScroll = () => {
       const offset = 250; // Top side offset
       const scrollPosition = window.scrollY;
-      setSidebarVisibility(false);
+      // setSidebarVisibility(false); // This is annoying or is it just me lol
 
       // Activate menu underline according to the section user scrolls to
       if (
@@ -131,6 +131,18 @@ export default function Navigation({
       window.removeEventListener("mouseup", handleMouseUp);
     };
   }, []);
+
+  React.useEffect(() => {
+    if (sidebarVisible) {
+      document.body.style.overflowX = "hidden";
+    } else {
+      document.body.style.overflowX = "";
+    }
+
+    return () => {
+      document.body.style.overflowX = "";
+    };
+  }, [sidebarVisible]);
 
   return (
     <>
