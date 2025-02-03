@@ -107,7 +107,6 @@ const TimelineEvent = ({ event, index }) => (
         <div className="absolute w-8 h-8 rounded-full dark:bg-violet-700 bg-blue-400 top-0 -mx-3.5 flex">
           <FontAwesomeIcon
             icon={event.icon}
-            size="md"
             className="mx-auto my-auto text-white"
           />
         </div>

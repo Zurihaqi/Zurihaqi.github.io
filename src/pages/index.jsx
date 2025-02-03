@@ -10,7 +10,7 @@ import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import ThemeToggler from "../components/ThemeToggler/ThemeToggler";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import SEO from "./SEO";
+import Seo from "./SEO";
 
 export default function IndexPage() {
   const heroRef = useRef(null);
@@ -39,7 +39,7 @@ export default function IndexPage() {
           rel="stylesheet"
         />
       </Helmet>
-      <SEO
+      <Seo
         title="Zul Fahri Baihaqi - Portfolio"
         description="A portfolio website showcasing my projects, skills, and experience."
         keywords="Zul Fahri Baihaqi, portfolio, web developer, projects, skills"

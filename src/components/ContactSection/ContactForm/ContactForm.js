@@ -157,6 +157,7 @@ const ContactForm = () => {
             options={{
               theme: "light",
               size: "compact",
+              execution: "render",
             }}
           />
         </div>
