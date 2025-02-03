@@ -142,6 +142,18 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
     "border-pink-400 text-pink-500",
   ];
 
+  React.useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // Reset on unmount
+    };
+  }, [showModal]);
+
   return (
     <section ref={ref} id="projects" className="container my-24">
       <div className="relative flex items-center">
