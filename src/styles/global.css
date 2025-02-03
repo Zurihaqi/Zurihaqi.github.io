@@ -21,3 +21,41 @@
   background: gray;
   border-radius: 5px;
 }
+
+body {
+  --dot-bg: white; /* White background for light mode */
+  --dot-color: gray; /* Light gray dots for light mode */
+  --dot-size: 1px;
+  --dot-space: 50px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+.dark body {
+  --dot-bg: #161616; /* Dark background for dark mode */
+  --dot-color: #848282; /* Gray dots for dark mode */
+  --dot-size: 1px;
+  --dot-space: 50px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}

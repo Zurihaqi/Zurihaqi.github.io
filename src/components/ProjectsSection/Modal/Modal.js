@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import "../ProjectSection.css";
 
 const Modal = ({ showModal, closeModal, children }) => {
   const modalRef = useRef();
@@ -24,18 +23,11 @@ const Modal = ({ showModal, closeModal, children }) => {
   if (!showModal) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div
         ref={modalRef}
-        className="relative w-full max-w-md max-h-[90vh] overflow-y-auto bg-white dark:bg-zinc-800 rounded-lg shadow-xl"
+        className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-lg shadow-xl no-scrollbar"
       >
-        <button
-          onClick={closeModal}
-          className="absolute top-4 right-4"
-          aria-label="Close modal"
-        >
-          <FontAwesomeIcon icon={faX} className="w-5 h-5" />
-        </button>
         {children}
       </div>
     </div>

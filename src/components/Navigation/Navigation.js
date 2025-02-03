@@ -79,6 +79,59 @@ export default function Navigation({
     };
   }, [heroRef, aboutRef, projectsRef, contactRef]);
 
+  React.useEffect(() => {
+    let startX = 0;
+    let endX = 0;
+
+    // Touch Events
+    const handleTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+      endX = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+      if (endX - startX > 50) {
+        setSidebarVisibility(true);
+      }
+    };
+
+    // Mouse Events (for PC testing)
+    const handleMouseDown = (e) => {
+      startX = e.clientX;
+    };
+
+    const handleMouseMove = (e) => {
+      endX = e.clientX;
+    };
+
+    const handleMouseUp = () => {
+      if (endX - startX > 50) {
+        setSidebarVisibility(true);
+      }
+    };
+
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd);
+
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, []);
+
   return (
     <>
       {/* Sidebar */}

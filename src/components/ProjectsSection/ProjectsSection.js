@@ -21,6 +21,8 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import { motion, AnimatePresence } from "framer-motion";
+
 const ProjectsSection = React.forwardRef((_props, ref) => {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
   const [visibleSlides, setVisibleSlides] = React.useState(3);
@@ -115,21 +117,11 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         )
       );
     }
-    setVisibleSlides(Math.min(3, filteredCardData.length));
+    setVisibleSlides(filteredCardData.length);
   }, [selectedCategory, filteredCardData.length, data]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-  };
-
-  const handleLoadMoreClick = () => {
-    setVisibleSlides((prevVisibleSlides) => prevVisibleSlides + 3);
-  };
-
-  const handleLoadLessClick = () => {
-    setVisibleSlides((prevVisibleSlides) =>
-      prevVisibleSlides > 3 ? prevVisibleSlides - 3 : setVisibleSlides(3)
-    );
   };
 
   const handleViewDetailsClick = (project) => {
@@ -159,7 +151,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         <div className="flex-grow border border-neutral-300 dark:border-gray-400"></div>
       </div>
       <div className="my-4 flex justify-center">
-        <div className="flex flex-row container-fluid bg-white shadow-lg dark:bg-zinc-800 bg-opacity-50 p-2 rounded-full">
+        <div className="flex flex-row container-fluid sm:text-lg text-sm bg-white shadow-lg dark:bg-zinc-800 bg-opacity-50 p-2 rounded-full">
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
               selectedCategory === "All"
@@ -173,14 +165,14 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           </button>
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
-              selectedCategory === "WebApp"
+              selectedCategory === "Website"
                 ? "dark:bg-violet-600 bg-blue-400 text-gray-200 hover:border-transparent"
                 : "dark:hover:bg-violet-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
             }`}
-            onClick={() => handleCategoryClick("WebApp")}
+            onClick={() => handleCategoryClick("Website")}
             aria-label="btn-category-webapps"
           >
-            Web Apps
+            Websites
           </button>
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
@@ -195,14 +187,14 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
           </button>
           <button
             className={`font-semibold py-2 px-4 rounded-full mx-1 sm:mx-2 transition-color duration-300 ${
-              selectedCategory === "NLP"
+              selectedCategory === "Machine Learning"
                 ? "dark:bg-violet-600 bg-blue-400 text-gray-200 hover:border-transparent"
                 : "dark:hover:bg-violet-600 hover:bg-blue-400 hover:text-gray-200 bg-transparent"
             }`}
-            onClick={() => handleCategoryClick("NLP")}
+            onClick={() => handleCategoryClick("Machine Learning")}
             aria-label="btn-nlp"
           >
-            NLP
+            Machine Learning
           </button>
         </div>
       </div>
@@ -227,144 +219,127 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
             </AnimationOnScroll>
           ))}
         </div>
-        <div className="text-center mt-4">
-          {/* The logic here is a bit of work, lol */}
-          {visibleSlides <= 3 && filteredCardData.length > visibleSlides ? (
-            <button
-              className="dark:bg-violet-600 dark:hover:bg-violet-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
-              onClick={handleLoadMoreClick}
-            >
-              Load More
-            </button>
-          ) : visibleSlides > 3 && visibleSlides < filteredCardData.length ? (
-            <div className="space-x-2">
-              <button
-                className="dark:bg-violet-600 dark:hover:bg-violet-700 bg-blue-500 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
-                onClick={handleLoadMoreClick}
-              >
-                Load More
-              </button>
-              <button
-                className="dark:bg-violet-600 dark:hover:bg-violet-700 bg-blue-500 hover:bg-blue-600 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
-                onClick={handleLoadLessClick}
-              >
-                Load Less
-              </button>
-            </div>
-          ) : visibleSlides > filteredCardData.length ? (
-            <button
-              className="dark:bg-violet-600 dark:hover:bg-violet-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
-              onClick={handleLoadLessClick}
-            >
-              Load Less
-            </button>
-          ) : null}
-        </div>
       </div>
 
       {/* Modal */}
-      <Modal showModal={showModal} closeModal={closeModal}>
-        <div className="relative dark:bg-zinc-800 dark:text-white bg-white text-black rounded-lg">
-          {/* Modal Header */}
-          <div className="flex items-center justify-between p-4 md:p-5 gap-2 rounded-t">
-            <h3 className="text-xl font-semibold">{selectedProject.title}</h3>
-            {selectedProject?.category?.map((tag, index) => (
-              <span
-                key={index}
-                className={`w-fit text-center px-2 py-1 rounded-full border text-xs font-semibold ${
-                  colors[index % colors.length]
-                }`}
-                style={{ height: "25px" }}
-              >
-                {tag}
-              </span>
-            ))}
-            <button
-              type="button"
-              className="bg-transparent hover:text-gray-500 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
-              onClick={closeModal}
-              aria-label="show-modal-btn"
+      <AnimatePresence>
+        {showModal && (
+          <Modal showModal={showModal} closeModal={closeModal}>
+            <motion.div
+              initial={{ opacity: 0, y: "100%" }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 500 }}
             >
-              <FontAwesomeIcon icon={faX} />
-            </button>
-          </div>
-
-          {/* SlideShow */}
-          <div className="p-2 mx-auto rounded-lg">
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={30}
-              pagination={true}
-              loop={true}
-              // cssMode={true}
-              modules={[Pagination]}
-            >
-              {selectedProject.images?.map((image, index) => (
-                <SwiperSlide key={index} className="text-center">
-                  <GatsbyImage
-                    image={getImage(image)}
-                    alt={selectedProject.img_alt[index]}
-                    className="rounded-lg"
-                    style={{ maxWidth: 400 }}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          {/* Desc */}
-          <div className="p-4 md:p-5 space-y-4">
-            <p
-              className="text-base leading-relaxed overflow-y-scroll no-scrollbar"
-              style={{ maxHeight: 100 }}
-            >
-              {selectedProject.description}
-            </p>
-            <p>Tech Used:</p>
-            <div className="flex flex-row overflow-y-auto no-scrollbar">
-              {selectedProject.tech?.map((item, index) => {
-                return (
-                  <p
-                    key={index}
-                    className="mx-1 dark:bg-zinc-600 bg-blue-400 text-white rounded-xl p-2 sm:text-sm text-xs w-fit"
+              <div className="relative dark:bg-zinc-800 dark:text-white bg-white text-black rounded-lg">
+                {/* Modal Header */}
+                <div className="flex items-center justify-between p-4 md:p-5 gap-2 rounded-t">
+                  <h3 className="text-xl font-semibold">
+                    {selectedProject.title}
+                  </h3>
+                  {selectedProject?.category?.map((tag, index) => (
+                    <span
+                      key={index}
+                      className={`w-fit text-center px-2 py-1 rounded-full border text-xs font-semibold ${
+                        colors[index % colors.length]
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                  <button
+                    type="button"
+                    className="bg-transparent hover:text-gray-500 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center"
+                    onClick={closeModal}
+                    aria-label="show-modal-btn"
                   >
-                    {item}
+                    <FontAwesomeIcon icon={faX} />
+                  </button>
+                </div>
+
+                {/* SlideShow */}
+                <div className="p-2 mx-auto rounded-lg">
+                  <Swiper
+                    slidesPerView={1}
+                    spaceBetween={30}
+                    pagination={true}
+                    loop={true}
+                    modules={[Pagination]}
+                  >
+                    {selectedProject.images?.map((image, index) => (
+                      <SwiperSlide key={index} className="text-center">
+                        <GatsbyImage
+                          image={getImage(image)}
+                          alt={selectedProject.img_alt[index]}
+                          className="rounded-lg"
+                          style={{ maxWidth: 400 }}
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+
+                {/* Desc */}
+                <div className="p-4 md:p-5 space-y-4">
+                  <p
+                    className="text-base leading-relaxed overflow-y-scroll no-scrollbar"
+                    style={{ maxHeight: 100 }}
+                  >
+                    {selectedProject.description}
                   </p>
-                );
-              })}
-            </div>
-            <div className="grid grid-flow-col justify-items-center">
-              <a href={selectedProject.repo} target="_blank" rel="noreferrer">
-                <button
-                  className=" disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-violet-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
-                  disabled={selectedProject.repo ? false : true}
-                >
-                  {selectedProject.category === "NLP"
-                    ? "Google Colab"
-                    : "Git Repo"}{" "}
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                </button>
-              </a>
-              <a
-                href={selectedProject.live}
-                target="_blank"
-                rel="noreferrer"
-                className={`${
-                  selectedProject.category === "NLP" ? "hidden" : "block"
-                }`}
-              >
-                <button
-                  className="
-                disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-violet-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
-                  disabled={selectedProject.live ? false : true}
-                >
-                  Live Site <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </Modal>
+                  <p>Tech Used:</p>
+                  <div className="flex flex-row overflow-y-auto no-scrollbar">
+                    {selectedProject.tech?.map((item, index) => {
+                      return (
+                        <p
+                          key={index}
+                          className="mx-1 dark:bg-zinc-600 bg-blue-400 text-white rounded-xl p-2 sm:text-sm text-xs w-fit"
+                        >
+                          {item}
+                        </p>
+                      );
+                    })}
+                  </div>
+                  <div className="grid grid-flow-col justify-items-center">
+                    <a
+                      href={selectedProject.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <button
+                        className=" disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-violet-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                        disabled={selectedProject.repo ? false : true}
+                      >
+                        {selectedProject.category === "NLP"
+                          ? "Google Colab"
+                          : "Git Repo"}{" "}
+                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                      </button>
+                    </a>
+                    <a
+                      href={selectedProject.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`${
+                        selectedProject.category === "NLP" ? "hidden" : "block"
+                      }`}
+                    >
+                      <button
+                        className="
+                    disabled:bg-gray-500 dark:disabled:bg-gray-500 dark:bg-violet-600 dark:hover:bg-blue-700 bg-blue-400 hover:bg-blue-500 text-gray-200 font-semibold hover:text-gray-300 py-2 px-4 rounded transition-color duration-300"
+                        disabled={selectedProject.live ? false : true}
+                      >
+                        Live Site{" "}
+                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </Modal>
+        )}
+      </AnimatePresence>
     </section>
   );
 });

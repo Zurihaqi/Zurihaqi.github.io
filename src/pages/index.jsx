@@ -46,7 +46,7 @@ export default function IndexPage() {
       />
 
       {/* Main Content */}
-      <div className="flex overflow-x-clip bg-white dark:bg-zinc-900">
+      <div className="flex overflow-x-clip">
         <Navigation
           heroRef={heroRef}
           aboutRef={aboutRef}
@@ -62,6 +62,7 @@ export default function IndexPage() {
             ref={heroRef}
             projectsRef={projectsRef}
             contactRef={contactRef}
+            aboutRef={aboutRef}
           />
           <AboutSection ref={aboutRef} />
           <ProjectsSection ref={projectsRef} />

@@ -64,14 +64,31 @@ const timelineEvents = [
 
 const TechStack = ({ tech }) => {
   const Icon = tech.icon;
+  const glowVariants = {
+    initial: {
+      opacity: 0,
+    },
+    hover: {
+      opacity: 1,
+    },
+  };
   return (
     <motion.div
       className="flex flex-col items-center"
-      whileHover={{ scale: 1.3 }}
-      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      initial="initial"
+      whileHover="hover"
     >
       <Icon className={`text-5xl ${tech.color}`} />
       <span className="mt-2 text-sm text-foreground">{tech.name}</span>
+      <motion.div
+        variants={glowVariants}
+        className="flex flex-col items-center absolute z-2"
+      >
+        <Icon className={`text-5xl ${tech.color} font-extrabold`} />
+        <span className="mt-2 text-sm font-extrabold text-foreground">
+          {tech.name}
+        </span>
+      </motion.div>
     </motion.div>
   );
 };
@@ -97,7 +114,7 @@ const TimelineEvent = ({ event, index }) => (
       </div>
     </div>
     <motion.div
-      className="sm:w-5/12 w-10/12 p-4 rounded-lg shadow-md bg-white dark:bg-zinc-800 mb-8"
+      className="sm:w-5/12 w-10/12 p-4 rounded-lg shadow-md bg-white/30 dark:bg-zinc-800/30 mb-8"
       initial={{ opacity: 0, scale: 0 }}
       whileInView={{ opacity: 1, scale: 1 }}
     >
