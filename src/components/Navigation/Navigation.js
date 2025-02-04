@@ -97,7 +97,7 @@ export default function Navigation({
       <aside id="navigation" aria-label="navigation">
         <nav
           ref={navRef}
-          className={`dark:bg-gradient-to-l dark:from-[#161616] dark:via-zinc-800 dark:to-zinc-800 bg-gradient-to-l bg-blue-400 h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 w-64 transition-all duration-300 text-white dark:text-gray-300 ${
+          className={`dark:bg-zinc-800 bg-blue-400 h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 w-64 transition-all duration-300 text-white dark:text-gray-300 ${
             sidebarVisible ? "ml-0" : "-ml-64"
           } lg:ml-0 font-quicksand tracking-wide`}
         >

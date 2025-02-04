@@ -64,14 +64,15 @@ const TechStack = ({ tech }) => {
   const Icon = tech.icon;
 
   return (
-    <motion.div
-      className="flex flex-col items-center sm:mx-10 mx-5 dark:bg-[#161616]/50 dark:shadow-violet-900 dark:shadow-sm shadow-lg rounded-xl p-2"
-      initial="initial"
-      whileHover="hover"
-    >
-      <Icon className={`sm:text-7xl text-5xl ${tech.color}`} />
-      <span className="mt-1 text-sm text-foreground">{tech.name}</span>
-    </motion.div>
+    <div className="flex flex-col items-center sm:mx-10 mx-5">
+      <motion.div
+        className="flex flex-col items-center dark:bg-[#161616]/50 dark:shadow-violet-900 dark:shadow-sm shadow-lg rounded-xl p-2 cursor-pointer"
+        whileHover={{ scale: 1.2 }}
+      >
+        <Icon className={`sm:text-7xl text-5xl ${tech.color}`} />
+        <span className="mt-1 text-sm text-foreground">{tech.name}</span>
+      </motion.div>
+    </div>
   );
 };
 

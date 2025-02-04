@@ -40,7 +40,7 @@ export default function IndexPage() {
         />
       </Helmet>
       <Seo
-        title="Zul Fahri Baihaqi - Portfolio"
+        title="Zul Fahri Baihaqi • Portfolio"
         description="A portfolio website showcasing my projects, skills, and experience."
         keywords="Zul Fahri Baihaqi, portfolio, web developer, projects, skills"
       />

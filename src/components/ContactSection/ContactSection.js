@@ -5,10 +5,14 @@ import ContactForm from "./ContactForm/ContactForm";
 
 const ContactSection = React.forwardRef((_props, ref) => {
   return (
-    <section ref={ref} id="contact" className="container mb-24">
+    <section
+      ref={ref}
+      id="contact"
+      className="container mb-24 border-t-2 dark:bg-[#161616] bg-white dark:border-t-zinc-700 rounded-t-xl"
+    >
       <div className="relative flex items-center">
         {/* <span className="flex-shrink mx-4 text-2xl">Get in touch</span> */}
-        <div className="flex-grow border border-gray-400 dark:dark:border-zinc-700"></div>
+        {/* <div className="flex-grow border border-gray-400 dark:dark:border-zinc-700"></div> */}
       </div>
       <div className="flex sm:flex-row flex-col items-center p-4">
         <div className="sm:px-4 mb-4 sm:mb-0 text-center sm:w-1/2 w-full">
