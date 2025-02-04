@@ -24,11 +24,11 @@ export default function ScrollToTop() {
 
   return (
     <button
-      className={`z-10 fixed bottom-5 right-5 rounded-full dark:bg-violet-600 bg-blue-500 p-3 text-gray-300 shadow-md transition-color duration-150 ease-in-out ${
+      className={`z-10 fixed bottom-5 right-5 rounded-full dark:bg-violet-700 bg-blue-500 p-3 text-gray-300 shadow-md transition-color duration-150 ease-in-out ${
         isVisible
           ? "animate__animated animate__bounceInUp"
           : "animate__animated animate__bounceOutDown"
-      } dark:hover:bg-violet-700 hover:bg-blue-600 hover:shadow-lg dark:focus:bg-violet-700 focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0`}
+      } dark:hover:bg-violet-800 hover:bg-blue-600 hover:shadow-lg dark:focus:bg-violet-800 focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0`}
       onClick={scrollToTop}
       style={{ width: "40px", height: "40px" }}
       aria-label="scroll-to-top-button"

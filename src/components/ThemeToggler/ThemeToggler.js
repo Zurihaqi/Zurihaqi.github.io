@@ -41,7 +41,7 @@ const ThemeToggler = () => {
             w-4 
             h-4 
             bg-white 
-            dark:bg-gray-600 
+            dark:bg-zinc-800 
             relative 
             ml-0 
             dark:ml-6 

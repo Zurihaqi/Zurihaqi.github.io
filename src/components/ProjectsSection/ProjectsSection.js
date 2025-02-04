@@ -158,12 +158,12 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
         <span className="flex-shrink sm:text-4xl text-3xl pr-2">
           Recent projects
         </span>
-        <div className="mt-1 flex-grow border border-neutral-300 dark:border-gray-400"></div>
+        <div className="mt-1 flex-grow border border-neutral-300 dark:border-zinc-700"></div>
       </div>
 
       {/* Category buttons */}
       <div className="my-4 flex justify-center">
-        <div className="sm:flex sm:flex-row grid grid-cols-2 container-fluid sm:text-lg text-sm bg-white shadow-lg dark:bg-zinc-800 bg-opacity-50 p-2 sm:rounded-full rounded-xl">
+        <div className="sm:flex sm:flex-row grid grid-cols-2 container-fluid sm:text-lg text-sm dark:bg-[#161616]/50 dark:shadow-violet-900 sm:gap-0 gap-2 shadow-md p-2 sm:rounded-full rounded-xl">
           {["All", "Website", "Mobile App", "Machine Learning"].map(
             (category) => (
               <button
@@ -200,7 +200,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
               key={index}
             >
               <div
-                className={`flex flex-col md:flex-row ${
+                className={`flex flex-col md:flex-row dark:bg-[#161616]/50 dark:shadow-violet-900 shadow-md p-2 rounded-xl ${
                   index % 2 === 0 ? "" : "md:flex-row-reverse"
                 } items-center gap-8 mb-16`}
               >

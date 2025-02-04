@@ -65,7 +65,7 @@ const TechStack = ({ tech }) => {
 
   return (
     <motion.div
-      className="flex flex-col items-center sm:mx-10 mx-5 dark:bg-zinc-500/20 bg-white/20 sm:shadow-xl shadow-lg rounded-xl p-2"
+      className="flex flex-col items-center sm:mx-10 mx-5 dark:bg-[#161616]/50 dark:shadow-violet-900 dark:shadow-sm shadow-lg rounded-xl p-2"
       initial="initial"
       whileHover="hover"
     >
@@ -95,7 +95,7 @@ const TimelineEvent = ({ event, index }) => (
       </div>
     </div>
     <motion.div
-      className="sm:w-5/12 w-10/12 p-4 rounded-lg shadow-md bg-white/30 dark:bg-zinc-800/30 mb-8"
+      className="sm:w-5/12 w-10/12 p-4 rounded-lg shadow-md dark:bg-[#161616]/50 dark:shadow-violet-900 mb-8"
       initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }} // Slide right for even, left for odd
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ type: "spring", stiffness: 120 }}
@@ -121,7 +121,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
           <span className="flex-shrink sm:text-4xl text-3xl pr-2">
             About Me
           </span>
-          <div className="mt-1 flex-grow border border-neutral-300 dark:border-gray-400"></div>
+          <div className="mt-1 flex-grow border border-neutral-300 dark:border-zinc-700"></div>
         </div>
         <div className="grid gap-8 items-start">
           <div className="text-justify">
