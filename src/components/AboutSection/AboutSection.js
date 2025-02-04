@@ -64,14 +64,7 @@ const timelineEvents = [
 
 const TechStack = ({ tech }) => {
   const Icon = tech.icon;
-  const glowVariants = {
-    initial: {
-      opacity: 0,
-    },
-    hover: {
-      opacity: 1,
-    },
-  };
+
   return (
     <motion.div
       className="flex flex-col items-center"
@@ -79,16 +72,7 @@ const TechStack = ({ tech }) => {
       whileHover="hover"
     >
       <Icon className={`text-5xl ${tech.color}`} />
-      <span className="mt-2 text-sm text-foreground">{tech.name}</span>
-      <motion.div
-        variants={glowVariants}
-        className="flex flex-col items-center absolute z-2"
-      >
-        <Icon className={`text-5xl ${tech.color} font-extrabold`} />
-        <span className="mt-2 text-sm font-extrabold text-foreground">
-          {tech.name}
-        </span>
-      </motion.div>
+      <span className="mt-1 text-sm text-foreground">{tech.name}</span>
     </motion.div>
   );
 };
@@ -114,8 +98,9 @@ const TimelineEvent = ({ event, index }) => (
     </div>
     <motion.div
       className="sm:w-5/12 w-10/12 p-4 rounded-lg shadow-md bg-white/30 dark:bg-zinc-800/30 mb-8"
-      initial={{ opacity: 0, scale: 0 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }} // Slide right for even, left for odd
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ type: "spring", stiffness: 120 }}
     >
       <h4 className="text-lg font-bold mb-2 text-blue-600 dark:text-violet-500">
         {event.year}
@@ -135,13 +120,13 @@ const AboutSection = React.forwardRef((_props, ref) => {
     <section ref={ref} id="about" className="my-24 bg-background">
       <div className="container mx-auto">
         <div className="relative flex items-center mb-8">
-          <span className="flex-shrink mx-4 sm:text-4xl text-3xl">
+          <span className="flex-shrink sm:text-4xl text-3xl pr-2">
             About Me
           </span>
-          <div className="flex-grow border border-neutral-300 dark:border-gray-400"></div>
+          <div className="mt-1 flex-grow border border-neutral-300 dark:border-gray-400"></div>
         </div>
-        <div className="grid gap-8 items-start px-4">
-          <div>
+        <div className="grid gap-8 items-start">
+          <div className="text-justify">
             <p className="text-lg mb-6 text-muted-foreground">
               I'm a passionate web developer with a keen interest in creating
               intuitive and dynamic user experiences. With a strong foundation
@@ -170,25 +155,25 @@ const AboutSection = React.forwardRef((_props, ref) => {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-foreground">
+            <h3 className="text-xl text-center font-semibold mb-6 text-foreground">
               My Tech Stacks
             </h3>
-            <div className="space-y-8">
-              <div>
+            <div className="space-y-4">
+              <div className="relative">
                 <h4 className="text-lg font-medium mb-4 text-foreground">
                   Front-end Technologies
                 </h4>
-                <div className="grid grid-cols-3 sm:grid-cols-5 sm:gap-0 gap-6">
+                <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-y-0 gap-y-4">
                   {frontEndTech.map((tech) => (
                     <TechStack key={tech.name} tech={tech} />
                   ))}
                 </div>
               </div>
-              <div>
+              <div className="relative">
                 <h4 className="text-lg font-medium mb-4 text-foreground">
                   Back-end Technologies
                 </h4>
-                <div className="grid grid-cols-3 sm:gap-0 gap-6">
+                <div className="grid grid-cols-3">
                   {backEndTech.map((tech) => (
                     <TechStack key={tech.name} tech={tech} />
                   ))}

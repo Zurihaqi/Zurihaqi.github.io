@@ -62,7 +62,7 @@ const HeroSection = React.forwardRef(
             offset={20}
           >
             <div>
-              <p className="text-start text-xl">
+              <p className="text-justify text-xl">
                 I'm a software developer who builds web and mobile apps that are
                 efficient, user-friendly, and reliable. I love solving problems,
                 creating smooth experiences, and turning ideas into reality. 🚀

@@ -23,11 +23,8 @@ const Modal = ({ showModal, closeModal, children }) => {
   if (!showModal) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div
-        ref={modalRef}
-        className="relative w-full max-w-md max-h-[90vh] overflow-y-auto rounded-lg shadow-xl no-scrollbar"
-      >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-800/30">
+      <div ref={modalRef} className="rounded-lg sm:w-[800px] w-[350px]">
         {children}
       </div>
     </div>

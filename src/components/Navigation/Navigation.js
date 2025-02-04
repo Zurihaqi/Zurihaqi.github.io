@@ -80,72 +80,6 @@ export default function Navigation({
   }, [heroRef, aboutRef, projectsRef, contactRef]);
 
   React.useEffect(() => {
-    let startX = 0;
-    let endX = 0;
-    let isSwiping = false;
-
-    // Touch Events
-    const handleTouchStart = (e) => {
-      if (e.touches[0].clientX < 50) {
-        // Only allow swipes starting from left 50px
-        startX = e.touches[0].clientX;
-        isSwiping = true;
-      }
-    };
-
-    const handleTouchMove = (e) => {
-      if (!isSwiping) return;
-      endX = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = () => {
-      if (isSwiping && endX - startX > 50) {
-        setSidebarVisibility(true);
-      }
-      isSwiping = false;
-    };
-
-    // Mouse Events (for PC testing)
-    const handleMouseDown = (e) => {
-      if (e.clientX < 50) {
-        // Only allow swipes starting from left 50px
-        startX = e.clientX;
-        isSwiping = true;
-      }
-    };
-
-    const handleMouseMove = (e) => {
-      if (!isSwiping) return;
-      endX = e.clientX;
-    };
-
-    const handleMouseUp = () => {
-      if (isSwiping && endX - startX > 50) {
-        setSidebarVisibility(true);
-      }
-      isSwiping = false;
-    };
-
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchmove", handleTouchMove);
-    window.addEventListener("touchend", handleTouchEnd);
-
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-
-    return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleTouchEnd);
-
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, []);
-
-  React.useEffect(() => {
     if (sidebarVisible) {
       document.body.style.overflowX = "hidden";
     } else {
@@ -254,7 +188,7 @@ export default function Navigation({
       </aside>
 
       {/* Hamburger Button */}
-      <div className="lg:hidden p-2 z-20" ref={hamburgerRef}>
+      <div className="lg:hidden z-20" ref={hamburgerRef}>
         <button
           className={`fixed top-0 hamburger hamburger--arrow ${
             sidebarVisible ? "active" : ""

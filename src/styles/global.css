@@ -23,6 +23,8 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   --dot-bg: white; /* White background for light mode */
   --dot-color: gray; /* Light gray dots for light mode */
   --dot-size: 1px;
@@ -42,6 +44,8 @@ body {
 }
 
 .dark body {
+  margin: 0;
+  padding: 0;
   --dot-bg: #161616; /* Dark background for dark mode */
   --dot-color: #848282; /* Gray dots for dark mode */
   --dot-size: 1px;
