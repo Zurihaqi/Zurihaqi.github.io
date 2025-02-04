@@ -65,7 +65,7 @@ const TechStack = ({ tech }) => {
 
   return (
     <motion.div
-      className="flex flex-col items-center sm:mx-10 mx-5 dark:bg-zinc-500/20 bg-white/20 shadow-xl rounded-xl p-2"
+      className="flex flex-col items-center sm:mx-10 mx-5 dark:bg-zinc-500/20 bg-white/20 sm:shadow-xl shadow-lg rounded-xl p-2"
       initial="initial"
       whileHover="hover"
     >
