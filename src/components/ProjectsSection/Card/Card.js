@@ -14,7 +14,7 @@ const Card = ({ image, img_alt, title, description, category, onClick }) => {
         <div className="group relative flex justify-center">
           <button aria-label="image-btn" onClick={onClick}>
             <GatsbyImage
-              className="rounded-lg shadow-xl object-cover group-hover:brightness-50 transition-all duration-300"
+              className="rounded-lg object-cover group-hover:brightness-50 transition-all duration-300"
               image={getImage(image)}
               alt={img_alt}
             />

@@ -200,7 +200,7 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
               key={index}
             >
               <div
-                className={`flex flex-col md:flex-row dark:bg-[#161616]/50 dark:shadow-violet-900 shadow-md p-2 rounded-xl ${
+                className={`flex flex-col md:flex-row dark:bg-[#161616]/50 dark:shadow-violet-900 shadow-md sm:px-4 sm:py-2 px-2 py-2 rounded-xl ${
                   index % 2 === 0 ? "" : "md:flex-row-reverse"
                 } items-center gap-8 mb-16`}
               >
