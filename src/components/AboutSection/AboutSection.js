@@ -10,16 +10,14 @@ import {
   faLaptopCode,
   faSchool,
 } from "@fortawesome/free-solid-svg-icons";
+import Marquee from "react-fast-marquee";
 
-const frontEndTech = [
+const skills = [
   { name: "React", icon: FaReact, color: "text-blue-500" },
   { name: "React Native", icon: FaReact, color: "text-blue-400" },
   { name: "Vue", icon: FaVuejs, color: "text-green-500" },
   { name: "Tailwind", icon: SiTailwindcss, color: "text-teal-500" },
   { name: "Bootstrap", icon: FaBootstrap, color: "text-purple-500" },
-];
-
-const backEndTech = [
   { name: "Express", icon: SiExpress, color: "text-gray-500" },
   { name: "Spring Boot", icon: SiSpringboot, color: "text-green-600" },
   { name: "Laravel", icon: FaLaravel, color: "text-red-500" },
@@ -67,11 +65,11 @@ const TechStack = ({ tech }) => {
 
   return (
     <motion.div
-      className="flex flex-col items-center"
+      className="flex flex-col items-center sm:mx-10 mx-5 dark:bg-zinc-500/20 bg-white/20 shadow-xl rounded-xl p-2"
       initial="initial"
       whileHover="hover"
     >
-      <Icon className={`text-5xl ${tech.color}`} />
+      <Icon className={`sm:text-7xl text-5xl ${tech.color}`} />
       <span className="mt-1 text-sm text-foreground">{tech.name}</span>
     </motion.div>
   );
@@ -155,30 +153,18 @@ const AboutSection = React.forwardRef((_props, ref) => {
           </div>
 
           <div>
-            <h3 className="text-xl text-center font-semibold mb-6 text-foreground">
+            <h3 className="text-2xl text-center font-semibold mb-6 text-foreground">
               My Tech Stacks
             </h3>
-            <div className="space-y-4">
-              <div className="relative">
-                <h4 className="text-lg font-medium mb-4 text-foreground">
-                  Front-end Technologies
-                </h4>
-                <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-y-0 gap-y-4">
-                  {frontEndTech.map((tech) => (
+
+            <div className="w-fit -mx-12 pl-4">
+              <Marquee autoFill gradientWidth={50} pauseOnHover>
+                <div className="grid grid-cols-8 py-4">
+                  {skills.map((tech) => (
                     <TechStack key={tech.name} tech={tech} />
                   ))}
                 </div>
-              </div>
-              <div className="relative">
-                <h4 className="text-lg font-medium mb-4 text-foreground">
-                  Back-end Technologies
-                </h4>
-                <div className="grid grid-cols-3">
-                  {backEndTech.map((tech) => (
-                    <TechStack key={tech.name} tech={tech} />
-                  ))}
-                </div>
-              </div>
+              </Marquee>
             </div>
           </div>
         </div>

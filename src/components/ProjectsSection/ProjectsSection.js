@@ -14,9 +14,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards } from "swiper/modules";
+import { EffectCards, Navigation, Keyboard, Mousewheel } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -290,7 +290,10 @@ const ProjectsSection = React.forwardRef((_props, ref) => {
                   <Swiper
                     effect={"cards"}
                     grabCursor={true}
-                    modules={[EffectCards]}
+                    navigation
+                    keyboard={{ enabled: true }}
+                    mousewheel
+                    modules={[EffectCards, Navigation, Keyboard, Mousewheel]}
                   >
                     {selectedProject.images?.map((image, index) => (
                       <SwiperSlide key={index} className="text-center">
