@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      playfair: ["playfair", "playfair"],
-      quicksand: ["quicksand", "quicksand"],
+      inter: ["Inter", "sans-serif"],
+      workSans: ["Work Sans", "sans-serif"],
     },
   },
   plugins: [],

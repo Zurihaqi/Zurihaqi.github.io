@@ -31,7 +31,7 @@ const HeroSection = React.forwardRef(
         <div className="flex-shrink grid-cols-3 gap-2">
           <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
             <div className="text-start">
-              <p className="text-xl">
+              <h1 className="sm:text-2xl text-xl">
                 Hello
                 <button
                   id="wave"
@@ -42,8 +42,8 @@ const HeroSection = React.forwardRef(
                 >
                   👋
                 </button>
-              </p>
-              <p className="text-5xl font-playfair">
+              </h1>
+              <h1 className="sm:text-7xl text-5xl font-inter">
                 I'm{" "}
                 <span className="font-bold dark:text-violet-600 text-blue-400">
                   <button onClick={() => scrollToSection(aboutRef, 30)}>
@@ -51,7 +51,7 @@ const HeroSection = React.forwardRef(
                   </button>
                 </span>{" "}
                 Fahri Baihaqi
-              </p>
+              </h1>
             </div>
           </AnimationOnScroll>
           <br />
@@ -62,11 +62,11 @@ const HeroSection = React.forwardRef(
             offset={20}
           >
             <div>
-              <p className="text-justify text-xl">
+              <h2 className="text-justify sm:text-2xl text-xl">
                 I'm a software developer who builds web and mobile apps that are
                 efficient, user-friendly, and reliable. I love solving problems,
                 creating smooth experiences, and turning ideas into reality. 🚀
-              </p>
+              </h2>
             </div>
           </AnimationOnScroll>
 

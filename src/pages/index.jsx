@@ -35,14 +35,14 @@ export default function IndexPage() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css2?family=Playfair:opsz@5..1200&family=Quicksand&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         />
       </Helmet>
       <Seo
         title="Zul Fahri Baihaqi • Portfolio"
         description="A portfolio website showcasing my projects, skills, and experience."
-        keywords="Zul Fahri Baihaqi, portfolio, web developer, projects, skills"
+        keywords="Zul Fahri Baihaqi, zul fahri baihaqi, portfolio, web developer, projects, skills, zurihaqi, web, developer, zul, fahri, baihaqi"
       />
 
       {/* Main Content */}
@@ -55,7 +55,7 @@ export default function IndexPage() {
         />
         <div
           id="content"
-          className="relative flex-shrink-0 sm:w-3/4 w-fit mx-8 font-quicksand text-black dark:text-gray-300"
+          className="relative flex-shrink-0 sm:w-3/4 w-fit px-8 mx-auto font-workSans text-black dark:text-gray-300"
         >
           <ThemeToggler />
           <HeroSection
