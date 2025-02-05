@@ -18,24 +18,19 @@ export default function Navigation({
   const hamburgerRef = React.useRef(null);
 
   const toggleSidebar = () => {
-    setSidebarVisibility(!sidebarVisible);
+    setSidebarVisibility((prev) => !prev);
   };
 
   const handleScrollToSection = (ref, offset) => {
-    // Use the scrollToSection utility
     scrollToSection(ref, offset);
-
-    // Set sidebarVisible to false after scrolling
     setSidebarVisibility(false);
   };
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const offset = 250; // Top side offset
+      const offset = 250;
       const scrollPosition = window.scrollY;
-      // setSidebarVisibility(false); // This is annoying or is it just me lol
 
-      // Activate menu underline according to the section user scrolls to
       if (
         scrollPosition >= heroRef.current.offsetTop - offset &&
         scrollPosition < aboutRef.current.offsetTop - offset
@@ -58,8 +53,7 @@ export default function Navigation({
       }
     };
 
-    // Close sidebar on click outside
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
       if (
         navRef.current &&
         !navRef.current.contains(event.target) &&
@@ -68,7 +62,7 @@ export default function Navigation({
       ) {
         setSidebarVisibility(false);
       }
-    }
+    };
 
     window.addEventListener("scroll", handleScroll);
     document.addEventListener("mousedown", handleClickOutside);
@@ -80,12 +74,7 @@ export default function Navigation({
   }, [heroRef, aboutRef, projectsRef, contactRef]);
 
   React.useEffect(() => {
-    if (sidebarVisible) {
-      document.body.style.overflowX = "hidden";
-    } else {
-      document.body.style.overflowX = "";
-    }
-
+    document.body.style.overflowX = sidebarVisible ? "hidden" : "";
     return () => {
       document.body.style.overflowX = "";
     };
@@ -94,91 +83,84 @@ export default function Navigation({
   return (
     <>
       {/* Sidebar */}
-      <aside id="navigation" aria-label="navigation">
+      <aside id="navigation" aria-label="Navigation">
         <nav
           ref={navRef}
           className={`dark:bg-zinc-800 bg-blue-400 h-screen flex flex-col overflow-y-auto sticky top-0 px-3 py-4 w-64 transition-all duration-300 text-white dark:text-gray-300 ${
             sidebarVisible ? "ml-0" : "-ml-64"
           } lg:ml-0 font-quicksand tracking-wide`}
+          aria-hidden={!sidebarVisible}
         >
           <div className="text-center my-auto">
             <img
               src={avatar}
-              alt="avatar"
+              alt="Zul Fahri Baihaqi - Web Developer"
               className="w-1/2 mx-auto rounded-full my-5 shadow-md"
             />
-            <span>
-              <h1 className="text-2xl font-playfair font-bold tracking-tighter">
-                Zul Fahri Baihaqi
-              </h1>
-              <p className="font-thin">Web Developer</p>
-            </span>
+            <h1 className="text-2xl font-playfair font-bold tracking-tighter">
+              Zul Fahri Baihaqi
+            </h1>
+            <p className="font-thin">Web Developer</p>
+
+            {/* Navigation Links */}
             <nav className="my-6">
               <ul>
-                <li className="my-2">
-                  <button
-                    onClick={() => handleScrollToSection(heroRef, 0)}
-                    className={`custom-nav-link ${
-                      activeSection === "hero" || activeSection === null
-                        ? "active"
-                        : ""
-                    }`}
-                  >
-                    Home
-                  </button>
-                </li>
-                <li className="my-2">
-                  <button
-                    onClick={() => handleScrollToSection(aboutRef, 30)}
-                    className={`custom-nav-link ${
-                      activeSection === "about" ? "active" : ""
-                    }`}
-                  >
-                    About
-                  </button>
-                </li>
-                <li className="my-2">
-                  <button
-                    onClick={() => handleScrollToSection(projectsRef, 30)}
-                    className={`custom-nav-link ${
-                      activeSection === "projects" ? "active" : ""
-                    }`}
-                  >
-                    Projects
-                  </button>
-                </li>
-                <li className="my-2">
-                  <button
-                    onClick={() => handleScrollToSection(contactRef, 30)}
-                    className={`custom-nav-link ${
-                      activeSection === "contact" ? "active" : ""
-                    }`}
-                  >
-                    Contact
-                  </button>
-                </li>
+                {[
+                  { name: "Home", ref: heroRef, section: "hero", offset: 0 },
+                  {
+                    name: "About",
+                    ref: aboutRef,
+                    section: "about",
+                    offset: 30,
+                  },
+                  {
+                    name: "Projects",
+                    ref: projectsRef,
+                    section: "projects",
+                    offset: 30,
+                  },
+                  {
+                    name: "Contact",
+                    ref: contactRef,
+                    section: "contact",
+                    offset: 30,
+                  },
+                ].map((item) => (
+                  <li key={item.name} className="my-2">
+                    <button
+                      onClick={() =>
+                        handleScrollToSection(item.ref, item.offset)
+                      }
+                      className={`custom-nav-link ${
+                        activeSection === item.section ? "active" : ""
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </nav>
+
+            {/* Social Links */}
             <div>
               <p>
                 <small>
                   <a
                     href="https://github.com/Zurihaqi"
                     target="_blank"
-                    className="mx-2 size-fit"
                     rel="noreferrer"
-                    aria-label="github"
+                    aria-label="GitHub"
                   >
-                    <FontAwesomeIcon icon={faGithub} />
+                    <FontAwesomeIcon icon={faGithub} className="mx-2" />
                   </a>
                   <a
                     href="https://www.linkedin.com/in/zurihaqi/"
                     target="_blank"
-                    className="mx-2 size-fit"
                     rel="noreferrer"
-                    aria-label="linkedin"
+                    aria-label="LinkedIn"
                   >
-                    <FontAwesomeIcon icon={faLinkedin} />
+                    <FontAwesomeIcon icon={faLinkedin} className="mx-2" />
                   </a>
                 </small>
               </p>
@@ -195,7 +177,8 @@ export default function Navigation({
           }`}
           type="button"
           onClick={toggleSidebar}
-          aria-label="sidebar-toggle"
+          aria-label="Toggle Sidebar"
+          aria-expanded={sidebarVisible}
         >
           <div className="inner">
             <span className="bar"></span>

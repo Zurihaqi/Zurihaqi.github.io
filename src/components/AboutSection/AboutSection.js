@@ -156,7 +156,7 @@ const AboutSection = React.forwardRef((_props, ref) => {
               My Tech Stacks
             </h3>
 
-            <div className="w-fit -mx-12 pl-4">
+            <div className="w-fit">
               <Marquee autoFill gradientWidth={50} pauseOnHover>
                 <div className="grid grid-cols-8 py-4">
                   {skills.map((tech) => (

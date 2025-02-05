@@ -56,7 +56,7 @@ export default function IndexPage() {
         />
         <div
           id="content"
-          className="relative flex-shrink-0 sm:w-3/4 w-fit px-8 mx-auto font-workSans text-black dark:text-gray-300"
+          className="relative flex-shrink-0 sm:w-3/4 w-fit mx-8 justify-center font-workSans text-black dark:text-gray-300"
         >
           <ThemeToggler />
           <HeroSection
