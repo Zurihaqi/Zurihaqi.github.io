@@ -43,6 +43,7 @@ export default function IndexPage() {
         title="Zul Fahri Baihaqi • Portfolio"
         description="A portfolio website showcasing my projects, skills, and experience."
         keywords="Zul Fahri Baihaqi, zul fahri baihaqi, portfolio, web developer, projects, skills, zurihaqi, web, developer, zul, fahri, baihaqi"
+        canonicalUrl="https://zurihaqi.github.io/"
       />
 
       {/* Main Content */}

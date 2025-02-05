@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-const Seo = ({ title, description, keywords }) => {
+const Seo = ({ title, description, keywords, canonicalUrl }) => {
   return (
     <Helmet>
       <meta
@@ -14,6 +14,10 @@ const Seo = ({ title, description, keywords }) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
+
+      {/* ✅ Canonical Tag Added */}
+      <link rel="canonical" href={canonicalUrl} />
+
       <script type="application/ld+json">
         {`
           {
