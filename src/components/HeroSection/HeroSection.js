@@ -31,7 +31,7 @@ const HeroSection = React.forwardRef(
         <div className="flex-shrink grid-cols-3 gap-2">
           <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
             <div className="text-start">
-              <h1 className="sm:text-2xl text-xl">
+              <h2 className="sm:text-2xl text-xl">
                 Hello
                 <button
                   id="wave"
@@ -42,8 +42,8 @@ const HeroSection = React.forwardRef(
                 >
                   👋
                 </button>
-              </h1>
-              <h1 className="sm:text-7xl text-5xl font-inter">
+              </h2>
+              <p className="sm:text-7xl text-5xl font-inter">
                 I'm{" "}
                 <span className="font-bold dark:text-violet-600 text-blue-400">
                   <button onClick={() => scrollToSection(aboutRef, 30)}>
@@ -51,7 +51,7 @@ const HeroSection = React.forwardRef(
                   </button>
                 </span>{" "}
                 Fahri Baihaqi
-              </h1>
+              </p>
             </div>
           </AnimationOnScroll>
           <br />
