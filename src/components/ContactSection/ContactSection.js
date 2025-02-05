@@ -8,7 +8,7 @@ const ContactSection = React.forwardRef((_props, ref) => {
     <section
       ref={ref}
       id="contact"
-      className="container mb-24 border-t-2 dark:bg-[#161616] bg-white dark:border-t-zinc-700 rounded-t-xl"
+      className="container pb-24 border-t-2 dark:bg-[#161616] bg-white dark:border-t-zinc-700 rounded-t-xl"
     >
       <div className="relative flex items-center">
         {/* <span className="flex-shrink mx-4 text-2xl">Get in touch</span> */}

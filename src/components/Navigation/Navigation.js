@@ -5,6 +5,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { scrollToSection } from "../../utility/scrollToSection";
 import "delicious-hamburgers/dist/hamburgers.min.css";
 import "./Navigation.scss";
+import { Link } from "gatsby";
 
 export default function Navigation({
   heroRef,
@@ -127,16 +128,18 @@ export default function Navigation({
                   },
                 ].map((item) => (
                   <li key={item.name} className="my-2">
-                    <button
-                      onClick={() =>
-                        handleScrollToSection(item.ref, item.offset)
-                      }
+                    <Link
+                      to={`#${item.section}`} // Internal link
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleScrollToSection(item.ref, item.offset);
+                      }}
                       className={`custom-nav-link ${
                         activeSection === item.section ? "active" : ""
                       }`}
                     >
                       {item.name}
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
