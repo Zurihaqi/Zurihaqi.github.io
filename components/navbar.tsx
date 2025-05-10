@@ -37,7 +37,7 @@ export default function Navbar({
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-medium">
-          Zul • Fahri • Baihaqi
+          Zurihaqi • Portfolio
         </Link>
 
         {/* Desktop Navigation */}

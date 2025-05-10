@@ -40,38 +40,40 @@ export default function ProjectsTitle() {
           {/* How to center this in the middle of the viewport? */}
           <div
             style={{
-              gap: "3rem",
-              justifyContent: "center",
-              alignItems: "center",
+              // gap: "3rem",
+              // justifyContent: "center",
+              // alignItems: "center",
               textAlign: "center",
-              display: "flex",
-              overflow: "hidden",
+              display: "block",
+              // overflow: "hidden",
               position: "relative",
-              left: "50%",
-              transform: "translateX(-50%)",
+              // left: "50%",
+              // transform: "translateX(-50%)",
             }}
-            className="pb-10 w-[105%]"
+            className="pb-10 w-[150%] right-1/4"
           >
             <motion.div
               style={{
                 scale: textScaleDown,
                 opacity: textScaleDown,
-                width: "100%",
               }}
+              className="inline-block"
             >
-              <span className="text-6xl lg:text-8xl font-medium">My Works</span>
+              <span className="text-4xl lg:text-8xl font-medium">My Works</span>
             </motion.div>
-            <motion.div style={{ scale: textScaleUp, width: "100%" }}>
-              <span className="text-6xl lg:text-8xl font-medium">My Works</span>
+            <motion.div style={{ scale: textScaleUp }} className="inline-block">
+              <span className="text-4xl lg:text-8xl font-medium lg:mx-10 mx-4">
+                My Works
+              </span>
             </motion.div>
             <motion.div
               style={{
                 scale: textScaleDown,
                 opacity: textScaleDown,
-                width: "100%",
               }}
+              className="inline-block"
             >
-              <span className="text-6xl lg:text-8xl font-medium">My Works</span>
+              <span className="text-4xl lg:text-8xl font-medium">My Works</span>
             </motion.div>
           </div>
         </div>
