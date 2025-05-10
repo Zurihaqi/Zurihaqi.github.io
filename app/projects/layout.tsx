@@ -27,16 +27,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${outfit.className} font-outfit`}>
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="git"
           enableSystem
           disableTransitionOnChange
-        >
-          <Navbar navItems={navItems} />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        > */}
+        <Navbar navItems={navItems} />
+        {children}
+        <Footer />
+        {/* </ThemeProvider> */}
       </body>
     </html>
   );
