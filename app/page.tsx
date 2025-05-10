@@ -13,6 +13,8 @@ export default function Home() {
     { name: "Contact", href: "#contact" },
   ];
 
+  // Bruh
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar navItems={navItems} />
