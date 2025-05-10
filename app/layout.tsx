@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={`${outfit.className} font-outfit`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
