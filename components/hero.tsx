@@ -35,7 +35,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative h-screen mt-24 flex items-center justify-center overflow-hidden scroll-mt-24"
+      className="relative h-screen sm:mt-24 mt-0 flex items-center justify-center overflow-hidden scroll-mt-24"
     >
       {/* Text Overlay Top */}
       <motion.div
