@@ -1,91 +1,151 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-
-const skills = [
-  {
-    category: "Frontend",
-    items: [
-      { name: "React", level: 90 },
-      { name: "Next.js", level: 85 },
-      { name: "TypeScript", level: 80 },
-      { name: "TailwindCSS", level: 95 },
-      { name: "Framer Motion", level: 75 },
-    ],
-  },
-  {
-    category: "Backend",
-    items: [
-      { name: "Node.js", level: 85 },
-      { name: "Express", level: 80 },
-      { name: "Prisma", level: 75 },
-      { name: "PostgreSQL", level: 70 },
-      { name: "GraphQL", level: 65 },
-    ],
-  },
-  {
-    category: "Tools & Others",
-    items: [
-      { name: "Git", level: 90 },
-      { name: "Docker", level: 70 },
-      { name: "AWS", level: 65 },
-      { name: "Figma", level: 75 },
-      { name: "CI/CD", level: 70 },
-    ],
-  },
-]
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiJavascript,
+  SiSpringboot,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiGo,
+  SiNestjs,
+  SiVuedotjs,
+  SiBootstrap,
+  SiPhp,
+  SiHtml5,
+  SiCss3,
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
+import { FaCode, FaLayerGroup } from "react-icons/fa";
+import { FaJava } from "react-icons/fa";
+import { TbBrandReactNative } from "react-icons/tb";
 
 export default function Skills() {
-  return (
-    <section id="skills" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
-          <p className="text-foreground/70 max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills and proficiency levels.
-          </p>
-        </motion.div>
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((skillGroup, groupIndex) => (
-            <motion.div
-              key={skillGroup.category}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/50 transition-colors duration-300"
-            >
-              <h3 className="text-xl font-semibold mb-6 text-center">{skillGroup.category}</h3>
-              <div className="space-y-6">
-                {skillGroup.items.map((skill, index) => (
-                  <div key={skill.name} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-foreground/80">{skill.name}</span>
-                      <span className="text-sm text-foreground/60">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
+  const skillCategories = [
+    {
+      name: "Programming Languages",
+      icon: FaCode,
+      skills: [
+        { name: "JavaScript", icon: SiJavascript, endorsements: 2 },
+        { name: "TypeScript", icon: SiTypescript },
+        { name: "Java", icon: FaJava },
+        { name: "PHP", icon: SiPhp, endorsements: 1 },
+      ],
+    },
+    {
+      name: "Frontend",
+      icon: SiReact,
+      skills: [
+        { name: "React.js", icon: SiReact },
+        { name: "Next.js", icon: SiNextdotjs },
+        { name: "Vue.js", icon: SiVuedotjs },
+        { name: "React Native", icon: TbBrandReactNative },
+        { name: "Tailwind CSS", icon: SiTailwindcss },
+        { name: "Bootstrap", icon: SiBootstrap },
+        { name: "HTML5", icon: SiHtml5, endorsements: 1 },
+        { name: "CSS", icon: SiCss3, endorsements: 1 },
+      ],
+    },
+    {
+      name: "Backend",
+      icon: SiNodedotjs,
+      skills: [
+        { name: "Node.js", icon: SiNodedotjs, endorsements: 2 },
+        { name: "Express.js", icon: SiExpress, endorsements: 2 },
+        { name: "NestJS", icon: SiNestjs },
+        { name: "Spring Boot", icon: SiSpringboot },
+        { name: "REST APIs", icon: TbApi, endorsements: 2 },
+      ],
+    },
+    {
+      name: "Databases",
+      icon: SiPostgresql,
+      skills: [
+        { name: "PostgreSQL", icon: SiPostgresql, endorsements: 2 },
+        { name: "MongoDB", icon: SiMongodb, endorsements: 2 },
+        { name: "MySQL", icon: SiMysql, endorsements: 2 },
+      ],
+    },
+  ];
+
+  return (
+    <section
+      ref={containerRef}
+      className="relative py-28 bg-white text-black overflow-hidden min-h-screen scroll-mt-24"
+      id="skills"
+    >
+      {/* Background Title */}
+      <motion.h2
+        className="absolute inset-0 md:-top-30 text-[6.5rem] md:text-[15rem] font-extrabold text-black/15 uppercase tracking-widest text-center pointer-events-none"
+        style={{
+          y: useTransform(scrollYProgress, [0, 1], [100, -100]),
+        }}
+      >
+        Skills
+      </motion.h2>
+
+      <div className="relative z-10 container mx-auto px-4">
+        <h3 className="text-4xl md:text-5xl font-bold text-center mb-20">
+          My Technical Skills
+        </h3>
+
+        {/* Skill Categories */}
+        <div className="space-y-24 max-w-6xl mx-auto">
+          {skillCategories.map((category, categoryIndex) => (
+            <div key={category.name} className="space-y-12">
+              <motion.h4
+                className="text-2xl font-bold flex items-center gap-3"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <category.icon className="text-black" />
+                {category.name}
+              </motion.h4>
+
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-6 gap-y-12">
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: skillIndex * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center gap-3 group"
+                  >
+                    <div className="relative flex items-center justify-center">
+                      <skill.icon className="w-12 h-12 text-gray-700 group-hover:text-black transition-colors duration-300" />
                       <motion.div
-                        className="h-full bg-gradient-to-r from-primary to-purple-500 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: 0.1 * index }}
-                        viewport={{ once: true }}
+                        className="absolute -inset-3 rounded-full opacity-0 group-hover:opacity-10 bg-gray-400"
+                        initial={{ scale: 0.8 }}
+                        whileHover={{ scale: 1 }}
+                        transition={{ duration: 0.3 }}
                       />
                     </div>
-                  </div>
+                    <span className="font-medium text-center text-sm mt-1">
+                      {skill.name}
+                    </span>
+                  </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

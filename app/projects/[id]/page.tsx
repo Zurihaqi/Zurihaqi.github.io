@@ -19,7 +19,8 @@ export default async function ProjectPage({
 }: {
   params: { id: string };
 }) {
-  const projectId = `project${params.id}`;
+  const { id } = await params;
+  const projectId = `project${id}`;
   const project =
     projectId in projectData ? (projectData as ProjectData)[projectId] : null;
 

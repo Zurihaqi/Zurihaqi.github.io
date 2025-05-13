@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-export default function ProjectsTitle() {
+export default function ExperienceTitle() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -15,7 +15,7 @@ export default function ProjectsTitle() {
   const textScaleDown = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
 
   return (
-    <section className="bg-white relative sm:my-20 my-0" ref={containerRef}>
+    <section className="bg-white relative mt-20" ref={containerRef}>
       <div
         style={{
           justifyContent: "center",
@@ -39,7 +39,7 @@ export default function ProjectsTitle() {
               display: "block",
               position: "relative",
             }}
-            className="pb-10 w-[150%] right-1/4"
+            className="pb-10 w-[200%] right-1/2"
           >
             <motion.div
               style={{
@@ -48,11 +48,13 @@ export default function ProjectsTitle() {
               }}
               className="inline-block"
             >
-              <span className="text-4xl lg:text-8xl font-medium">My Works</span>
+              <span className="text-4xl lg:text-8xl font-medium">
+                Experience
+              </span>
             </motion.div>
             <motion.div style={{ scale: textScaleUp }} className="inline-block">
               <span className="text-4xl lg:text-8xl font-medium lg:mx-10 mx-4">
-                My Works
+                Experience
               </span>
             </motion.div>
             <motion.div
@@ -62,7 +64,9 @@ export default function ProjectsTitle() {
               }}
               className="inline-block"
             >
-              <span className="text-4xl lg:text-8xl font-medium">My Works</span>
+              <span className="text-4xl lg:text-8xl font-medium">
+                Experience
+              </span>
             </motion.div>
           </div>
         </div>

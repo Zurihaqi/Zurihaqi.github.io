@@ -1,8 +1,8 @@
 import type React from "react";
 import "@/app/globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Outfit } from "next/font/google";
 import type { Metadata } from "next";
+import FramerProvider from "@/components/framer-provider";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -19,14 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${outfit.className} font-outfit`}>
-        {/* <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        > */}
-        {children}
-        {/* </ThemeProvider> */}
+        <FramerProvider>{children}</FramerProvider>
       </body>
     </html>
   );

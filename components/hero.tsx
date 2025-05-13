@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Marquee from "react-fast-marquee";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,6 +13,13 @@ const inter = Inter({
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const scaleDown = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
 
   return (
     <section
@@ -43,8 +51,8 @@ export default function Hero() {
         </div>
 
         {/* Central Image */}
-        <div
-          style={{ opacity: 1 }}
+        <motion.div
+          style={{ scale: scaleDown }}
           className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-[80%] max-w-md aspect-[3/4] z-20"
         >
           <Image
@@ -54,7 +62,7 @@ export default function Hero() {
             className="object-cover shadow-xl rounded-b-md"
             priority
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

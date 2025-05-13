@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const badgeVariants = {
   hidden: { opacity: 0, scale: 0.8, y: 20 },
@@ -16,9 +17,34 @@ const badgeVariants = {
   }),
 };
 
+const scrollIndicatorVariants = {
+  initial: { y: 0, opacity: 0.8 },
+  animate: {
+    y: [0, 10, 0],
+    opacity: [0.8, 1, 0.8],
+    transition: {
+      duration: 1.5,
+      repeat: Number.POSITIVE_INFINITY,
+      repeatType: "loop" as const,
+      ease: "easeInOut",
+    },
+  },
+};
+
 export default function About() {
+  const scrollToNextSection = () => {
+    // Get the next section after "about"
+    const nextSection = document.querySelector("#about")?.nextElementSibling;
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="about" className="bg-white my-20 scroll-mt-24">
+    <section
+      id="about"
+      className="bg-white sm:my-20 mb-12 sm:mb-0 scroll-mt-24 relative"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -51,7 +77,7 @@ export default function About() {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-4 mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -73,6 +99,20 @@ export default function About() {
               </motion.span>
             ))}
           </motion.div>
+        </motion.div>
+
+        {/* Scroll Down Indicator */}
+        <motion.div
+          className="flex flex-col items-center justify-center mt-8 mb-4 cursor-pointer"
+          onClick={scrollToNextSection}
+          initial="initial"
+          animate="animate"
+          variants={scrollIndicatorVariants}
+        >
+          <span className="text-sm text-black/50 mb-2">Scroll Down</span>
+          <div className="bg-white rounded-full p-2 shadow-md">
+            <ChevronDown className="h-5 w-5 text-black/70" />
+          </div>
         </motion.div>
       </div>
     </section>

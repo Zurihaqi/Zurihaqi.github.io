@@ -18,15 +18,14 @@ export default function Footer() {
       <div className="container mx-auto overflow-hidden">
         <Marquee speed={70}>
           <p className="inline-block mb-12 sm:text-4xl text-3xl font-light">
-            <span className="mr-[10rem]">LET'S CONNECT!</span>
-            <span className="mr-[10rem]">EMAIL ME</span>
-            <span className="mr-[10rem]">MESSAGE ME</span>
+            <span className="mr-[10rem]">THANKS FOR VISITING</span>
+            <span className="mr-[10rem]">LET'S CONNECT</span>
             <span className="mr-[10rem]">CHECK OUT MY GITHUB</span>
             <span className="mr-[10rem]">ADD ME ON STEAM?</span>
           </p>
         </Marquee>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 font-light">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-light">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -76,43 +75,31 @@ export default function Footer() {
             viewport={{ once: true }}
             className="space-y-2 text-xl"
           >
-            <h3 className=" mb-4">Navigation</h3>
+            <h3 className="mb-4">Navigation</h3>
             <Link
               href="#hero"
-              className="block hover:text-gray-300 transition-colors"
+              className="block hover:text-gray-300 transition-colors w-fit"
             >
               Home
             </Link>
             <Link
               href="#projects"
-              className="block hover:text-gray-300 transition-colors"
+              className="block hover:text-gray-300 transition-colors w-fit"
             >
               Projects
             </Link>
             <Link
               href="#about"
-              className="block hover:text-gray-300 transition-colors"
+              className="block hover:text-gray-300 transition-colors w-fit"
             >
               About
             </Link>
             <Link
               href="#contact"
-              className="block hover:text-gray-300 transition-colors"
+              className="block hover:text-gray-300 transition-colors w-fit"
             >
               Contact
             </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-2 text-xl"
-          >
-            <h3 className=" mb-4">Contact</h3>
-            <p className="">zurihaqi@gmail.com</p>
-            <p className="">+62 878 2381 5619</p>
           </motion.div>
         </div>
 

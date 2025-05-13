@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { MenuIcon, SunIcon, XIcon } from "lucide-react";
-import { Button } from "./ui/button";
+import { MenuIcon, XIcon } from "lucide-react";
 
 export default function Navbar({
   navItems,
@@ -51,10 +50,6 @@ export default function Navbar({
               {item.name}
             </Link>
           ))}
-          {/* Theme Toggle */}
-          {/* <Button size={"icon"} className="text-black hover:text-black/70">
-            <SunIcon />
-          </Button> */}
         </nav>
 
         {/* Mobile Menu Button */}
