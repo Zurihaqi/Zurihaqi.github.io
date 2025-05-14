@@ -4,6 +4,39 @@
     "images": [],
     "thumbnail": [],
     "img_alt": [],
+    "title": "Spatial AR",
+    "description": "This application is a Kotlin-based app utilizing ARCore technology to help users accurately measure room dimensions and place 3D furniture models directly in a virtual space. With the AR measurement feature, users can easily determine the length, width, and height of a room simply by pointing their device's camera. Additionally, the app provides a selection of 3D furniture models that can be placed in real-time, allowing users to visualize how the furniture would look in their space before making a purchase or rearranging their interior. Designed to offer an interactive and realistic experience, this app leverages augmented reality to enhance interior planning and design.",
+    "category": ["Mobile App"],
+    "tech": ["Kotlin", "ARCore", "Jetpack Compose"],
+    "repo": "https://github.com/Zurihaqi/SpatialAR"
+  },
+  "project1": {
+    "id": 1,
+    "images": [],
+    "thumbnail": [],
+    "img_alt": [],
+    "title": "VTTP",
+    "description": "This web-based application is designed for investors and tech leads looking for developers or engineers to work on their projects. Through this platform, clients can easily search, filter, and select developers based on their needs, whether for hiring as part of their team or assigning specific projects. Key features include developer search by skills, detailed developer profiles, and a project management system that allows clients to directly assign tasks to their chosen developers. This application aims to streamline the recruitment process and project distribution within the tech ecosystem.",
+    "category": ["Website"],
+    "tech": ["Spring Boot", "React", "Tailwind", "NextUI", "PostgreSQL"],
+    "repo": ""
+  },
+  "project2": {
+    "id": 2,
+    "images": [],
+    "thumbnail": [],
+    "img_alt": [],
+    "title": "Ichiban Kuji",
+    "description": "Ichiban Kuji is a Kotlin-based application that allows users to collect action figures of their favorite anime characters. The app features a virtual coin system that can be used to either exchange for specific action figures or participate in a gacha system for a chance to obtain random figures, including rare and limited editions. Users can acquire these coins through in-app purchases using real money, enabling them to expand their collection more quickly. With an engaging interface and secure transaction system, CollectAnime provides a fun and immersive experience for anime figure collectors.",
+    "category": ["Mobile App"],
+    "tech": ["Kotlin"],
+    "repo": ""
+  },
+  "project3": {
+    "id": 3,
+    "images": [],
+    "thumbnail": [],
+    "img_alt": [],
     "title": "Kerjain Aja",
     "description": "'Kerjain Aja' is a platform designed to connect individuals who need help with daily tasks to skilled workers looking for flexible job opportunities. Customers can quickly find reliable assistance for services like home repairs, cleaning, and personal tasks, while workers gain access to jobs that fit their skills and schedules, promoting work-life balance and financial stability. \nBeyond convenience, 'Kerjain Aja' has a significant social impact by helping reduce unemployment, especially in the informal sector, and empowering workers with meaningful job opportunities. By bridging the gap between demand and supply, the platform fosters economic growth and accessible employment.",
     "category": ["Website", "Mobile App"],
@@ -19,8 +52,8 @@
     ],
     "repo": "https://github.com/AlanPratama/palu-gada-mobile"
   },
-  "project1": {
-    "id": 1,
+  "project4": {
+    "id": 4,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -30,8 +63,8 @@
     "tech": ["React", "Bootstrap", "Axios", "jQuery"],
     "repo": "https://github.com/Zurihaqi/second-hand"
   },
-  "project2": {
-    "id": 2,
+  "project5": {
+    "id": 5,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -41,8 +74,8 @@
     "tech": ["ExpressJs", "PostgreSQL", "Sequelize", "Passport.js", "JWT"],
     "repo": "https://github.com/Zurihaqi/capstone-binar-secondhand"
   },
-  "project3": {
-    "id": 3,
+  "project6": {
+    "id": 6,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -52,8 +85,8 @@
     "tech": ["NextJs", "Tailwind", "NextAuth", "PrismaORM", "MySQL", "JWT"],
     "repo": "https://github.com/Zurihaqi/kedai-mie-ayam"
   },
-  "project4": {
-    "id": 4,
+  "project7": {
+    "id": 7,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -63,8 +96,8 @@
     "tech": ["Numpy", "Pandas", "NLTK", "Sastrawi"],
     "repo": "https://colab.research.google.com/drive/16fiKZw49eoZLaWgruQ_B9_0rEc5QB7PQ?usp=sharing"
   },
-  "project5": {
-    "id": 5,
+  "project8": {
+    "id": 8,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -81,8 +114,8 @@
     ],
     "repo": "https://github.com/Zurihaqi/spk-informatika-frontend-skripsi"
   },
-  "project6": {
-    "id": 6,
+  "project9": {
+    "id": 9,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -92,8 +125,8 @@
     "tech": ["ExpressJs", "EJS", "MongoDB", "Bootstrap", "Passport.js"],
     "repo": "https://github.com/Zurihaqi/yelpcamp"
   },
-  "project7": {
-    "id": 7,
+  "project10": {
+    "id": 10,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -103,8 +136,8 @@
     "tech": ["Laravel", "Eloquent", "MySQL", "Bootstrap"],
     "repo": "https://github.com/Zurihaqi/pemancingan"
   },
-  "project8": {
-    "id": 8,
+  "project11": {
+    "id": 11,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
