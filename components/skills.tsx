@@ -26,6 +26,8 @@ import { TbApi } from "react-icons/tb";
 import { FaCode, FaLayerGroup } from "react-icons/fa";
 import { FaJava } from "react-icons/fa";
 import { TbBrandReactNative } from "react-icons/tb";
+import { CiStreamOn } from "react-icons/ci";
+import { MdSensors } from "react-icons/md";
 
 export default function Skills() {
   const containerRef = useRef(null);
@@ -68,6 +70,8 @@ export default function Skills() {
         { name: "NestJS", icon: SiNestjs },
         { name: "Spring Boot", icon: SiSpringboot },
         { name: "REST APIs", icon: TbApi, endorsements: 2 },
+        { name: "Websockets", icon: CiStreamOn },
+        { name: "MQTTs", icon: MdSensors },
       ],
     },
     {

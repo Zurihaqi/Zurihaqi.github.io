@@ -46,7 +46,7 @@ function Timeline() {
       role: "Frontend Developer",
       company: "PT. Ravelware Technology Indonesia",
       description:
-        "Contributed to multiple projects by designing mockups and interactive prototypes. Improved existing websites and web applications with new features and enhancements. Collaborated closely with clients to understand their goals and deliver high-quality, user-focused solutions.",
+        "Contributed to multiple projects by designing mockups and interactive prototypes. Improved existing websites and web applications with new features and enhancements, integrated IOT devices with web applications. Collaborated closely with clients to understand their goals and deliver high-quality, user-focused solutions.",
     },
     {
       year: "Jun 2024 - Oct 2024",

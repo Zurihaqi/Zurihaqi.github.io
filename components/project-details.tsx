@@ -111,7 +111,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
               <h3 className="text-2xl font-medium">Live Demo</h3>
               <div className="w-fit">
                 <a
-                  href={project.repo}
+                  href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-black/70 transition-colors"

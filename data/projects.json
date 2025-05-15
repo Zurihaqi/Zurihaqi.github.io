@@ -1,5 +1,5 @@
-{
-  "project0": {
+[
+  {
     "id": 0,
     "images": [],
     "thumbnail": [],
@@ -10,8 +10,25 @@
     "tech": ["Kotlin", "ARCore", "Jetpack Compose"],
     "repo": "https://github.com/Zurihaqi/SpatialAR"
   },
-  "project1": {
+  {
     "id": 1,
+    "images": [],
+    "thumbnail": [],
+    "img_alt": [],
+    "title": "NestJs Chat App",
+    "description": "This is a real-time chat application built using NestJS, WebSockets, and MongoDB. It supports user registration, login, and the ability to send messages to specific users in a chat system.",
+    "category": ["API, Website"],
+    "tech": [
+      "NestJs",
+      "NestJs WebSockets",
+      "MongoDB",
+      "Mongoose",
+      "TypeScript"
+    ],
+    "repo": "https://github.com/Zurihaqi/nestjs-ws-mongodb"
+  },
+  {
+    "id": 2,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -21,8 +38,8 @@
     "tech": ["Spring Boot", "React", "Tailwind", "NextUI", "PostgreSQL"],
     "repo": ""
   },
-  "project2": {
-    "id": 2,
+  {
+    "id": 3,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -32,8 +49,8 @@
     "tech": ["Kotlin"],
     "repo": ""
   },
-  "project3": {
-    "id": 3,
+  {
+    "id": 4,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -52,8 +69,20 @@
     ],
     "repo": "https://github.com/AlanPratama/palu-gada-mobile"
   },
-  "project4": {
-    "id": 4,
+  {
+    "id": 5,
+    "images": [],
+    "thumbnail": [],
+    "img_alt": [],
+    "title": "Quran Verses and Calculator App",
+    "description": "This web app combines a sleek, functional calculator with a spiritually uplifting Qur'an Verse Randomizer, offering users both practical utility and moments of reflection; the calculator provides standard arithmetic operations with a clean, responsive interface, while the verse section allows users to browse Qur'anic ayahs with options to view a random verse, navigate to the next or previous one, and listen to the recitation—all in a minimal design that promotes focus and ease of use.",
+    "category": ["Website"],
+    "tech": ["React", "Tailwind", "Axios"],
+    "repo": "https://github.com/Zurihaqi/react-calculator-and-verse-randomizer",
+    "live": "https://react-calculator-and-verse-randomizer.vercel.app/"
+  },
+  {
+    "id": 6,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -63,8 +92,8 @@
     "tech": ["React", "Bootstrap", "Axios", "jQuery"],
     "repo": "https://github.com/Zurihaqi/second-hand"
   },
-  "project5": {
-    "id": 5,
+  {
+    "id": 7,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -74,8 +103,8 @@
     "tech": ["ExpressJs", "PostgreSQL", "Sequelize", "Passport.js", "JWT"],
     "repo": "https://github.com/Zurihaqi/capstone-binar-secondhand"
   },
-  "project6": {
-    "id": 6,
+  {
+    "id": 8,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -85,8 +114,8 @@
     "tech": ["NextJs", "Tailwind", "NextAuth", "PrismaORM", "MySQL", "JWT"],
     "repo": "https://github.com/Zurihaqi/kedai-mie-ayam"
   },
-  "project7": {
-    "id": 7,
+  {
+    "id": 9,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -96,8 +125,8 @@
     "tech": ["Numpy", "Pandas", "NLTK", "Sastrawi"],
     "repo": "https://colab.research.google.com/drive/16fiKZw49eoZLaWgruQ_B9_0rEc5QB7PQ?usp=sharing"
   },
-  "project8": {
-    "id": 8,
+  {
+    "id": 10,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -114,8 +143,8 @@
     ],
     "repo": "https://github.com/Zurihaqi/spk-informatika-frontend-skripsi"
   },
-  "project9": {
-    "id": 9,
+  {
+    "id": 11,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -125,8 +154,8 @@
     "tech": ["ExpressJs", "EJS", "MongoDB", "Bootstrap", "Passport.js"],
     "repo": "https://github.com/Zurihaqi/yelpcamp"
   },
-  "project10": {
-    "id": 10,
+  {
+    "id": 12,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
@@ -136,16 +165,27 @@
     "tech": ["Laravel", "Eloquent", "MySQL", "Bootstrap"],
     "repo": "https://github.com/Zurihaqi/pemancingan"
   },
-  "project11": {
-    "id": 11,
+  {
+    "id": 13,
     "images": [],
     "thumbnail": [],
     "img_alt": [],
-    "title": "Personal Website",
-    "description": "My first personal website.",
+    "title": "Personal Website V2",
+    "description": "An updated version of my personal website built using Next.js, Tailwind, and FramerMotion.",
     "category": ["Website"],
-    "tech": ["Gatsby", "React", "Tailwind", "GraphQL"],
+    "tech": ["NextJs", "Tailwind", "FramerMotion"],
     "repo": "https://github.com/Zurihaqi/Zurihaqi.github.io",
     "live": "https://zurihaqi.github.io/"
+  },
+  {
+    "id": 14,
+    "images": [],
+    "thumbnail": [],
+    "img_alt": [],
+    "title": "Personal Website V1",
+    "description": "My first personal website built using Gatsby and Tailwind.",
+    "category": ["Website"],
+    "tech": ["Gatsby", "React", "Tailwind", "GraphQL"],
+    "repo": "https://github.com/Zurihaqi/Zurihaqi.github.io/tree/old-gatsby"
   }
-}
+]

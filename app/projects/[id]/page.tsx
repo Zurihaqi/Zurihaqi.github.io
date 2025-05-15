@@ -1,17 +1,10 @@
 import ProjectDetails from "@/components/project-details";
 import projectData from "@/data/projects.json";
 import { Project } from "@/types/types";
-
 import { notFound } from "next/navigation";
 
-interface ProjectData {
-  [key: string]: Project;
-}
-
 export async function generateStaticParams() {
-  return Object.keys(projectData).map((key) => ({
-    id: key.replace("project", ""),
-  }));
+  return projectData.map((project) => ({ id: project.id.toString() }));
 }
 
 export default async function ProjectPage({
@@ -20,9 +13,7 @@ export default async function ProjectPage({
   params: { id: string };
 }) {
   const { id } = await params;
-  const projectId = `project${id}`;
-  const project =
-    projectId in projectData ? (projectData as ProjectData)[projectId] : null;
+  const project = projectData.find((project) => project.id.toString() === id);
 
   if (!project) {
     notFound();
