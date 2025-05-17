@@ -33,8 +33,7 @@ const scrollIndicatorVariants = {
 
 export default function About() {
   const scrollToNextSection = () => {
-    // Get the next section after "about"
-    const nextSection = document.querySelector("#about")?.nextElementSibling;
+    const nextSection = document.querySelector("#projects");
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: "smooth" });
     }
