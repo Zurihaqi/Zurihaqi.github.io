@@ -56,7 +56,7 @@ export default function Hero() {
           className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-[80%] max-w-md aspect-[3/4] z-20"
         >
           <Image
-            src="/avatar.png"
+            src="/avatar.webp"
             alt="Portfolio Hero"
             fill
             className="object-cover shadow-xl rounded-b-md"
