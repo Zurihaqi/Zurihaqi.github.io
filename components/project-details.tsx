@@ -54,11 +54,12 @@ export default function ProjectDetails({ project }: { project: Project }) {
           animate={{ clipPath: "inset(0% 0 0 0)", opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
         >
-          <img
-            src={
-              project.thumbnail[0] || "/placeholder.svg?height=600&width=800"
-            }
-            alt={project.img_alt?.[0] || project.title}
+          <video
+            src={project.thumbnail[0]}
+            autoPlay
+            muted
+            playsInline
+            loop={false}
             className="object-cover w-full h-full"
           />
         </motion.div>

@@ -51,7 +51,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true }}
               className="group relative"
             >
               <Link href={`/projects/${project.id}` || "#"} className="block">
@@ -66,14 +66,13 @@ export default function Projects() {
                     setShowCursor(false);
                   }}
                 >
-                  <Image
-                    src={
-                      project.thumbnail[0] ||
-                      "/placeholder.svg?height=600&width=800"
-                    }
-                    alt={project.img_alt?.[0] || project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  <video
+                    src={project.thumbnail[0]}
+                    className="object-cover w-full h-full"
+                    autoPlay
+                    muted
+                    playsInline
+                    loop={false}
                   />
                 </div>
 
