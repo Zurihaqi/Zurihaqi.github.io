@@ -1,22 +1,34 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { useCallback, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
 import projectData from "@/data/projects.json";
 
-const projects = Object.values(projectData);
-
 export default function Projects() {
+  const projects = useMemo(() => Object.values(projectData), []);
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(false);
+  const frame = useRef(0);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setCursorPos({ x: e.clientX, y: e.clientY });
-  };
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    cancelAnimationFrame(frame.current);
+    frame.current = requestAnimationFrame(() => {
+      setCursorPos({ x: e.clientX, y: e.clientY });
+    });
+  }, []);
+
+  const handleMouseEnter = useCallback((id: number) => {
+    setHoveredProject(id);
+    setShowCursor(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHoveredProject(null);
+    setShowCursor(false);
+  }, []);
 
   return (
     <section
@@ -25,23 +37,25 @@ export default function Projects() {
       onMouseMove={handleMouseMove}
     >
       {/* Custom Cursor */}
-      {showCursor && (
-        <motion.div
-          className="fixed z-50 pointer-events-none"
-          style={{
-            left: cursorPos.x - 40,
-            top: cursorPos.y - 40,
-          }}
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.5 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        >
-          <div className="w-20 h-20 rounded-full bg-black text-white flex items-center justify-center text-sm font-medium">
-            View
-          </div>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {showCursor && (
+          <motion.div
+            className="fixed z-50 pointer-events-none"
+            style={{
+              left: cursorPos.x - 40,
+              top: cursorPos.y - 40,
+            }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            <div className="w-20 h-20 rounded-full bg-black text-white flex items-center justify-center text-sm font-medium">
+              View
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -57,14 +71,8 @@ export default function Projects() {
               <Link href={`/projects/${project.id}` || "#"} className="block">
                 <div
                   className="relative aspect-[4/3] overflow-hidden bg-gray-100 cursor-none"
-                  onMouseEnter={() => {
-                    setHoveredProject(project.id);
-                    setShowCursor(true);
-                  }}
-                  onMouseLeave={() => {
-                    setHoveredProject(null);
-                    setShowCursor(false);
-                  }}
+                  onMouseEnter={() => handleMouseEnter(project.id)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <video
                     src={project.thumbnail[0]}

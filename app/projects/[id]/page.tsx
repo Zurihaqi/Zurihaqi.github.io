@@ -1,6 +1,5 @@
 import ProjectDetails from "@/components/project-details";
 import projectData from "@/data/projects.json";
-import { Project } from "@/types/types";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
