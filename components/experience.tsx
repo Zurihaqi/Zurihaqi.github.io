@@ -49,7 +49,7 @@ function Timeline() {
         "Contributed to multiple projects by designing mockups and interactive prototypes. Improved existing websites and web applications with new features and enhancements, integrated IOT devices with web applications. Collaborated closely with clients to understand their goals and deliver high-quality, user-focused solutions.",
     },
     {
-      year: "Jun 2024 - Oct 2024",
+      year: "Jun 2024 - Jun 2025",
       role: "Fullstack Developer Trainee",
       company: "PT. Enigma Cipta Humanika",
       description:
