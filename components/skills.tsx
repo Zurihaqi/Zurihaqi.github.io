@@ -1,33 +1,30 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiExpress,
-  SiJavascript,
-  SiSpringboot,
-  SiMongodb,
-  SiPostgresql,
-  SiMysql,
-  SiGo,
-  SiNestjs,
-  SiVuedotjs,
-  SiBootstrap,
-  SiPhp,
-  SiHtml5,
-  SiCss3,
-} from "react-icons/si";
-import { TbApi } from "react-icons/tb";
-import { FaCode, FaLayerGroup } from "react-icons/fa";
-import { FaJava } from "react-icons/fa";
-import { TbBrandReactNative } from "react-icons/tb";
+import { useRef } from "react";
 import { CiStreamOn } from "react-icons/ci";
+import { FaCode, FaJava } from "react-icons/fa";
 import { MdSensors } from "react-icons/md";
+import {
+  SiBootstrap,
+  SiCss,
+  SiExpress,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiMysql,
+  SiNestjs,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPhp,
+  SiPostgresql,
+  SiReact,
+  SiSpringboot,
+  SiTailwindcss,
+  SiTypescript,
+  SiVuedotjs,
+} from "react-icons/si";
+import { TbApi, TbBrandReactNative } from "react-icons/tb";
 
 export default function Skills() {
   const containerRef = useRef(null);
@@ -58,7 +55,7 @@ export default function Skills() {
         { name: "Tailwind CSS", icon: SiTailwindcss },
         { name: "Bootstrap", icon: SiBootstrap },
         { name: "HTML5", icon: SiHtml5, endorsements: 1 },
-        { name: "CSS", icon: SiCss3, endorsements: 1 },
+        { name: "CSS", icon: SiCss, endorsements: 1 },
       ],
     },
     {
