@@ -2,15 +2,20 @@
 
 import { Project } from "@/types/types";
 import { motion } from "framer-motion";
-import { ExternalLink, GithubIcon } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
-export default function ProjectDetails({ project }: { project: Project }) {
+export default function ProjectDetails({
+  project,
+}: {
+  readonly project: Project;
+}) {
   if (!project) {
     return (
       <section className="container mx-auto px-8 py-16 mt-12 animate-pulse">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Skeleton Image */}
-          <div className="w-full md:w-1/2 aspect-[4/3] bg-gray-200 rounded-md" />
+          <div className="w-full md:w-1/2 aspect-4/3 bg-gray-200 rounded-md" />
 
           {/* Skeleton Text */}
           <div className="w-full md:w-1/2 space-y-4">
@@ -23,7 +28,10 @@ export default function ProjectDetails({ project }: { project: Project }) {
               <div className="h-6 bg-gray-200 rounded w-1/3" />
               <div className="flex flex-wrap gap-2">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <div key={i} className="h-6 w-16 bg-gray-200 rounded-full" />
+                  <div
+                    key={"tech-" + i}
+                    className="h-6 w-16 bg-gray-200 rounded-full"
+                  />
                 ))}
               </div>
             </div>
@@ -49,7 +57,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
       <div className="flex flex-col md:flex-row gap-8">
         {/* Project Image */}
         <motion.div
-          className="relative w-full md:w-1/2 aspect-[4/3] overflow-hidden bg-gray-100"
+          className="relative w-full md:w-1/2 aspect-4/3 overflow-hidden bg-gray-100"
           initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0.5 }}
           animate={{ clipPath: "inset(0% 0 0 0)", opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
@@ -80,7 +88,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
             <div className="flex flex-wrap gap-2 mt-2">
               {project.tech.map((tech, i) => (
                 <span
-                  key={i}
+                  key={"tech-" + i}
                   className="text-sm px-3 py-1 border border-black/10 rounded-full text-black/80"
                 >
                   {tech}
@@ -100,7 +108,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                   rel="noopener noreferrer"
                   className="hover:text-black/70 transition-colors"
                 >
-                  <GithubIcon className="mt-4 outline-1 rounded-full p-1 w-[2rem] h-[2rem]" />
+                  <FaGithub className="mt-4 outline-1 rounded-full p-1 w-8 h-8" />
                 </a>
               </div>
             </div>
@@ -117,7 +125,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                   rel="noopener noreferrer"
                   className="hover:text-black/70 transition-colors"
                 >
-                  <ExternalLink className="mt-4 outline-1 rounded-full p-1 w-[2rem] h-[2rem]" />
+                  <ExternalLink className="mt-4 outline-1 rounded-full p-1 w-8 h-8" />
                 </a>
               </div>
             </div>

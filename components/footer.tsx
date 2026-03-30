@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { LinkedinIcon, GithubIcon } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   const [year, setYear] = useState<number | null>(null);
@@ -18,10 +18,10 @@ export default function Footer() {
       <div className="container mx-auto overflow-hidden">
         <Marquee speed={70}>
           <p className="inline-block mb-12 sm:text-4xl text-3xl font-light">
-            <span className="mr-[10rem]">THANKS FOR VISITING</span>
-            <span className="mr-[10rem]">LET'S CONNECT</span>
-            <span className="mr-[10rem]">CHECK OUT MY GITHUB</span>
-            <span className="mr-[10rem]">ADD ME ON STEAM?</span>
+            <span className="mr-40">THANKS FOR VISITING</span>
+            <span className="mr-40">LET'S CONNECT</span>
+            <span className="mr-40">CHECK OUT MY GITHUB</span>
+            <span className="mr-40">ADD ME ON STEAM?</span>
           </p>
         </Marquee>
 
@@ -40,14 +40,14 @@ export default function Footer() {
                 target="_blank"
                 className=" hover:text-gray-300/70 transition-colors"
               >
-                <GithubIcon className="h-5 w-5" />
+                <FaGithub className="h-5 w-5" />
               </a>
               <a
                 href="https://www.linkedin.com/in/zurihaqi/"
                 target="_blank"
                 className=" hover:text-gray-300/70 transition-colors"
               >
-                <LinkedinIcon className="h-5 w-5" />
+                <FaLinkedin className="h-5 w-5" />
               </a>
               <a
                 href="https://steamcommunity.com/id/Zrymund/"
