@@ -61,6 +61,7 @@ export default function Hero() {
             fill
             className="object-cover shadow-xl rounded-b-md"
             priority
+            fetchPriority="high"
           />
         </motion.div>
       </div>
